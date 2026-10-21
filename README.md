@@ -1,5 +1,7 @@
 # Biomedical ontology pilot
 
+**[Open the Ontology Explorer — no download required](https://nguyenphuquang1234567.github.io/biomedical-ontology/ontology_explorer.html)**
+
 Draft ontology based on the union of concepts found in five Table 1 sources: Dryad HCT BAL, PRJNA984933, PRJNA808886, PRJNA1056765, and PMC Open Access.
 
 ## Start here
