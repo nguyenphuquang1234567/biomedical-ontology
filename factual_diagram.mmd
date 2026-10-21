@@ -1,0 +1,27 @@
+flowchart LR
+  Study -->|has participants| Patient
+  Patient -->|has clinical event| ClinicalEvent
+  ClinicalEvent -->|subtype| ConditionOccurrence
+  ConditionOccurrence -->|condition concept| Disease
+  ClinicalEvent -->|subtype| TreatmentEvent
+  TreatmentEvent -->|treatment concept| Treatment
+  Patient -->|provides, when verified| Specimen
+  Specimen -->|tested by| Test
+  Test -->|subtype| MNGSTest
+  Test -->|subtype| ConventionalMicrobiologyTest
+  ConventionalMicrobiologyTest -->|subtype| PCRTest
+  ConventionalMicrobiologyTest -->|subtype| CultureTest
+  SequencingRun -->|run of| MNGSTest
+  Test -->|produces| Result
+  Patient -->|has result, when known| Result
+  Result -->|measures or detects| Feature
+  Feature -->|subtype| Gene
+  Feature -->|subtype| Organism
+  Feature -->|subtype| CellType
+  Patient -->|has clinical assessment| ClinicalAssessment
+  ClinicalAssessment -->|diagnoses| Disease
+  ClinicalAssessment -.->|considers only when documented| Result
+  Result -->|recorded at| SourceLocator
+  ClinicalAssessment -->|recorded at| SourceLocator
+  Assertion -->|attribute or edge evidence| SourceLocator
+  SourceLocator -->|located in| SourceAsset

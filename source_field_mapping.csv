@@ -1,0 +1,256 @@
+dataset,file,location,source_field,target_class,target_attribute_or_relation,rule,status
+D1,TableS6.csv,header row 3; data from row 4,Ensembl_ID,Gene,namespace + accession,Keep ENSG; reference ENSEMBL GRCh38 metadata; no symbol equivalence,mapped
+D1,TableS6.csv,header row 3,Pt-*,Patient,sourcePatientId,Column names are subject IDs; do not invent specimen identity,mapped
+D1,TableS6.csv,matrix cells,integer cell,GeneCountResult,numericValue + measures + resultFor,Unpivot with exact row/column provenance; zero is measured numeric value,mapped
+D2,PRJNA984933/Supplementary_Table_1.xlsx,Sheet1!A2,patient,Patient,sourcePatientId,Namespace within study; continuation patient context only when verified,mapped
+D2,PRJNA984933/Supplementary_Table_1.xlsx,Sheet1!B2,Sex,Patient,sex,Preserve raw value,mapped
+D2,PRJNA984933/Supplementary_Table_1.xlsx,Sheet1!C2,"Age,year",Patient,age,Keep source age and precision,mapped
+D2,PRJNA984933/Supplementary_Table_1.xlsx,Sheet1!D2,Underlying disease,ConditionOccurrence,conditionConcept,Patient-specific event -> shared Disease; preserve raw label,mapped
+D2,PRJNA984933/Supplementary_Table_1.xlsx,Sheet1!E2,mNGS results（Number of reads）,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!A2,Patient ID,Patient,sourcePatientId,Namespace within study; continuation patient context only when verified,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!B2,"Age,year",Patient,age,Keep source age and precision,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!C2,Sex,Patient,sex,Preserve raw value,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!D2,Underlying disease,ConditionOccurrence,conditionConcept,Patient-specific event -> shared Disease; preserve raw label,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!E2,Pathogens identified by CMTs,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!F2,mNGS results,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!G2,Number of unique reads,MicrobialDetection,numericValue,Keep paired mNGS organism within source row context,mapped
+D3,PRJNA808886/Additional_file_1.xlsx,Sheet1!H2,CovRate,CoverageResult,numericValue + measures,Keep raw metric definition; unit requires verification,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!A2,Patient ID,Patient,sourcePatientId,Namespace within study; continuation patient context only when verified,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!B2,"Age,year",Patient,age,Keep source age and precision,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!C2,Sex,Patient,sex,Preserve raw value,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!D2,Underlying disease,ConditionOccurrence,conditionConcept,Patient-specific event -> shared Disease; preserve raw label,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!E2,Pathogens identified by CMTs,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!F2,mNGS results,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D3,PRJNA808886/Additional_file_2.xlsx,Sheet1!G2,co-infection,CoinfectionAssessment,implicatesOrganism,Explicit adjudicated organisms only; do not infer from co-detection,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!A2,Patients ID,Patient,sourcePatientId,Namespace within study; continuation patient context only when verified,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!B2,Group,CohortGroup,memberOfGroup,Source-stated group membership; not automatically a clinical diagnosis,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!C2,Biosample Accession,Identifier,accession,"BioSample namespace; association from explicit same-row metadata, keep NC conflicts",mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!D2,SRA Accession,SequencingRun,hasIdentifier,"SRA run accession, not patient ID; NC DNA/RNA conflict review",mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!E2,total reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!F2,total bases,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!G2,clean reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!H2,clean reads rate(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!I2,clean bases,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!J2,Q20 rate(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!K2,Q30 rate(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!L2,GC(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!M2,unhost_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!N2,host_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!O2,host_ratio,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!P2,unhost_unrRNA_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!Q2,micro_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S1!R2,micro_ratio,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!A2,Patients ID,Patient,sourcePatientId,Namespace within study; continuation patient context only when verified,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!B2,Group,CohortGroup,memberOfGroup,Source-stated group membership; not automatically a clinical diagnosis,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!C2,Biosample Accession,Identifier,accession,"BioSample namespace; association from explicit same-row metadata, keep NC conflicts",mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!D2,SRA Accession,SequencingRun,hasIdentifier,"SRA run accession, not patient ID; NC DNA/RNA conflict review",mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!E2,total reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!F2,total bases,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!G2,clean reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!H2,clean reads rate(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!I2,clean bases,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!J2,Q20 rate(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!K2,Q30 rate(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!L2,GC(%),QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!M2,unhost_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!N2,host_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!O2,host_ratio,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!P2,unhost_unrRNA_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!Q2,micro_reads,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,TableS2!R2,micro_ratio,QualityMetricResult,qualityOf + numericValue + measures,Metric-level feature and original units; attach to explicit run/processing,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!A2,Patients ID,Patient,sourcePatientId,Namespace within study; continuation patient context only when verified,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!B2,Age (year),Patient,age,Keep source age and precision,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!C2,Sex,Patient,sex,Preserve raw value,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!D2,Collecation Date,Specimen,rawTime + collectionTime,Keep raw date and precision; do not invent missing specimen,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!E2,BAL microbiology,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!F2,mNGS DNA Pathogen_Reads number,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!G2,mNGS RNA Pathogen_Reads number,MicrobialDetection,measures + numericValue + producedByTest,Split organism/read tokens; CMT vs mNGS separate; preserve Negative vs blank,mapped
+D4,PRJNA1056765/Supplementary_Tables_S1-S3.xlsx,Table S3!H2,Diagnosis,DiagnosticAssessment,diagnoses,Reported clinical diagnosis; do not infer date or certainty,mapped
+D2,PRJNA984933/Table_1.csv,CSV header,Variables,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/Table_1.csv,CSV header,mNGS true-negative n (%),AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/Table_1.csv,CSV header,mNGS false-negative (%),AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/Table_1.csv,CSV header,ap,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/Table_1.csv,CSV header,mNGS positive n (%),AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/Table_1.csv,CSV header,bP,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/Table_2.csv,CSV header,NO,Patient,sourcePatientId,Scope NO to this study,mapped
+D2,PRJNA984933/Table_2.csv,CSV header,Age/Sex,Patient,age + sex,Split Age/Sex preserving raw text,mapped
+D2,PRJNA984933/Table_2.csv,CSV header,Underlying medical conditions,ConditionOccurrence,conditionConcept,"Underlying disease, not final diagnosis",mapped
+D2,PRJNA984933/Table_2.csv,CSV header,Clinical manifestations,SymptomOccurrence,description,Patient-level symptom text,mapped
+D2,PRJNA984933/Table_2.csv,CSV header,Final diagnosis,DiagnosticAssessment,diagnoses,Final diagnosis as reported,mapped
+D2,PRJNA984933/Table_2.csv,CSV header,Assessment and treatment plan,ClinicalAssessment,description,Preserve mixed assessment/treatment text; review before splitting events,mapped
+D2,PRJNA984933/Table_2.csv,CSV header,Main lung imaging findings,ImagingFinding,description,"Imaging description, not pathogen detection",mapped
+D2,PRJNA984933/Table_3.csv,CSV header,NO,Patient,sourcePatientId,Scope NO to this study,mapped
+D2,PRJNA984933/Table_3.csv,CSV header,Age/Sex,Patient,age + sex,Split Age/Sex preserving raw text,mapped
+D2,PRJNA984933/Table_3.csv,CSV header,Underlying medical conditions,ConditionOccurrence,conditionConcept,"Underlying disease, not final diagnosis",mapped
+D2,PRJNA984933/Table_3.csv,CSV header,Clinical manifestations,SymptomOccurrence,description,Patient-level symptom text,mapped
+D2,PRJNA984933/Table_3.csv,CSV header,Final diagnosis,DiagnosticAssessment,diagnoses,Final diagnosis as reported,mapped
+D2,PRJNA984933/Table_3.csv,CSV header,Assessment and treatment plan,ClinicalAssessment,description,Preserve mixed assessment/treatment text; review before splitting events,mapped
+D2,PRJNA984933/Table_3.csv,CSV header,Main lung imaging findings,ImagingFinding,description,"Imaging description, not pathogen detection",mapped
+D3,PRJNA808886/Table_1.csv,CSV header,Characteristic,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_1.csv,CSV header,69 patients,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_2.csv,CSV header,Group,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_2.csv,CSV header,NGS-positivea,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_2.csv,CSV header,NGS-negative,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_2.csv,CSV header,Total no,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_2.csv,CSV header,"Kappa, agreement",AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_3.csv,CSV header,,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_3.csv,CSV header,CMTs,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D3,PRJNA808886/Table_3.csv,CSV header,mNGS,AggregateStatistic,numericValue + denominator,Group statistic; do not populate individual patient,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Run,Identifier,namespace + accession,Keep namespace Run; repository identifiers do not prove patient linkage,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,ReleaseDate,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,LoadDate,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,spots,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,bases,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,spots_with_mates,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,avgLength,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,size_MB,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,AssemblyName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,download_path,SourceAsset,sourceUrl,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Experiment,Identifier,namespace + accession,Keep namespace Experiment; repository identifiers do not prove patient linkage,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,LibraryName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,LibraryStrategy,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,LibrarySelection,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,LibrarySource,SequencingRun,librarySource,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,LibraryLayout,SequencingRun,libraryLayout,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,InsertSize,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,InsertDev,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Platform,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Model,SequencingRun,platform,Keep repository platform independently of paper methods,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,SRAStudy,Identifier,namespace + accession,Keep namespace SRAStudy; repository identifiers do not prove patient linkage,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,BioProject,Identifier,namespace + accession,Keep namespace BioProject; repository identifiers do not prove patient linkage,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Study_Pubmed_id,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,ProjectID,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Sample,Identifier,namespace + accession,Keep namespace Sample; repository identifiers do not prove patient linkage,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,BioSample,Identifier,namespace + accession,Keep namespace BioSample; repository identifiers do not prove patient linkage,mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,SampleType,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,TaxID,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,ScientificName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,SampleName,LinkageRecord,mappingStatus,"Candidate name only; require explicit mapping, never match numeric suffix/order",mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,g1k_pop_code,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,source,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,g1k_analysis_group,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Subject_ID,LinkageRecord,mappingStatus,"Candidate name only; require explicit mapping, never match numeric suffix/order",mapped
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Sex,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Disease,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Tumor,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Affection_Status,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Analyte_Type,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Histological_Type,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Body_Site,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,CenterName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Submission,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,dbgap_study_accession,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,Consent,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,RunHash,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D2,PRJNA984933/PRJNA984933_RunInfo.csv,CSV header,ReadHash,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Run,Identifier,namespace + accession,Keep namespace Run; repository identifiers do not prove patient linkage,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,ReleaseDate,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,LoadDate,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,spots,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,bases,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,spots_with_mates,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,avgLength,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,size_MB,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,AssemblyName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,download_path,SourceAsset,sourceUrl,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Experiment,Identifier,namespace + accession,Keep namespace Experiment; repository identifiers do not prove patient linkage,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,LibraryName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,LibraryStrategy,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,LibrarySelection,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,LibrarySource,SequencingRun,librarySource,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,LibraryLayout,SequencingRun,libraryLayout,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,InsertSize,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,InsertDev,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Platform,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Model,SequencingRun,platform,Keep repository platform independently of paper methods,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,SRAStudy,Identifier,namespace + accession,Keep namespace SRAStudy; repository identifiers do not prove patient linkage,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,BioProject,Identifier,namespace + accession,Keep namespace BioProject; repository identifiers do not prove patient linkage,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Study_Pubmed_id,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,ProjectID,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Sample,Identifier,namespace + accession,Keep namespace Sample; repository identifiers do not prove patient linkage,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,BioSample,Identifier,namespace + accession,Keep namespace BioSample; repository identifiers do not prove patient linkage,mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,SampleType,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,TaxID,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,ScientificName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,SampleName,LinkageRecord,mappingStatus,"Candidate name only; require explicit mapping, never match numeric suffix/order",mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,g1k_pop_code,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,source,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,g1k_analysis_group,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Subject_ID,LinkageRecord,mappingStatus,"Candidate name only; require explicit mapping, never match numeric suffix/order",mapped
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Sex,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Disease,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Tumor,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Affection_Status,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Analyte_Type,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Histological_Type,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Body_Site,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,CenterName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Submission,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,dbgap_study_accession,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,Consent,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,RunHash,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D3,PRJNA808886/PRJNA808886_RunInfo.csv,CSV header,ReadHash,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Run,Identifier,namespace + accession,Keep namespace Run; repository identifiers do not prove patient linkage,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,ReleaseDate,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,LoadDate,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,spots,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,bases,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,spots_with_mates,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,avgLength,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,size_MB,QualityMetricResult,qualityOf + numericValue,Run-level repository metric; preserve metric name and unit,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,AssemblyName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,download_path,SourceAsset,sourceUrl,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Experiment,Identifier,namespace + accession,Keep namespace Experiment; repository identifiers do not prove patient linkage,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,LibraryName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,LibraryStrategy,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,LibrarySelection,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,LibrarySource,SequencingRun,librarySource,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,LibraryLayout,SequencingRun,libraryLayout,Retain repository metadata verbatim; interpretation not yet normalized,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,InsertSize,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,InsertDev,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Platform,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Model,SequencingRun,platform,Keep repository platform independently of paper methods,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,SRAStudy,Identifier,namespace + accession,Keep namespace SRAStudy; repository identifiers do not prove patient linkage,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,BioProject,Identifier,namespace + accession,Keep namespace BioProject; repository identifiers do not prove patient linkage,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Study_Pubmed_id,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,ProjectID,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Sample,Identifier,namespace + accession,Keep namespace Sample; repository identifiers do not prove patient linkage,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,BioSample,Identifier,namespace + accession,Keep namespace BioSample; repository identifiers do not prove patient linkage,mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,SampleType,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,TaxID,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,ScientificName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,SampleName,LinkageRecord,mappingStatus,"Candidate name only; require explicit mapping, never match numeric suffix/order",mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,g1k_pop_code,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,source,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,g1k_analysis_group,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Subject_ID,LinkageRecord,mappingStatus,"Candidate name only; require explicit mapping, never match numeric suffix/order",mapped
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Sex,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Disease,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Tumor,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Affection_Status,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Analyte_Type,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Histological_Type,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Body_Site,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,CenterName,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Submission,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,dbgap_study_accession,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,Consent,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,RunHash,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/PRJNA1056765_RunInfo.csv,CSV header,ReadHash,SequencingRun,metadataJson,Retain repository metadata verbatim; interpretation not yet normalized,retained_raw
+D4,PRJNA1056765/55595006_RNAseq_featurecount.zip,matrix axes and cells,feature/sample/value,GeneCountResult,measures + numericValue + resultFor,Use 402 explicit IDs; gene labels not auto equivalent to ENSG,mapped
+D4,PRJNA1056765/55594967_genus_abundances.txt,matrix axes and cells,feature/sample/value,TaxonAbundanceResult,measures + numericValue + resultFor,Retain file ID; genus rank; DNA/RNA modality unresolved,mapped
+D4,PRJNA1056765/55594970_genus_abundances.txt,matrix axes and cells,feature/sample/value,TaxonAbundanceResult,measures + numericValue + resultFor,Retain file ID; normalization/unit unresolved,mapped
+D4,PRJNA1056765/55594991_CNV_info_table.txt,matrix axes and cells,feature/sample/value,CNVResult,measures + numericValue + resultFor,TumorFraction and chromosome features remain distinct,mapped
+D4,PRJNA1056765/55594994_CIBERSORTx_cell_type_abs.txt.txt,matrix axes and cells,feature/sample/value,CellTypeScoreResult,measures + numericValue + resultFor,"22 cell types; P-value/Correlation/RMSE are QC, not cell types",mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,front/article-meta/article-id,front/article-meta/article-id,Identifier,namespace + accession,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,front/article-meta/title-group,front/article-meta/title-group,Document,label,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,front/article-meta/permissions,front/article-meta/permissions,SourceAsset,license,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,body/sec,body/sec,DocumentSection,sectionOf,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,body//p,body//p,TextEvidence,rawText + evidenceIn,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,body//table-wrap,body//table-wrap,TableEvidence,evidenceIn,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,body//fig,body//fig,FigureEvidence,evidenceIn,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,back/ref-list/ref,back/ref-list/ref,Citation,referenceText + citingDocument,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,"xref[@ref-type=""bibr""]","xref[@ref-type=""bibr""]",Citation,citingDocument + citedDocument,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,supplementary-material,supplementary-material,SourceAsset,sourceUrl,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,BioC/document/passage,BioC/document/passage,TextEvidence,rawText,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped
+D5,PMC_Open_Access/*_JATS_OAI.xml or *_BioC.xml,BioC/passage/offset,BioC/passage/offset,SourceLocator,locator,Keep original XML ID/version; resolve citation only if identifiers verified; BioC offset is not PDF page,mapped

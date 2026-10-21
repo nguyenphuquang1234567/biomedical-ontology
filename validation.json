@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-20",
+  "classes": 75,
+  "object_properties": 41,
+  "datatype_properties": 56,
+  "field_mapping_rows": 255,
+  "retained_raw_fields": 90,
+  "ontology_triples": 893,
+  "instance_triples": 78,
+  "checks": {
+    "ontology_jsonld_turtle_isomorphic": true,
+    "examples_jsonld_turtle_isomorphic": true,
+    "catalog_and_example_references_valid": true,
+    "dryad_row4_count_rechecked": true,
+    "patient10_ttv_and_table2_rechecked": true,
+    "no_invented_assessment_result_edge": true,
+    "example_object_property_domains_ranges_valid": true
+  },
+  "not_tested": [
+    "OWL reasoning",
+    "full SHACL/cardinality validation",
+    "full ETL",
+    "automatic biomedical term equivalence"
+  ],
+  "query_result_counts": {
+    "gene_count": 1,
+    "assessment_and_detection_same_patient": 1,
+    "assertion_evidence": 1,
+    "paper_concept_future": 0,
+    "claim_evidence_future": 0
+  }
+}

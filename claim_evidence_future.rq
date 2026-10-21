@@ -1,0 +1,2 @@
+PREFIX pilot: <https://example.org/nih-pilot/ontology/>
+SELECT ?claim ?evidence ?role WHERE { ?link a pilot:EvidenceLink; pilot:linkClaim ?claim; pilot:linkEvidence ?evidence; pilot:evidenceRole ?role. }

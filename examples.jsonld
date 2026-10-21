@@ -1,0 +1,186 @@
+{
+  "@context": {
+    "ex": "https://example.org/nih-pilot/data/",
+    "pilot": "https://example.org/nih-pilot/ontology/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/asset/table2",
+      "@type": "pilot:SourceAsset",
+      "pilot:checksum": "8a267c056f1d5d8711c396096767a862bf44df2e522e4d2e24866f4cb3d41be8",
+      "pilot:label": "PRJNA984933/Table_2.csv",
+      "pilot:localPath": "data/PRJNA984933/Table_2.csv",
+      "pilot:sourceInStudy": {
+        "@id": "https://example.org/nih-pilot/data/D2/study"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/asset/supplement",
+      "@type": "pilot:SourceAsset",
+      "pilot:checksum": "7bbd66ee11b6efc1e6447a8e3d8f769ce59c5c22c5d0ced753c777570210b0b0",
+      "pilot:label": "PRJNA984933/Supplementary_Table_1.xlsx",
+      "pilot:localPath": "data/PRJNA984933/Supplementary_Table_1.xlsx",
+      "pilot:sourceInStudy": {
+        "@id": "https://example.org/nih-pilot/data/D2/study"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D1/asset/TableS6",
+      "@type": "pilot:SourceAsset",
+      "pilot:checksum": "4a25237a4c5f72821eba4796274bde857bf19af18004a16a52e0ee804a05635c",
+      "pilot:label": "TableS6.csv",
+      "pilot:localPath": "data/TableS6.csv",
+      "pilot:sourceInStudy": {
+        "@id": "https://example.org/nih-pilot/data/D1/study"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/gene/ensembl/ENSG00000000003",
+      "@type": "pilot:Gene",
+      "pilot:hasIdentifier": {
+        "@id": "https://example.org/nih-pilot/data/id/ENSG00000000003"
+      },
+      "pilot:label": "ENSG00000000003",
+      "pilot:namespace": "Ensembl"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/patient/10",
+      "@type": "pilot:Patient",
+      "pilot:enrolledIn": {
+        "@id": "https://example.org/nih-pilot/data/D2/study"
+      },
+      "pilot:label": "Patient 10",
+      "pilot:sourcePatientId": "10"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D1/study",
+      "@type": "pilot:Study",
+      "pilot:label": "Dryad 10.5061/dryad.800tj"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/locator/table2patient10",
+      "@type": "pilot:SourceLocator",
+      "pilot:locatedIn": {
+        "@id": "https://example.org/nih-pilot/data/D2/asset/table2"
+      },
+      "pilot:locator": "CSV data record NO=10",
+      "pilot:rawText": "Drug-induced interstitial lung disease (R-CHOP)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/study",
+      "@type": "pilot:Study",
+      "pilot:label": "PRJNA984933"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D1/locator/row4col2",
+      "@type": "pilot:SourceLocator",
+      "pilot:locatedIn": {
+        "@id": "https://example.org/nih-pilot/data/D1/asset/TableS6"
+      },
+      "pilot:locator": "CSV row 4; column Pt-01; ENSG00000000003",
+      "pilot:rawText": "45"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/result/patient10TTV",
+      "@type": "pilot:MicrobialDetection",
+      "pilot:measurementType": "read_count",
+      "pilot:measures": {
+        "@id": "https://example.org/nih-pilot/data/organism/source-label/Torque_teno_virus"
+      },
+      "pilot:numericValue": 5.0,
+      "pilot:recordedAt": {
+        "@id": "https://example.org/nih-pilot/data/D2/locator/patient10mngs"
+      },
+      "pilot:resultFor": {
+        "@id": "https://example.org/nih-pilot/data/D2/patient/10"
+      },
+      "pilot:resultStatus": "detected",
+      "pilot:unit": "reads"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D1/patient/Pt-01",
+      "@type": "pilot:Patient",
+      "pilot:enrolledIn": {
+        "@id": "https://example.org/nih-pilot/data/D1/study"
+      },
+      "pilot:label": "Pt-01",
+      "pilot:sourcePatientId": "Pt-01"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/assertion/patient10diagnosis",
+      "@type": "pilot:Assertion",
+      "pilot:assertionObject": {
+        "@id": "https://example.org/nih-pilot/data/disease/source-label/drug_induced_lung_disease"
+      },
+      "pilot:assertionSource": {
+        "@id": "https://example.org/nih-pilot/data/D2/locator/table2patient10"
+      },
+      "pilot:assertionSubject": {
+        "@id": "https://example.org/nih-pilot/data/D2/assessment/patient10"
+      },
+      "pilot:extractionStatus": "human_verified",
+      "pilot:predicateIri": {
+        "@type": "xsd:anyURI",
+        "@value": "https://example.org/nih-pilot/ontology/diagnoses"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/organism/source-label/Torque_teno_virus",
+      "@type": "pilot:Virus",
+      "pilot:label": "Torque teno virus",
+      "pilot:mappingStatus": "unmapped"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/disease/source-label/drug_induced_lung_disease",
+      "@type": "pilot:Disease",
+      "pilot:label": "Drug-induced interstitial lung disease (R-CHOP)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D1/result/row4/Pt-01",
+      "@type": "pilot:GeneCountResult",
+      "pilot:measurementType": "gene_count",
+      "pilot:measures": {
+        "@id": "https://example.org/nih-pilot/data/gene/ensembl/ENSG00000000003"
+      },
+      "pilot:numericValue": 45.0,
+      "pilot:recordedAt": {
+        "@id": "https://example.org/nih-pilot/data/D1/locator/row4col2"
+      },
+      "pilot:resultFor": {
+        "@id": "https://example.org/nih-pilot/data/D1/patient/Pt-01"
+      },
+      "pilot:unit": "reads"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/locator/patient10mngs",
+      "@type": "pilot:SourceLocator",
+      "pilot:locatedIn": {
+        "@id": "https://example.org/nih-pilot/data/D2/asset/supplement"
+      },
+      "pilot:locator": "Sheet1!E12; patient=10",
+      "pilot:rawText": "Torque teno virus_5"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/D2/assessment/patient10",
+      "@type": "pilot:DiagnosticAssessment",
+      "pilot:assessmentFor": {
+        "@id": "https://example.org/nih-pilot/data/D2/patient/10"
+      },
+      "pilot:diagnoses": {
+        "@id": "https://example.org/nih-pilot/data/disease/source-label/drug_induced_lung_disease"
+      },
+      "pilot:diagnosticClassification": "true-negative",
+      "pilot:infectionStatus": "noninfectious",
+      "pilot:recordedAt": {
+        "@id": "https://example.org/nih-pilot/data/D2/locator/table2patient10"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/data/id/ENSG00000000003",
+      "@type": "pilot:Identifier",
+      "pilot:accession": "ENSG00000000003",
+      "pilot:namespace": "Ensembl"
+    }
+  ]
+}
