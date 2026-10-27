@@ -51,5 +51,5 @@
     "No full-text claim/hypothesis/discovery extraction",
     "No OWL reasoner or complete SHACL audit"
   ],
-  "publication_scope": "Ontology and mapping review only. Full CSV inputs and imported metadata graphs are not published."
+  "publication_scope": "Ontology, mapping review and generated metadata subgraphs published. Original CSV input files are not bundled; no graph DB is hosted."
 }

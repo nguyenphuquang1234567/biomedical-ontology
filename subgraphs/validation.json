@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-27",
+  "format": "RDF Turtle (primary), JSON-LD (combined alternative)",
+  "inputs": {
+    "stg_grant_award.csv": {
+      "input_rows": 687,
+      "triples": 76695,
+      "class_counts": {
+        "SourceLocator": 9173,
+        "Location": 687,
+        "Assertion": 2536,
+        "Identifier": 1374,
+        "GrantAward": 687,
+        "PersonNameMention": 675,
+        "Organization": 713,
+        "SourceAsset": 1
+      },
+      "sha256": "e5c5263af7c4466e4ef0cedc12d56d276c922e595bcd983ba5e89d7866bf16a9"
+    },
+    "stg_grant_funding.csv": {
+      "input_rows": 2426,
+      "triples": 210876,
+      "class_counts": {
+        "Identifier": 5303,
+        "GrantDocument": 2426,
+        "GrantFundingRecord": 2426,
+        "SourceLocator": 21630,
+        "Assertion": 6742,
+        "SourceAsset": 1
+      },
+      "sha256": "a274a48eff9afef097b10b80f8aa7efdb2ef02cf38188e49a6237d8a1c2c5b05"
+    },
+    "patent_evidence.csv": {
+      "input_rows": 72,
+      "triples": 22356,
+      "class_counts": {
+        "Identifier": 288,
+        "SourceLocator": 1893,
+        "ClassificationCode": 977,
+        "RetrievalMatch": 72,
+        "Assertion": 360,
+        "PersonNameMention": 79,
+        "PartyMention": 88,
+        "Patent": 72,
+        "TaxonReference": 72,
+        "SourceAsset": 1
+      },
+      "sha256": "4dfb1e0872f0d846f1408e1891794e6f2fa612f7afc8c9312283abd761dd2a7d"
+    }
+  },
+  "total_unique_triples": 309927,
+  "checks": {
+    "source_checksums_match_current_inputs": true,
+    "all_turtle_files_reparsed": true,
+    "union_of_three_subgraphs_equals_combined_graph": true,
+    "funding_award_links": 2426,
+    "all_funding_records_linked_to_known_awards": true,
+    "no_claims_generated": true
+  },
+  "imported_into_database": false,
+  "publicly_uploaded": true,
+  "limits": [
+    "Metadata only; no scientific claim/hypothesis extraction",
+    "Currency unknown",
+    "Generic patent date role unverified",
+    "Taxon namespace and real-world identities unresolved",
+    "No OWL reasoner or complete SHACL validation"
+  ]
+}

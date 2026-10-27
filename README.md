@@ -13,6 +13,12 @@ Version `0.3.0-draft` extends the five-source clinical/paper ontology with grant
 - Assigned explicit modeling rules to all 35 previously PARTIAL/GAP columns. Resolving a storage model does not independently verify a source fact.
 - Attribute search now includes inheritance: searching Document or Patent also finds label and sourceUrl.
 
+## Metadata subgraphs
+
+**[Browse the RDF subgraphs](subgraphs/README.md)** · **[Download all subgraphs](https://nguyenphuquang1234567.github.io/biomedical-ontology/subgraphs/CSV_Subgraphs.zip)**
+
+The combined graph contains 309,927 triples from all three grant/patent CSVs. Separate Turtle files, a combined Turtle file, JSON-LD and validation are included.
+
 ## Files
 
 - [Ontology JSON-LD](ontology.jsonld) / [Turtle](ontology.ttl): the complete v3 ontology.
@@ -29,7 +35,7 @@ The factual/evidence diagrams summarize selected clinical and paper relationship
 
 ## Data and verification boundaries
 
-No raw grant/patent CSVs or full imported metadata graphs are included. Validation counts describe a local import, not a hosted graph database. Currency, the meaning of the generic patent date, taxonomic namespaces and global person/organization identity are not inferred. Retrieval relevance is not scientific support; no hypotheses, scientific claims or discoveries were extracted in this update.
+The generated grant/patent metadata graphs are published in subgraphs/. Raw input CSVs are not included. Validation counts describe a local import, not a hosted graph database. Currency, the meaning of the generic patent date, taxonomic namespaces and global person/organization identity are not inferred. Retrieval relevance is not scientific support; no hypotheses, scientific claims or discoveries were extracted in this update.
 
 JSON-LD/Turtle equivalence, metadata term references, funding joins and inherited-attribute search were checked. Full OWL reasoning and SHACL validation remain incomplete. The example.org namespace is provisional. Third-party source terms still apply; no blanket license is assigned to upstream content.
 

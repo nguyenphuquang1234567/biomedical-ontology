@@ -75,9 +75,9 @@ RESOLVED ở đây là đã có cách mô hình hóa trung thực thông tin ngu
 1. Mở mapping_review.html, đọc ba ví dụ đầu trang trước. Mỗi bảng file có thể mở ra để tra cột cụ thể.
 2. ontology_explorer.html chứa catalog v3, các attributes và quan hệ mới. Tìm Document/Patent ở mục Attributes đã tính cả thuộc tính kế thừa.
 3. ontology.jsonld hoặc ontology.ttl là ontology v3 đầy đủ. extension.* chỉ chứa phần thay đổi so với v2.
-4. metadata_subgraphs.* là graph metadata đã tạo từ ba CSV; example_subgraph.ttl là ví dụ nhỏ. Giữ các graph này ở máy, chưa đẩy lên repo public.
+4. metadata_subgraphs.* là graph metadata đã tạo từ ba CSV; example_subgraph.ttl là ví dụ nhỏ. Các graph đã được đưa vào subgraphs/ trên repo theo yêu cầu; chưa nhập DB.
 5. resolved_mapping.json có đủ 64 cột, trạng thái trước/sau và diễn giải. validation.json chứa kiểm tra và giới hạn.
 
 ## Giới hạn còn giữ rõ
 
-Đơn vị tiền tệ và tính cộng gộp kinh phí, vai trò generic patent date, namespace taxon và danh tính thực của tên người/tổ chức chưa được xác minh. Chưa extract hypothesis/claim/discovery từ toàn văn hoặc abstract. Chưa chạy OWL reasoner/SHACL đầy đủ. Ontology và mapping v3 đã được chuẩn bị để xuất bản trên repo hiện có; dữ liệu CSV và graph metadata đầy đủ giữ cục bộ. Bản public v2 được lưu trong versions/v2.
+Đơn vị tiền tệ và tính cộng gộp kinh phí, vai trò generic patent date, namespace taxon và danh tính thực của tên người/tổ chức chưa được xác minh. Chưa extract hypothesis/claim/discovery từ toàn văn hoặc abstract. Chưa chạy OWL reasoner/SHACL đầy đủ. Ontology và mapping v3 đã được chuẩn bị để xuất bản trên repo hiện có; CSV gốc giữ cục bộ; graph metadata đầy đủ được xuất bản ở subgraphs/. Bản public v2 được lưu trong versions/v2.
