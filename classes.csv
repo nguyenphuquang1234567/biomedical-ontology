@@ -1,76 +1,87 @@
-class_id,parent,layer,definition_vi,source_basis,status
-Entity,,shared,Lớp gốc cho record và concept; không phải bảng phải nhập dữ liệu.,design,design
-Study,Entity,factual,Nghiên cứu/cohort; không đồng nhất với repository hay bài báo.,"D1,D2,D3,D4",source-grounded
-CohortGroup,Entity,factual,Nhóm thuộc một nghiên cứu; giữ mẫu số và tiêu chí phân nhóm.,"D2,D3,D4",source-grounded
-Patient,Entity,factual,Người tham gia có mã trong phạm vi study; không tự ghép người giữa nghiên cứu.,"D1,D2,D3,D4",source-grounded
-ClinicalEvent,Entity,factual,Sự kiện hoặc ghi nhận lâm sàng cụ thể của một người.,"D2,D3,D4",source-grounded
-ConditionOccurrence,ClinicalEvent,factual,Ghi nhận bệnh nền/chẩn đoán cho một người; khác với concept bệnh dùng chung.,"D2,D3,D4",source-grounded
-SymptomOccurrence,ClinicalEvent,factual,"Ghi nhận triệu chứng như sốt, ho, khó thở.",D2,source-grounded
-TreatmentEvent,ClinicalEvent,factual,Can thiệp/điều trị được nguồn mô tả cho một người; không tự suy thời gian.,"D2,D3",source-grounded
-TransplantEvent,TreatmentEvent,factual,Sự kiện HCT/HSCT khi có ghi nhận; không tự điền ngày.,D2,source-grounded
-CARTTreatmentEvent,TreatmentEvent,factual,Sự kiện CAR-T được mô tả trong nguồn.,D2,source-grounded
-DrugTreatmentEvent,TreatmentEvent,factual,Điều trị bằng thuốc; giữ nguyên ý nghĩa kê đơn/đã dùng nếu nguồn có.,D2,source-grounded
-ImagingFinding,ClinicalEvent,factual,Mô tả hình ảnh phổi; không tự coi là kết quả vi sinh.,D2,source-grounded
-Specimen,Entity,factual,Mẫu sinh học thực tế; Sample là tên cũ tương ứng.,"D1,D2,D3,D4",source-grounded
-BALSpecimen,Specimen,factual,Mẫu dịch rửa phế quản-phế nang.,"D1,D2,D3,D4",source-grounded
-BloodSpecimen,Specimen,factual,Mẫu máu được mô tả ở methods; chưa có liên kết từng người từ methods.,D2,source-grounded
-PleuralFluidSpecimen,Specimen,factual,Mẫu dịch màng phổi nêu trong methods; không tự tạo specimen cá nhân.,D2,source-grounded
-SwabSpecimen,Specimen,factual,"Mẫu swab nêu trong methods; giữ nguyên loại nguồn, không tự sửa vị trí lấy.",D2,source-grounded
-Test,Entity,factual,"Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung.","D1,D2,D3,D4",source-grounded
-SequencingTest,Test,factual,Assay dùng giải trình tự.,"D1,D2,D3,D4",source-grounded
+class_id,parent,layer,definition_en,source_basis,status
+Entity,,shared,Root class for records and concepts; not a table that must contain data.,design,design
+Study,Entity,factual,Research study or cohort; distinct from a repository or paper.,"D1,D2,D3,D4",source-grounded
+CohortGroup,Entity,factual,Group within a study; retain the denominator and grouping criteria.,"D2,D3,D4",source-grounded
+Patient,Entity,factual,Participant identified within a study; do not automatically link people across studies.,"D1,D2,D3,D4",source-grounded
+ClinicalEvent,Entity,factual,A clinical event or record concerning a specific person.,"D2,D3,D4",source-grounded
+ConditionOccurrence,ClinicalEvent,factual,A person's recorded condition or diagnosis; distinct from a shared disease concept.,"D2,D3,D4",source-grounded
+SymptomOccurrence,ClinicalEvent,factual,"A recorded symptom such as fever, cough, or shortness of breath.",D2,source-grounded
+TreatmentEvent,ClinicalEvent,factual,An intervention or treatment described for a person; do not infer its timing.,"D2,D3",source-grounded
+TransplantEvent,TreatmentEvent,factual,A documented HCT/HSCT event; do not invent a date.,D2,source-grounded
+CARTTreatmentEvent,TreatmentEvent,factual,A CAR-T treatment event described in the source.,D2,source-grounded
+DrugTreatmentEvent,TreatmentEvent,factual,Drug treatment; preserve whether the source describes prescribing or administration.,D2,source-grounded
+ImagingFinding,ClinicalEvent,factual,Description of lung imaging findings; do not treat as a microbiology result.,D2,source-grounded
+Specimen,Entity,factual,An actual biological specimen; Sample is the corresponding former name.,"D1,D2,D3,D4",source-grounded
+BALSpecimen,Specimen,factual,A bronchoalveolar lavage specimen.,"D1,D2,D3,D4",source-grounded
+BloodSpecimen,Specimen,factual,Blood specimen described in the methods; this alone does not establish a patient-level link.,D2,source-grounded
+PleuralFluidSpecimen,Specimen,factual,Pleural fluid specimen mentioned in the methods; do not create individual specimens without evidence.,D2,source-grounded
+SwabSpecimen,Specimen,factual,Swab specimen mentioned in the methods; preserve the reported type and collection site.,D2,source-grounded
+Test,Entity,factual,"An individual test or assay, distinct from a shared method name.","D1,D2,D3,D4",source-grounded
+SequencingTest,Test,factual,An assay using sequencing.,"D1,D2,D3,D4",source-grounded
 MNGSTest,SequencingTest,factual,Assay metagenomic next-generation sequencing.,"D2,D3,D4",source-grounded
-HostTranscriptomeTest,SequencingTest,factual,Assay/processing tạo biểu hiện gene chủ; cần chứng cứ về mẫu và pipeline.,"D1,D4",source-grounded
-ConventionalMicrobiologyTest,Test,factual,Xét nghiệm vi sinh thông thường; CMT tổng quát không tự suy thành PCR/culture.,"D2,D3",source-grounded
-PCRTest,ConventionalMicrobiologyTest,factual,PCR được mô tả trong methods; chỉ gán cá nhân khi có kết quả tương ứng.,D2,source-grounded
-CultureTest,ConventionalMicrobiologyTest,factual,Nuôi cấy vi khuẩn/nấm được nêu ở methods.,D2,source-grounded
-MicroscopyTest,ConventionalMicrobiologyTest,factual,Soi/smear microscopy được nêu trong methods.,D2,source-grounded
-AntigenTest,ConventionalMicrobiologyTest,factual,Ví dụ galactomannan; không tự đồng nhất với PCR.,D2,source-grounded
-LaboratoryTest,Test,factual,Xét nghiệm chỉ số xét nghiệm; có thể mới được mô tả ở cấp nhóm.,D2,source-grounded
-SequencingRun,Entity,factual,"Một run SRA; khác patient, specimen và assay.","D2,D3,D4",source-grounded
-ProcessingPipeline,Entity,factual,Pipeline/phần mềm/reference dùng tạo kết quả dẫn xuất.,"D1,D4",source-grounded
-Result,Entity,factual,"Một kết quả/observation với giá trị, đơn vị, loại phép đo và trạng thái.","D1,D2,D3,D4",source-grounded
-MicrobialDetection,Result,factual,Phát hiện tác nhân/taxon; chưa đồng nghĩa gây bệnh.,"D2,D3,D4",source-grounded
-GeneCountResult,Result,factual,Count gắn gene và người/mẫu; không phải số bản sao gene trong DNA.,"D1,D4",source-grounded
-TaxonAbundanceResult,Result,factual,Abundance theo taxon; giữ công thức/đơn vị chưa biết.,D4,source-grounded
-CoverageResult,Result,factual,Độ bao phủ; cần định nghĩa metric và đơn vị từ nguồn.,D3,source-grounded
-CNVResult,Result,factual,Feature CNV hoặc tumor fraction dẫn xuất; không phải gene expression.,D4,source-grounded
-CellTypeScoreResult,Result,factual,Score cell type CIBERSORTx; không tự xem là phần trăm.,D4,source-grounded
-QualityMetricResult,Result,factual,"QC như Q20, Q30, clean rate, RMSE; gắn đúng đối tượng run/pipeline.",D4,source-grounded
-LaboratoryResult,Result,factual,Kết quả chỉ số như WBC/ANC nếu có giá trị cá nhân; số nhóm lưu AggregateStatistic.,D2,source-grounded
-Feature,Entity,concept,Đối tượng/đại lượng được đo; định danh namespace và cấp phân loại.,"D1,D2,D3,D4",source-grounded
-Gene,Feature,concept,Gene concept; ENSG và gene symbol chưa được coi tương đương khi chưa mapping.,"D1,D4",source-grounded
-Organism,Feature,concept,Taxon/vi sinh vật concept; không mặc định là pathogen.,"D2,D3,D4",source-grounded
-Bacterium,Organism,concept,Taxon vi khuẩn khi có phân loại được xác minh.,"D2,D3,D4",source-grounded
-Virus,Organism,concept,"Taxon virus; ví dụ TTV, HHV6B trong nguồn.","D2,D3",source-grounded
-Fungus,Organism,concept,Taxon nấm khi có phân loại được xác minh.,"D2,D3,D4",source-grounded
-CellType,Feature,concept,Loại tế bào được pipeline ước lượng.,D4,source-grounded
-ChromosomalFeature,Feature,concept,Feature nhiễm sắc thể/CNV.,D4,source-grounded
-LaboratoryAnalyte,Feature,concept,"Chỉ số xét nghiệm như WBC, ANC, CRP, PCT.",D2,source-grounded
-QualityMetric,Feature,concept,"Đại lượng QC như Q20, GC, correlation và RMSE.",D4,source-grounded
-Disease,Entity,concept,Khái niệm bệnh dùng chung; một occurrence cụ thể mới thuộc người.,"D2,D3,D4",source-grounded
-Treatment,Entity,concept,Khái niệm điều trị dùng chung; không phải sự kiện điều trị từng người.,"D2,D3",source-grounded
-ClinicalAssessment,Entity,factual,"Đánh giá lâm sàng cho người/episode, thời điểm và cách adjudicate.","D2,D3,D4",source-grounded
-DiagnosticAssessment,ClinicalAssessment,factual,"Chẩn đoán, infection status và mức chắc chắn theo đánh giá nguồn.","D2,D3,D4",source-grounded
-CoinfectionAssessment,DiagnosticAssessment,factual,"Đồng nhiễm được nguồn đánh giá, không tự suy từ số taxon phát hiện.",D3,source-grounded
-InfectionEpisode,Entity,factual,Đợt bệnh để nhóm nhiều tác nhân; chỉ tạo khi xác định được ranh giới episode.,D3,design
-AggregateStatistic,Entity,aggregate,"Giá trị ở cấp nhóm, có mẫu số; không gán cho cá nhân.","D2,D3",source-grounded
-DiagnosticPerformanceStatistic,AggregateStatistic,aggregate,Sensitivity/specificity hoặc bảng đồng thuận; giữ reference standard.,"D2,D3",source-grounded
-SourceAsset,Entity,provenance,"File hoặc phiên bản nguồn, URI/checksum/license/retrieval status.","D1,D2,D3,D4,D5",source-grounded
-DataMatrix,SourceAsset,provenance,"Ma trận có hướng hàng/cột, namespace feature và modality.","D1,D4",source-grounded
-SourceLocator,Entity,provenance,"Vị trí chính xác: sheet/row/column, XML ID/XPath hoặc trang PDF đã xác minh.","D1,D2,D3,D4,D5",source-grounded
-Assertion,Entity,provenance,Phát biểu có subject/predicate/object hoặc literal và nguồn; dùng truy vết từng thuộc tính/cạnh.,design,design
-Identifier,Entity,provenance,Mã external có namespace; BioSample/run/PMCID là các namespace khác nhau.,"D1,D2,D3,D4,D5",source-grounded
-LinkageRecord,Entity,provenance,Liên kết ứng viên giữa hai entity với trạng thái verified/unresolved/conflict.,"D2,D3,D4",design
-Document,SourceAsset,evidence,Bài báo/tài liệu có định danh và nội dung theo phiên bản.,D5,source-grounded
-DocumentSection,Entity,evidence,Section của tài liệu: methods/results/...; giữ nhãn nguồn.,D5,source-grounded
-EvidenceUnit,Entity,evidence,"Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim.",D5,source-grounded
-TextEvidence,EvidenceUnit,evidence,Đoạn văn có vị trí trong phiên bản tài liệu.,D5,source-grounded
-TableEvidence,EvidenceUnit,evidence,Bảng hoặc vùng ô; có header và phạm vi.,D5,source-grounded
-FigureEvidence,EvidenceUnit,evidence,Hình/caption; chưa đồng nghĩa đã extract giá trị ảnh.,D5,source-grounded
-Claim,Entity,evidence,"Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn.",D5,design
-Hypothesis,Claim,evidence,Giả thuyết của bài; không phải fact được xác nhận.,D5,design
-MethodClaim,Claim,evidence,Phát biểu về phương pháp nghiên cứu.,D5,design
-FindingClaim,Claim,evidence,Phát biểu về kết quả nghiên cứu.,D5,design
-Citation,Entity,citation,"Record trích dẫn có paper nguồn, reference text và target nếu resolve được.",D5,source-grounded
-PaperConceptLink,Entity,citation,"Mapping N–N paper/concept, relevance và nguồn; không đồng nghĩa citation.",Zoom,design
-EvidenceLink,Entity,evidence,Mapping claim/evidence với role supports/contradicts/contextualizes.,Zoom,design
+HostTranscriptomeTest,SequencingTest,factual,Assay or processing that produces host gene expression; specimen and pipeline evidence is required.,"D1,D4",source-grounded
+ConventionalMicrobiologyTest,Test,factual,Conventional microbiology test; a generic CMT record does not establish PCR or culture.,"D2,D3",source-grounded
+PCRTest,ConventionalMicrobiologyTest,factual,PCR described in the methods; assign to a person only with corresponding evidence.,D2,source-grounded
+CultureTest,ConventionalMicrobiologyTest,factual,Bacterial or fungal culture mentioned in the methods.,D2,source-grounded
+MicroscopyTest,ConventionalMicrobiologyTest,factual,Microscopy or smear microscopy mentioned in the methods.,D2,source-grounded
+AntigenTest,ConventionalMicrobiologyTest,factual,"For example, galactomannan testing; do not equate with PCR.",D2,source-grounded
+LaboratoryTest,Test,factual,Clinical laboratory testing; the source may describe it only at group level.,D2,source-grounded
+SequencingRun,Entity,factual,"An SRA run; distinct from a patient, specimen, or assay.","D2,D3,D4",source-grounded
+ProcessingPipeline,Entity,factual,"Pipeline, software, and reference used to generate derived results.","D1,D4",source-grounded
+Result,Entity,factual,"A result or observation with a value, unit, measurement type, and status.","D1,D2,D3,D4",source-grounded
+MicrobialDetection,Result,factual,Detection of an organism or taxon; not proof that it causes disease.,"D2,D3,D4",source-grounded
+GeneCountResult,Result,factual,Count associated with a gene and person or sample; not the number of gene copies in DNA.,"D1,D4",source-grounded
+TaxonAbundanceResult,Result,factual,Taxon abundance; retain unknown normalization formulas or units as unknown.,D4,source-grounded
+CoverageResult,Result,factual,Coverage measurement; requires the metric definition and unit from the source.,D3,source-grounded
+CNVResult,Result,factual,Derived CNV feature or tumor fraction; distinct from gene expression.,D4,source-grounded
+CellTypeScoreResult,Result,factual,CIBERSORTx cell-type score; do not automatically interpret as a percentage.,D4,source-grounded
+QualityMetricResult,Result,factual,"QC such as Q20, Q30, clean rate, or RMSE; attach to the correct run or pipeline.",D4,source-grounded
+LaboratoryResult,Result,factual,Laboratory result such as WBC or ANC when individual values exist; group statistics belong in AggregateStatistic.,D2,source-grounded
+Feature,Entity,concept,The entity or quantity measured; identify its namespace and classification level.,"D1,D2,D3,D4",source-grounded
+Gene,Feature,concept,Gene concept; ENSG identifiers and gene symbols are not equivalent without verified mapping.,"D1,D4",source-grounded
+Organism,Feature,concept,Organism or taxon concept; not automatically a pathogen.,"D2,D3,D4",source-grounded
+Bacterium,Organism,concept,Bacterial taxon with verified classification.,"D2,D3,D4",source-grounded
+Virus,Organism,concept,Viral taxon; examples in the sources include TTV and HHV6B.,"D2,D3",source-grounded
+Fungus,Organism,concept,Fungal taxon with verified classification.,"D2,D3,D4",source-grounded
+CellType,Feature,concept,Cell type estimated by a processing pipeline.,D4,source-grounded
+ChromosomalFeature,Feature,concept,Chromosomal or CNV feature.,D4,source-grounded
+LaboratoryAnalyte,Feature,concept,"Laboratory analyte such as WBC, ANC, CRP, or PCT.",D2,source-grounded
+QualityMetric,Feature,concept,"QC quantity such as Q20, GC, correlation, or RMSE.",D4,source-grounded
+Disease,Entity,concept,Shared disease concept; a patient-specific occurrence belongs to an individual.,"D2,D3,D4",source-grounded
+Treatment,Entity,concept,Shared treatment concept; distinct from an individual's treatment event.,"D2,D3",source-grounded
+ClinicalAssessment,Entity,factual,"Clinical assessment of a person or episode, with timing and adjudication method.","D2,D3,D4",source-grounded
+DiagnosticAssessment,ClinicalAssessment,factual,"Diagnosis, infection status, and certainty as assessed in the source.","D2,D3,D4",source-grounded
+CoinfectionAssessment,DiagnosticAssessment,factual,Source-adjudicated coinfection; do not infer it from the number of detected taxa.,D3,source-grounded
+InfectionEpisode,Entity,factual,Illness episode grouping multiple organisms; create only when episode boundaries are known.,D3,design
+AggregateStatistic,Entity,aggregate,Group-level value with a denominator; do not assign it to an individual.,"D2,D3",source-grounded
+DiagnosticPerformanceStatistic,AggregateStatistic,aggregate,"Sensitivity, specificity, or agreement statistics; retain the reference standard.","D2,D3",source-grounded
+SourceAsset,Entity,provenance,"Source file or version, with URI, checksum, license, and retrieval status.","D1,D2,D3,D4,D5",source-grounded
+DataMatrix,SourceAsset,provenance,"Matrix with row and column meanings, feature namespace, and modality.","D1,D4",source-grounded
+SourceLocator,Entity,provenance,"Exact location: sheet, row, column, XML ID or XPath, or verified PDF page.","D1,D2,D3,D4,D5",source-grounded
+Assertion,Entity,provenance,"A sourced statement with subject, predicate, and object or literal; traces individual attributes or edges.",design,design
+Identifier,Entity,provenance,"External identifier with a namespace; BioSample, run, and PMCID use different namespaces.","D1,D2,D3,D4,D5",source-grounded
+LinkageRecord,Entity,provenance,"Candidate link between two entities with verified, unresolved, or conflict status.","D2,D3,D4",design
+Document,SourceAsset,evidence,Paper or document with identifiers and versioned content.,D5,source-grounded
+DocumentSection,Entity,evidence,Document section such as methods or results; preserve the source label.,D5,source-grounded
+EvidenceUnit,Entity,evidence,"Passage, table, figure, or cell used as evidence; does not automatically validate a claim.",D5,source-grounded
+TextEvidence,EvidenceUnit,evidence,Text passage with a location in a specific document version.,D5,source-grounded
+TableEvidence,EvidenceUnit,evidence,Table or cell region with headers and a defined scope.,D5,source-grounded
+FigureEvidence,EvidenceUnit,evidence,Figure or caption; does not imply that image values have been extracted.,D5,source-grounded
+Claim,Entity,evidence,"Statement attributed to an author or document, retaining context and certainty.",D5,design
+Hypothesis,Claim,evidence,A paper's hypothesis; not a confirmed fact.,D5,design
+MethodClaim,Claim,evidence,Statement about a study's methods.,D5,design
+FindingClaim,Claim,evidence,Statement about a study's findings.,D5,design
+Citation,Entity,citation,"Citation record with citing paper, reference text, and target if resolved.",D5,source-grounded
+PaperConceptLink,Entity,citation,Many-to-many paper/concept mapping with relevance and provenance; distinct from citation.,Zoom,design
+EvidenceLink,Entity,evidence,"Claim/evidence mapping with a supports, contradicts, or contextualizes role.",Zoom,design
+GrantAward,Entity,grant_patent_metadata,An award record keyed by award_key; not a Study or an individual annual funding record.,External grant/patent CSVs,design
+GrantFundingRecord,Entity,grant_patent_metadata,A funding/application record identified by appl_id and linked to an award; no assumption of additive budget scope.,External grant/patent CSVs,design
+Organization,Entity,grant_patent_metadata,An organization as reported within a source record; identical labels do not establish global identity.,External grant/patent CSVs,design
+PartyMention,Entity,grant_patent_metadata,"An original person or organization name string in a stated role, without resolved identity.",External grant/patent CSVs,design
+PersonNameMention,PartyMention,grant_patent_metadata,A source-reported person name or incomplete name list; not a Patient and not a resolved unique person.,External grant/patent CSVs,design
+Location,Entity,grant_patent_metadata,"Source-reported city, state and country for an organization; not necessarily the study site.",External grant/patent CSVs,design
+GrantDocument,Document,grant_patent_metadata,A grant project-detail record or abstract; not a claim that full grant text is available.,External grant/patent CSVs,design
+Patent,Document,grant_patent_metadata,A patent publication described by source metadata; scientific and legal claims are not inferred from metadata.,External grant/patent CSVs,design
+ClassificationCode,Entity,grant_patent_metadata,"A reported patent classification code, preserving the source classification field.",External grant/patent CSVs,design
+RetrievalMatch,Entity,grant_patent_metadata,A recorded search match connecting a document to a source-provided concept reference; not scientific support.,External grant/patent CSVs,design
+TaxonReference,Entity,grant_patent_metadata,"Unverified source taxon identifier(s) and label(s), preserving combined values without assuming namespace or alignment.",External grant/patent CSVs,design

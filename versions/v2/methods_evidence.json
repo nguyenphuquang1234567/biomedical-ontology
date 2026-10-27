@@ -1,0 +1,17 @@
+[
+  {
+    "file": "PRJNA984933/article.xml",
+    "locator": "methods paragraph; locate using terms and paragraph SHA256",
+    "paragraph_sha256": "fa219edb996d0277c74a14826d0303a8f8b260c55c172bab5115bff83485e726",
+    "observed_terms": [
+      "culture",
+      "PCR",
+      "microscopy",
+      "galactomannan",
+      "blood",
+      "pleural effusion",
+      "swabs",
+      "BALF"
+    ]
+  }
+]

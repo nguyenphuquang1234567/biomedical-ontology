@@ -1,0 +1,2 @@
+PREFIX pilot: <https://example.org/nih-pilot/ontology/>
+SELECT ?subject ?predicate ?object ?location WHERE { ?a a pilot:Assertion; pilot:assertionSubject ?subject; pilot:predicateIri ?predicate; pilot:assertionObject ?object; pilot:assertionSource ?loc. ?loc pilot:locator ?location. }

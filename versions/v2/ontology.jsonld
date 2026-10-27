@@ -1,0 +1,3093 @@
+{
+  "@context": {
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "pilot": "https://example.org/nih-pilot/ontology/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "pilot:MNGSTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Assay metagenomic next-generation sequencing."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "M N G S Test"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:SequencingTest"
+      }
+    },
+    {
+      "@id": "pilot:Study",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Nghiên cứu/cohort; không đồng nhất với repository hay bài báo."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Study"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:linkClaim",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Liên kết evidence dành cho claim"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:EvidenceLink"
+      },
+      "rdfs:label": "linkClaim",
+      "rdfs:range": {
+        "@id": "pilot:Claim"
+      }
+    },
+    {
+      "@id": "pilot:measures",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Kết quả đo/phát hiện feature"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Result"
+      },
+      "rdfs:label": "measures",
+      "rdfs:range": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:eventTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Thời điểm kết quả/đánh giá nếu biết"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pilot:sectionOf",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Section thuộc tài liệu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:DocumentSection"
+      },
+      "rdfs:label": "sectionOf",
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:sourcePatientId",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Mã người trong study; khóa logic study+sourcePatientId"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:qualityOf",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "QC của run/asset/pipeline"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:QualityMetricResult"
+      },
+      "rdfs:label": "qualityOf",
+      "rdfs:range": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:producedByTest",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Kết quả của xét nghiệm"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Result"
+      },
+      "rdfs:label": "producedByTest",
+      "rdfs:range": {
+        "@id": "pilot:Test"
+      }
+    },
+    {
+      "@id": "pilot:checksum",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "SHA256 của file thực tế"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:sampleSize",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Số người/mẫu với counting unit"
+      },
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      }
+    },
+    {
+      "@id": "pilot:rawText",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Nguyên văn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:mappingStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "verified/unresolved/conflict/unmapped; không tự tạo equivalence"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:Result",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Một kết quả/observation với giá trị, đơn vị, loại phép đo và trạng thái."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Result"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:linkFrom",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đầu thứ nhất linkage ứng viên"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:LinkageRecord"
+      },
+      "rdfs:label": "linkFrom",
+      "rdfs:range": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:sourceInStudy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "File thuộc nghiên cứu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:SourceAsset"
+      },
+      "rdfs:label": "sourceInStudy",
+      "rdfs:range": {
+        "@id": "pilot:Study"
+      }
+    },
+    {
+      "@id": "pilot:TransplantEvent",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Sự kiện HCT/HSCT khi có ghi nhận; không tự điền ngày."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Transplant Event"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:TreatmentEvent"
+      }
+    },
+    {
+      "@id": "pilot:FigureEvidence",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Hình/caption; chưa đồng nghĩa đã extract giá trị ảnh."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Figure Evidence"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:EvidenceUnit"
+      }
+    },
+    {
+      "@id": "pilot:resultFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Kết quả của người"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Result"
+      },
+      "rdfs:label": "resultFor",
+      "rdfs:range": {
+        "@id": "pilot:Patient"
+      }
+    },
+    {
+      "@id": "pilot:SequencingTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Assay dùng giải trình tự."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sequencing Test"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Test"
+      }
+    },
+    {
+      "@id": "pilot:PCRTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "PCR được mô tả trong methods; chỉ gán cá nhân khi có kết quả tương ứng."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "P C R Test"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:ConventionalMicrobiologyTest"
+      }
+    },
+    {
+      "@id": "pilot:localPath",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đường dẫn file bản cục bộ"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:groupInStudy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Nhóm thuộc nghiên cứu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:CohortGroup"
+      },
+      "rdfs:label": "groupInStudy",
+      "rdfs:range": {
+        "@id": "pilot:Study"
+      }
+    },
+    {
+      "@id": "pilot:ImagingFinding",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mô tả hình ảnh phổi; không tự coi là kết quả vi sinh."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Imaging Finding"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:ClinicalEvent"
+      }
+    },
+    {
+      "@id": "pilot:enrolledIn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Người thuộc nghiên cứu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patient"
+      },
+      "rdfs:label": "enrolledIn",
+      "rdfs:range": {
+        "@id": "pilot:Study"
+      }
+    },
+    {
+      "@id": "pilot:assertionSubject",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Chủ thể phát biểu có nguồn"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Assertion"
+      },
+      "rdfs:label": "assertionSubject",
+      "rdfs:range": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:label",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Tên gốc/nhãn dễ đọc"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:linkedPaper",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Paper được map với concept ontology"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:PaperConceptLink"
+      },
+      "rdfs:label": "linkedPaper",
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:ClinicalAssessment",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đánh giá lâm sàng cho người/episode, thời điểm và cách adjudicate."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Clinical Assessment"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:infectionStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "infectious/noninfectious/unknown/mixed theo adjudication nguồn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:description",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Nội dung mô tả nguồn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:locator",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Sheet/row/column hoặc XML ID/XPath; không coi BioC offset là PDF page"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:DiagnosticPerformanceStatistic",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Sensitivity/specificity hoặc bảng đồng thuận; giữ reference standard."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Diagnostic Performance Statistic"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:AggregateStatistic"
+      }
+    },
+    {
+      "@id": "pilot:Gene",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Gene concept; ENSG và gene symbol chưa được coi tương đương khi chưa mapping."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Gene"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:extractionConfidence",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Độ tin cậy extraction nếu đo được; không bịa score"
+      },
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "pilot:SourceAsset",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "File hoặc phiên bản nguồn, URI/checksum/license/retrieval status."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Source Asset"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        },
+        {
+          "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:Entity",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Lớp gốc cho record và concept; không phải bảng phải nhập dữ liệu."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Entity"
+      }
+    },
+    {
+      "@id": "pilot:linkEvidence",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Evidence của liên kết"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:EvidenceLink"
+      },
+      "rdfs:label": "linkEvidence",
+      "rdfs:range": {
+        "@id": "pilot:EvidenceUnit"
+      }
+    },
+    {
+      "@id": "pilot:CultureTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Nuôi cấy vi khuẩn/nấm được nêu ở methods."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Culture Test"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:ConventionalMicrobiologyTest"
+      }
+    },
+    {
+      "@id": "pilot:MethodClaim",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Phát biểu về phương pháp nghiên cứu."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Method Claim"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Claim"
+      }
+    },
+    {
+      "@id": "pilot:treatmentConcept",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Sự kiện dùng khái niệm điều trị"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:TreatmentEvent"
+      },
+      "rdfs:label": "treatmentConcept",
+      "rdfs:range": {
+        "@id": "pilot:Treatment"
+      }
+    },
+    {
+      "@id": "pilot:Bacterium",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Taxon vi khuẩn khi có phân loại được xác minh."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Bacterium"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Organism"
+      }
+    },
+    {
+      "@id": "pilot:rawTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Ngày/khoảng thời gian nguyên văn khi chưa đủ để ép DateTime"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:citingDocument",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Bài chứa trích dẫn"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Citation"
+      },
+      "rdfs:label": "citingDocument",
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:LaboratoryAnalyte",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Chỉ số xét nghiệm như WBC, ANC, CRP, PCT."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Laboratory Analyte"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:derivedFrom",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "File dẫn xuất từ file khác"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:SourceAsset"
+      },
+      "rdfs:label": "derivedFrom",
+      "rdfs:range": {
+        "@id": "pilot:SourceAsset"
+      }
+    },
+    {
+      "@id": "pilot:MicroscopyTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Soi/smear microscopy được nêu trong methods."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Microscopy Test"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:ConventionalMicrobiologyTest"
+      }
+    },
+    {
+      "@id": "pilot:literalValue",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Literal nguyên gốc của phát biểu nếu không có assertionObject"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:Specimen",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mẫu sinh học thực tế; Sample là tên cũ tương ứng."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Specimen"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:Assertion",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Phát biểu có subject/predicate/object hoặc literal và nguồn; dùng truy vết từng thuộc tính/cạnh."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Assertion"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:Identifier",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mã external có namespace; BioSample/run/PMCID là các namespace khác nhau."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Identifier"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        },
+        {
+          "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:TableEvidence",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Bảng hoặc vùng ô; có header và phạm vi."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Table Evidence"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:EvidenceUnit"
+      }
+    },
+    {
+      "@id": "pilot:Document",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Bài báo/tài liệu có định danh và nội dung theo phiên bản."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:SourceAsset"
+      }
+    },
+    {
+      "@id": "pilot:diagnoses",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đánh giá đưa ra chẩn đoán"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:DiagnosticAssessment"
+      },
+      "rdfs:label": "diagnoses",
+      "rdfs:range": {
+        "@id": "pilot:Disease"
+      }
+    },
+    {
+      "@id": "pilot:statisticForGroup",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Thống kê cho nhóm"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:AggregateStatistic"
+      },
+      "rdfs:label": "statisticForGroup",
+      "rdfs:range": {
+        "@id": "pilot:CohortGroup"
+      }
+    },
+    {
+      "@id": "pilot:episodeFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đợt bệnh của người"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:InfectionEpisode"
+      },
+      "rdfs:label": "episodeFor",
+      "rdfs:range": {
+        "@id": "pilot:Patient"
+      }
+    },
+    {
+      "@id": "pilot:collectionTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Ngày giờ lấy mẫu nếu có"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pilot:ConditionOccurrence",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Ghi nhận bệnh nền/chẩn đoán cho một người; khác với concept bệnh dùng chung."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Condition Occurrence"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:ClinicalEvent"
+      }
+    },
+    {
+      "@id": "pilot:SequencingRun",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Một run SRA; khác patient, specimen và assay."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sequencing Run"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:assessmentStage",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "initial/interim/final/unknown; chỉ gán nếu xác minh"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:",
+      "@type": "owl:Ontology",
+      "owl:versionInfo": "0.2.0-draft",
+      "rdfs:comment": "Draft union ontology based on inspected local assets of five Table 1 sources. Namespace is provisional; no external biomedical equivalences asserted."
+    },
+    {
+      "@id": "pilot:certainty",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Độ chắc chắn nguồn; không phải extraction confidence"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:LaboratoryTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Xét nghiệm chỉ số xét nghiệm; có thể mới được mô tả ở cấp nhóm."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Laboratory Test"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Test"
+      }
+    },
+    {
+      "@id": "pilot:extractionStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "human_verified/auto_extracted/review_required/template"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:namespace",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Namespace mã"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:assessmentFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đánh giá dành cho người"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:ClinicalAssessment"
+      },
+      "rdfs:label": "assessmentFor",
+      "rdfs:range": {
+        "@id": "pilot:Patient"
+      }
+    },
+    {
+      "@id": "pilot:citedDocument",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Bài được trích nếu resolve được"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Citation"
+      },
+      "rdfs:label": "citedDocument",
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:evidenceRole",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "supports/contradicts/contextualizes"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:unit",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đơn vị nguồn; unknown khi chưa xác minh"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:Test",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Test"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:Virus",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Taxon virus; ví dụ TTV, HHV6B trong nguồn."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Virus"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Organism"
+      }
+    },
+    {
+      "@id": "pilot:license",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "License được ghi nhận; không đoán"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:retrievedAt",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Thời gian lấy file nếu biết"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pilot:measurementType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "read_count/gene_count/coverage/abundance/score/..."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:predicateIri",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "IRI predicate được phát biểu; không phải một class disease"
+      },
+      "rdfs:range": {
+        "@id": "xsd:anyURI"
+      }
+    },
+    {
+      "@id": "pilot:PleuralFluidSpecimen",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mẫu dịch màng phổi nêu trong methods; không tự tạo specimen cá nhân."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Pleural Fluid Specimen"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Specimen"
+      }
+    },
+    {
+      "@id": "pilot:rowAxis",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Ý nghĩa rows"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:considersResult",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đánh giá có xem xét kết quả cụ thể"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:ClinicalAssessment"
+      },
+      "rdfs:label": "considersResult",
+      "rdfs:range": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:CellTypeScoreResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Score cell type CIBERSORTx; không tự xem là phần trăm."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Cell Type Score Result"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:memberOfGroup",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Người được xếp vào nhóm"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patient"
+      },
+      "rdfs:label": "memberOfGroup",
+      "rdfs:range": {
+        "@id": "pilot:CohortGroup"
+      }
+    },
+    {
+      "@id": "pilot:fileFormat",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "CSV/XLSX/JATS/BioC/ZIP/..."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:SymptomOccurrence",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Ghi nhận triệu chứng như sốt, ho, khó thở."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Symptom Occurrence"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:ClinicalEvent"
+      }
+    },
+    {
+      "@id": "pilot:Feature",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đối tượng/đại lượng được đo; định danh namespace và cấp phân loại."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Feature"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:CohortGroup",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Nhóm thuộc một nghiên cứu; giữ mẫu số và tiêu chí phân nhóm."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Cohort Group"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:TextEvidence",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đoạn văn có vị trí trong phiên bản tài liệu."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Text Evidence"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:EvidenceUnit"
+      }
+    },
+    {
+      "@id": "pilot:BloodSpecimen",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mẫu máu được mô tả ở methods; chưa có liên kết từng người từ methods."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Blood Specimen"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Specimen"
+      }
+    },
+    {
+      "@id": "pilot:PaperConceptLink",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mapping N–N paper/concept, relevance và nguồn; không đồng nghĩa citation."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Paper Concept Link"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:linkedConcept",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Concept instance hoặc OWL class IRI liên quan"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:PaperConceptLink"
+      },
+      "rdfs:label": "linkedConcept"
+    },
+    {
+      "@id": "pilot:Fungus",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Taxon nấm khi có phân loại được xác minh."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Fungus"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Organism"
+      }
+    },
+    {
+      "@id": "pilot:QualityMetricResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "QC như Q20, Q30, clean rate, RMSE; gắn đúng đối tượng run/pipeline."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Quality Metric Result"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:assessmentOfEpisode",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đánh giá cho đợt bệnh"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:ClinicalAssessment"
+      },
+      "rdfs:label": "assessmentOfEpisode",
+      "rdfs:range": {
+        "@id": "pilot:InfectionEpisode"
+      }
+    },
+    {
+      "@id": "pilot:diagnosticClassification",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "True-negative/false-negative/... theo reference được báo cáo"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:denominator",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Mẫu số thống kê"
+      },
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      }
+    },
+    {
+      "@id": "pilot:endTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Thời điểm kết thúc"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pilot:ConventionalMicrobiologyTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Xét nghiệm vi sinh thông thường; CMT tổng quát không tự suy thành PCR/culture."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Conventional Microbiology Test"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Test"
+      }
+    },
+    {
+      "@id": "pilot:assessmentMethod",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Clinician review/reference criteria theo nguồn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:runOf",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Run thuộc assay giải trình tự"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:SequencingRun"
+      },
+      "rdfs:label": "runOf",
+      "rdfs:range": {
+        "@id": "pilot:SequencingTest"
+      }
+    },
+    {
+      "@id": "pilot:MicrobialDetection",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Phát hiện tác nhân/taxon; chưa đồng nghĩa gây bệnh."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Microbial Detection"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:resultStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "detected/negative/not_performed/not_collected/not_reported/unknown; zero là giá trị riêng"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:testedSpecimen",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Xét nghiệm thực hiện trên mẫu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Test"
+      },
+      "rdfs:label": "testedSpecimen",
+      "rdfs:range": {
+        "@id": "pilot:Specimen"
+      }
+    },
+    {
+      "@id": "pilot:librarySource",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "METAGENOMIC/METATRANSCRIPTOMIC..."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:CellType",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Loại tế bào được pipeline ước lượng."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Cell Type"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:startTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Thời điểm bắt đầu nếu có đủ độ chính xác"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pilot:Hypothesis",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Giả thuyết của bài; không phải fact được xác nhận."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Hypothesis"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Claim"
+      }
+    },
+    {
+      "@id": "pilot:generatedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Kết quả dẫn xuất từ pipeline"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Result"
+      },
+      "rdfs:label": "generatedBy",
+      "rdfs:range": {
+        "@id": "pilot:ProcessingPipeline"
+      }
+    },
+    {
+      "@id": "pilot:LinkageRecord",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Liên kết ứng viên giữa hai entity với trạng thái verified/unresolved/conflict."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Linkage Record"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:referenceText",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Reference nguyên văn khi chưa resolve"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:columnAxis",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Ý nghĩa columns"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:hasIdentifier",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Entity có mã external"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Entity"
+      },
+      "rdfs:label": "hasIdentifier",
+      "rdfs:range": {
+        "@id": "pilot:Identifier"
+      }
+    },
+    {
+      "@id": "pilot:DiagnosticAssessment",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Chẩn đoán, infection status và mức chắc chắn theo đánh giá nguồn."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Diagnostic Assessment"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:ClinicalAssessment"
+      }
+    },
+    {
+      "@id": "pilot:isControl",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "true/false chỉ khi xác minh; không có thuộc tính là chưa rõ"
+      },
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "pilot:TaxonAbundanceResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Abundance theo taxon; giữ công thức/đơn vị chưa biết."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Taxon Abundance Result"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:controlRole",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Vai trò control theo nguồn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:assertionObject",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đối tượng phát biểu có nguồn"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Assertion"
+      },
+      "rdfs:label": "assertionObject",
+      "rdfs:range": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:sourceUrl",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Link nguồn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:anyURI"
+      }
+    },
+    {
+      "@id": "pilot:taxonRank",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Genus/species/unknown; không ép rank"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:SourceLocator",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Vị trí chính xác: sheet/row/column, XML ID/XPath hoặc trang PDF đã xác minh."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Source Locator"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        },
+        {
+          "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:specimenFrom",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Mẫu lấy từ người"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Specimen"
+      },
+      "rdfs:label": "specimenFrom",
+      "rdfs:range": {
+        "@id": "pilot:Patient"
+      }
+    },
+    {
+      "@id": "pilot:CARTTreatmentEvent",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Sự kiện CAR-T được mô tả trong nguồn."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "C A R T Treatment Event"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:TreatmentEvent"
+      }
+    },
+    {
+      "@id": "pilot:accession",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Accession nguyên gốc"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:implicatesOrganism",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Tác nhân được đánh giá liên quan đồng nhiễm"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:CoinfectionAssessment"
+      },
+      "rdfs:label": "implicatesOrganism",
+      "rdfs:range": {
+        "@id": "pilot:Organism"
+      }
+    },
+    {
+      "@id": "pilot:ClinicalEvent",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Sự kiện hoặc ghi nhận lâm sàng cụ thể của một người."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Clinical Event"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:metadataJson",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "JSON nguyên bản cho các metadata chưa chuẩn hóa; không coi là ontology đã giải nghĩa"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:linkTo",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Đầu thứ hai linkage ứng viên"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:LinkageRecord"
+      },
+      "rdfs:label": "linkTo",
+      "rdfs:range": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:CNVResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Feature CNV hoặc tumor fraction dẫn xuất; không phải gene expression."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "C N V Result"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:referenceBuild",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Genome/annotation build"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:relevanceReason",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Lý do paper liên quan concept; không phải citation"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:locatedIn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Vị trí nằm trong phiên bản file"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:SourceLocator"
+      },
+      "rdfs:label": "locatedIn",
+      "rdfs:range": {
+        "@id": "pilot:SourceAsset"
+      }
+    },
+    {
+      "@id": "pilot:assertionSource",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Vị trí bằng chứng cho phát biểu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Assertion"
+      },
+      "rdfs:label": "assertionSource",
+      "rdfs:range": {
+        "@id": "pilot:SourceLocator"
+      }
+    },
+    {
+      "@id": "pilot:AggregateStatistic",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Giá trị ở cấp nhóm, có mẫu số; không gán cho cá nhân."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Aggregate Statistic"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:EvidenceUnit",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Evidence Unit"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:DataMatrix",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Ma trận có hướng hàng/cột, namespace feature và modality."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Matrix"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:SourceAsset"
+      }
+    },
+    {
+      "@id": "pilot:Disease",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Khái niệm bệnh dùng chung; một occurrence cụ thể mới thuộc người."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Disease"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:evidenceIn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Evidence nằm trong tài liệu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:EvidenceUnit"
+      },
+      "rdfs:label": "evidenceIn",
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:Treatment",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Khái niệm điều trị dùng chung; không phải sự kiện điều trị từng người."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Treatment"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:BALSpecimen",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mẫu dịch rửa phế quản-phế nang."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "B A L Specimen"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Specimen"
+      }
+    },
+    {
+      "@id": "pilot:Claim",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Claim"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:libraryLayout",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "SINGLE/PAIRED theo RunInfo"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:DocumentSection",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Section của tài liệu: methods/results/...; giữ nhãn nguồn."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document Section"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:claimIn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Claim được tác giả nêu trong tài liệu"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Claim"
+      },
+      "rdfs:label": "claimIn",
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:eventFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Sự kiện của người"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:ClinicalEvent"
+      },
+      "rdfs:label": "eventFor",
+      "rdfs:range": {
+        "@id": "pilot:Patient"
+      }
+    },
+    {
+      "@id": "pilot:EvidenceLink",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mapping claim/evidence với role supports/contradicts/contextualizes."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Evidence Link"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:SwabSpecimen",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Mẫu swab nêu trong methods; giữ nguyên loại nguồn, không tự sửa vị trí lấy."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Swab Specimen"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Specimen"
+      }
+    },
+    {
+      "@id": "pilot:version",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Phiên bản"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:conditionConcept",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Sự kiện ghi nhận khái niệm bệnh"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:ConditionOccurrence"
+      },
+      "rdfs:label": "conditionConcept",
+      "rdfs:range": {
+        "@id": "pilot:Disease"
+      }
+    },
+    {
+      "@id": "pilot:textValue",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Giá trị chữ nguyên gốc"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:software",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Phần mềm và version"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:evidenceSection",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Section chứa evidence"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:EvidenceUnit"
+      },
+      "rdfs:label": "evidenceSection",
+      "rdfs:range": {
+        "@id": "pilot:DocumentSection"
+      }
+    },
+    {
+      "@id": "pilot:dateStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "original/shifted/generalized/relative/unknown"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:recordedAt",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Bản ghi/concept được ghi nhận tại vị trí nguồn"
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Entity"
+      },
+      "rdfs:label": "recordedAt",
+      "rdfs:range": {
+        "@id": "pilot:SourceLocator"
+      }
+    },
+    {
+      "@id": "pilot:CoverageResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Độ bao phủ; cần định nghĩa metric và đơn vị từ nguồn."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Coverage Result"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:sex",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Giá trị giới nguyên gốc"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:AntigenTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Ví dụ galactomannan; không tự đồng nhất với PCR."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Antigen Test"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:ConventionalMicrobiologyTest"
+      }
+    },
+    {
+      "@id": "pilot:Citation",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Record trích dẫn có paper nguồn, reference text và target nếu resolve được."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Citation"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:DrugTreatmentEvent",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Điều trị bằng thuốc; giữ nguyên ý nghĩa kê đơn/đã dùng nếu nguồn có."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Drug Treatment Event"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:TreatmentEvent"
+      }
+    },
+    {
+      "@id": "pilot:TreatmentEvent",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Can thiệp/điều trị được nguồn mô tả cho một người; không tự suy thời gian."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Treatment Event"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:ClinicalEvent"
+      }
+    },
+    {
+      "@id": "pilot:FindingClaim",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Phát biểu về kết quả nghiên cứu."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Finding Claim"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Claim"
+      }
+    },
+    {
+      "@id": "pilot:QualityMetric",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đại lượng QC như Q20, GC, correlation và RMSE."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Quality Metric"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:modality",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "DNA/RNA/unknown theo nguồn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:ProcessingPipeline",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Pipeline/phần mềm/reference dùng tạo kết quả dẫn xuất."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Processing Pipeline"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:Patient",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Người tham gia có mã trong phạm vi study; không tự ghép người giữa nghiên cứu."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Patient"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:CoinfectionAssessment",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đồng nhiễm được nguồn đánh giá, không tự suy từ số taxon phát hiện."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Coinfection Assessment"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:DiagnosticAssessment"
+      }
+    },
+    {
+      "@id": "pilot:age",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Tuổi như nguồn; lưu tuổi cùng thời điểm nếu có"
+      },
+      "rdfs:range": {
+        "@id": "xsd:decimal"
+      }
+    },
+    {
+      "@id": "pilot:InfectionEpisode",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Đợt bệnh để nhóm nhiều tác nhân; chỉ tạo khi xác định được ranh giới episode."
+        },
+        "Design status: design"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Infection Episode"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:numericValue",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Giá trị số; không tự đổi unit hoặc missing thành zero"
+      },
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "pilot:HostTranscriptomeTest",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Assay/processing tạo biểu hiện gene chủ; cần chứng cứ về mẫu và pipeline."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Host Transcriptome Test"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:SequencingTest"
+      }
+    },
+    {
+      "@id": "pilot:retrievalStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "available/blocked/unusable/unknown"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:Organism",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Taxon/vi sinh vật concept; không mặc định là pathogen."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Organism"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        },
+        {
+          "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:ChromosomalFeature",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Feature nhiễm sắc thể/CNV."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Chromosomal Feature"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Feature"
+      }
+    },
+    {
+      "@id": "pilot:countingUnit",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "patient/specimen/run/..."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:platform",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "vi",
+        "@value": "Tên platform theo từng nguồn; giữ conflict"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:GeneCountResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Count gắn gene và người/mẫu; không phải số bản sao gene trong DNA."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Gene Count Result"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        },
+        {
+          "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    },
+    {
+      "@id": "pilot:LaboratoryResult",
+      "@type": "owl:Class",
+      "rdfs:comment": [
+        {
+          "@language": "vi",
+          "@value": "Kết quả chỉ số như WBC/ANC nếu có giá trị cá nhân; số nhóm lưu AggregateStatistic."
+        },
+        "Design status: source-grounded"
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Laboratory Result"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pilot:Result"
+      }
+    }
+  ]
+}

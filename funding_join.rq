@@ -1,0 +1,2 @@
+PREFIX p: <https://example.org/nih-pilot/ontology/>
+SELECT (COUNT(?fund) AS ?n) WHERE { ?fund a p:GrantFundingRecord; p:fundingFor ?award. ?award a p:GrantAward. }

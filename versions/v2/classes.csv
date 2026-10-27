@@ -1,0 +1,76 @@
+class_id,parent,layer,definition_vi,source_basis,status
+Entity,,shared,Lớp gốc cho record và concept; không phải bảng phải nhập dữ liệu.,design,design
+Study,Entity,factual,Nghiên cứu/cohort; không đồng nhất với repository hay bài báo.,"D1,D2,D3,D4",source-grounded
+CohortGroup,Entity,factual,Nhóm thuộc một nghiên cứu; giữ mẫu số và tiêu chí phân nhóm.,"D2,D3,D4",source-grounded
+Patient,Entity,factual,Người tham gia có mã trong phạm vi study; không tự ghép người giữa nghiên cứu.,"D1,D2,D3,D4",source-grounded
+ClinicalEvent,Entity,factual,Sự kiện hoặc ghi nhận lâm sàng cụ thể của một người.,"D2,D3,D4",source-grounded
+ConditionOccurrence,ClinicalEvent,factual,Ghi nhận bệnh nền/chẩn đoán cho một người; khác với concept bệnh dùng chung.,"D2,D3,D4",source-grounded
+SymptomOccurrence,ClinicalEvent,factual,"Ghi nhận triệu chứng như sốt, ho, khó thở.",D2,source-grounded
+TreatmentEvent,ClinicalEvent,factual,Can thiệp/điều trị được nguồn mô tả cho một người; không tự suy thời gian.,"D2,D3",source-grounded
+TransplantEvent,TreatmentEvent,factual,Sự kiện HCT/HSCT khi có ghi nhận; không tự điền ngày.,D2,source-grounded
+CARTTreatmentEvent,TreatmentEvent,factual,Sự kiện CAR-T được mô tả trong nguồn.,D2,source-grounded
+DrugTreatmentEvent,TreatmentEvent,factual,Điều trị bằng thuốc; giữ nguyên ý nghĩa kê đơn/đã dùng nếu nguồn có.,D2,source-grounded
+ImagingFinding,ClinicalEvent,factual,Mô tả hình ảnh phổi; không tự coi là kết quả vi sinh.,D2,source-grounded
+Specimen,Entity,factual,Mẫu sinh học thực tế; Sample là tên cũ tương ứng.,"D1,D2,D3,D4",source-grounded
+BALSpecimen,Specimen,factual,Mẫu dịch rửa phế quản-phế nang.,"D1,D2,D3,D4",source-grounded
+BloodSpecimen,Specimen,factual,Mẫu máu được mô tả ở methods; chưa có liên kết từng người từ methods.,D2,source-grounded
+PleuralFluidSpecimen,Specimen,factual,Mẫu dịch màng phổi nêu trong methods; không tự tạo specimen cá nhân.,D2,source-grounded
+SwabSpecimen,Specimen,factual,"Mẫu swab nêu trong methods; giữ nguyên loại nguồn, không tự sửa vị trí lấy.",D2,source-grounded
+Test,Entity,factual,"Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung.","D1,D2,D3,D4",source-grounded
+SequencingTest,Test,factual,Assay dùng giải trình tự.,"D1,D2,D3,D4",source-grounded
+MNGSTest,SequencingTest,factual,Assay metagenomic next-generation sequencing.,"D2,D3,D4",source-grounded
+HostTranscriptomeTest,SequencingTest,factual,Assay/processing tạo biểu hiện gene chủ; cần chứng cứ về mẫu và pipeline.,"D1,D4",source-grounded
+ConventionalMicrobiologyTest,Test,factual,Xét nghiệm vi sinh thông thường; CMT tổng quát không tự suy thành PCR/culture.,"D2,D3",source-grounded
+PCRTest,ConventionalMicrobiologyTest,factual,PCR được mô tả trong methods; chỉ gán cá nhân khi có kết quả tương ứng.,D2,source-grounded
+CultureTest,ConventionalMicrobiologyTest,factual,Nuôi cấy vi khuẩn/nấm được nêu ở methods.,D2,source-grounded
+MicroscopyTest,ConventionalMicrobiologyTest,factual,Soi/smear microscopy được nêu trong methods.,D2,source-grounded
+AntigenTest,ConventionalMicrobiologyTest,factual,Ví dụ galactomannan; không tự đồng nhất với PCR.,D2,source-grounded
+LaboratoryTest,Test,factual,Xét nghiệm chỉ số xét nghiệm; có thể mới được mô tả ở cấp nhóm.,D2,source-grounded
+SequencingRun,Entity,factual,"Một run SRA; khác patient, specimen và assay.","D2,D3,D4",source-grounded
+ProcessingPipeline,Entity,factual,Pipeline/phần mềm/reference dùng tạo kết quả dẫn xuất.,"D1,D4",source-grounded
+Result,Entity,factual,"Một kết quả/observation với giá trị, đơn vị, loại phép đo và trạng thái.","D1,D2,D3,D4",source-grounded
+MicrobialDetection,Result,factual,Phát hiện tác nhân/taxon; chưa đồng nghĩa gây bệnh.,"D2,D3,D4",source-grounded
+GeneCountResult,Result,factual,Count gắn gene và người/mẫu; không phải số bản sao gene trong DNA.,"D1,D4",source-grounded
+TaxonAbundanceResult,Result,factual,Abundance theo taxon; giữ công thức/đơn vị chưa biết.,D4,source-grounded
+CoverageResult,Result,factual,Độ bao phủ; cần định nghĩa metric và đơn vị từ nguồn.,D3,source-grounded
+CNVResult,Result,factual,Feature CNV hoặc tumor fraction dẫn xuất; không phải gene expression.,D4,source-grounded
+CellTypeScoreResult,Result,factual,Score cell type CIBERSORTx; không tự xem là phần trăm.,D4,source-grounded
+QualityMetricResult,Result,factual,"QC như Q20, Q30, clean rate, RMSE; gắn đúng đối tượng run/pipeline.",D4,source-grounded
+LaboratoryResult,Result,factual,Kết quả chỉ số như WBC/ANC nếu có giá trị cá nhân; số nhóm lưu AggregateStatistic.,D2,source-grounded
+Feature,Entity,concept,Đối tượng/đại lượng được đo; định danh namespace và cấp phân loại.,"D1,D2,D3,D4",source-grounded
+Gene,Feature,concept,Gene concept; ENSG và gene symbol chưa được coi tương đương khi chưa mapping.,"D1,D4",source-grounded
+Organism,Feature,concept,Taxon/vi sinh vật concept; không mặc định là pathogen.,"D2,D3,D4",source-grounded
+Bacterium,Organism,concept,Taxon vi khuẩn khi có phân loại được xác minh.,"D2,D3,D4",source-grounded
+Virus,Organism,concept,"Taxon virus; ví dụ TTV, HHV6B trong nguồn.","D2,D3",source-grounded
+Fungus,Organism,concept,Taxon nấm khi có phân loại được xác minh.,"D2,D3,D4",source-grounded
+CellType,Feature,concept,Loại tế bào được pipeline ước lượng.,D4,source-grounded
+ChromosomalFeature,Feature,concept,Feature nhiễm sắc thể/CNV.,D4,source-grounded
+LaboratoryAnalyte,Feature,concept,"Chỉ số xét nghiệm như WBC, ANC, CRP, PCT.",D2,source-grounded
+QualityMetric,Feature,concept,"Đại lượng QC như Q20, GC, correlation và RMSE.",D4,source-grounded
+Disease,Entity,concept,Khái niệm bệnh dùng chung; một occurrence cụ thể mới thuộc người.,"D2,D3,D4",source-grounded
+Treatment,Entity,concept,Khái niệm điều trị dùng chung; không phải sự kiện điều trị từng người.,"D2,D3",source-grounded
+ClinicalAssessment,Entity,factual,"Đánh giá lâm sàng cho người/episode, thời điểm và cách adjudicate.","D2,D3,D4",source-grounded
+DiagnosticAssessment,ClinicalAssessment,factual,"Chẩn đoán, infection status và mức chắc chắn theo đánh giá nguồn.","D2,D3,D4",source-grounded
+CoinfectionAssessment,DiagnosticAssessment,factual,"Đồng nhiễm được nguồn đánh giá, không tự suy từ số taxon phát hiện.",D3,source-grounded
+InfectionEpisode,Entity,factual,Đợt bệnh để nhóm nhiều tác nhân; chỉ tạo khi xác định được ranh giới episode.,D3,design
+AggregateStatistic,Entity,aggregate,"Giá trị ở cấp nhóm, có mẫu số; không gán cho cá nhân.","D2,D3",source-grounded
+DiagnosticPerformanceStatistic,AggregateStatistic,aggregate,Sensitivity/specificity hoặc bảng đồng thuận; giữ reference standard.,"D2,D3",source-grounded
+SourceAsset,Entity,provenance,"File hoặc phiên bản nguồn, URI/checksum/license/retrieval status.","D1,D2,D3,D4,D5",source-grounded
+DataMatrix,SourceAsset,provenance,"Ma trận có hướng hàng/cột, namespace feature và modality.","D1,D4",source-grounded
+SourceLocator,Entity,provenance,"Vị trí chính xác: sheet/row/column, XML ID/XPath hoặc trang PDF đã xác minh.","D1,D2,D3,D4,D5",source-grounded
+Assertion,Entity,provenance,Phát biểu có subject/predicate/object hoặc literal và nguồn; dùng truy vết từng thuộc tính/cạnh.,design,design
+Identifier,Entity,provenance,Mã external có namespace; BioSample/run/PMCID là các namespace khác nhau.,"D1,D2,D3,D4,D5",source-grounded
+LinkageRecord,Entity,provenance,Liên kết ứng viên giữa hai entity với trạng thái verified/unresolved/conflict.,"D2,D3,D4",design
+Document,SourceAsset,evidence,Bài báo/tài liệu có định danh và nội dung theo phiên bản.,D5,source-grounded
+DocumentSection,Entity,evidence,Section của tài liệu: methods/results/...; giữ nhãn nguồn.,D5,source-grounded
+EvidenceUnit,Entity,evidence,"Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim.",D5,source-grounded
+TextEvidence,EvidenceUnit,evidence,Đoạn văn có vị trí trong phiên bản tài liệu.,D5,source-grounded
+TableEvidence,EvidenceUnit,evidence,Bảng hoặc vùng ô; có header và phạm vi.,D5,source-grounded
+FigureEvidence,EvidenceUnit,evidence,Hình/caption; chưa đồng nghĩa đã extract giá trị ảnh.,D5,source-grounded
+Claim,Entity,evidence,"Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn.",D5,design
+Hypothesis,Claim,evidence,Giả thuyết của bài; không phải fact được xác nhận.,D5,design
+MethodClaim,Claim,evidence,Phát biểu về phương pháp nghiên cứu.,D5,design
+FindingClaim,Claim,evidence,Phát biểu về kết quả nghiên cứu.,D5,design
+Citation,Entity,citation,"Record trích dẫn có paper nguồn, reference text và target nếu resolve được.",D5,source-grounded
+PaperConceptLink,Entity,citation,"Mapping N–N paper/concept, relevance và nguồn; không đồng nghĩa citation.",Zoom,design
+EvidenceLink,Entity,evidence,Mapping claim/evidence với role supports/contradicts/contextualizes.,Zoom,design

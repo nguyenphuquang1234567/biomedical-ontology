@@ -1,32 +1,55 @@
 {
-  "date": "2026-10-20",
-  "classes": 75,
-  "object_properties": 41,
-  "datatype_properties": 56,
-  "field_mapping_rows": 255,
-  "retained_raw_fields": 90,
-  "ontology_triples": 893,
-  "instance_triples": 78,
-  "checks": {
-    "ontology_jsonld_turtle_isomorphic": true,
-    "examples_jsonld_turtle_isomorphic": true,
-    "catalog_and_example_references_valid": true,
-    "dryad_row4_count_rechecked": true,
-    "patient10_ttv_and_table2_rechecked": true,
-    "no_invented_assessment_result_edge": true,
-    "example_object_property_domains_ranges_valid": true
-  },
-  "not_tested": [
-    "OWL reasoning",
-    "full SHACL/cardinality validation",
-    "full ETL",
-    "automatic biomedical term equivalence"
+  "date": "2026-10-27",
+  "base_version": "0.2.0-draft",
+  "new_version": "0.3.0-draft",
+  "new_classes": 11,
+  "new_object_properties": 14,
+  "new_attributes": 28,
+  "total_classes": 86,
+  "source_fields": 64,
+  "previous_partial_gap_fields": 35,
+  "previous_partial_gap_without_resolution": 0,
+  "mapped_awards": 687,
+  "mapped_funding_records": 2426,
+  "mapped_patents": 72,
+  "grant_documents": 2426,
+  "metadata_triples": 309927,
+  "data_quality_issues": [
+    {
+      "source": "Z01BK003018",
+      "field": "org_name",
+      "reason": "Location present but organization name missing; do not assert a recipient organization."
+    },
+    {
+      "source": "Z01BK003023",
+      "field": "org_name",
+      "reason": "Location present but organization name missing; do not assert a recipient organization."
+    },
+    {
+      "source": "Z01BM002007",
+      "field": "org_name",
+      "reason": "Location present but organization name missing; do not assert a recipient organization."
+    },
+    {
+      "source": "Z01BM002009",
+      "field": "org_name",
+      "reason": "Location present but organization name missing; do not assert a recipient organization."
+    }
   ],
-  "query_result_counts": {
-    "gene_count": 1,
-    "assessment_and_detection_same_patient": 1,
-    "assertion_evidence": 1,
-    "paper_concept_future": 0,
-    "claim_evidence_future": 0
-  }
+  "checks": [
+    "RDF terms declared",
+    "JSON-LD/Turtle isomorphic",
+    "2426 funding-to-award joins verified by SPARQL",
+    "No inferred currency, patient or scientific Claim",
+    "Original v2 ontology preserved"
+  ],
+  "remaining_semantic_limits": [
+    "Taxon identifier namespace unverified",
+    "Generic patent date meaning unverified",
+    "Currency and additive funding scope not provided",
+    "Person and organization identity not globally resolved",
+    "No full-text claim/hypothesis/discovery extraction",
+    "No OWL reasoner or complete SHACL audit"
+  ],
+  "publication_scope": "Ontology and mapping review only. Full CSV inputs and imported metadata graphs are not published."
 }

@@ -1,57 +1,85 @@
-attribute_id,datatype,applies_to,description_vi
-label,string,Entity,Tên gốc/nhãn dễ đọc
-sourcePatientId,string,Patient,Mã người trong study; khóa logic study+sourcePatientId
-age,decimal,Patient,Tuổi như nguồn; lưu tuổi cùng thời điểm nếu có
-sex,string,Patient,Giá trị giới nguyên gốc
-description,string,Entity,Nội dung mô tả nguồn
-sourceUrl,anyURI,"SourceAsset,Study",Link nguồn
-localPath,string,SourceAsset,Đường dẫn file bản cục bộ
-namespace,string,"Identifier,Feature",Namespace mã
-accession,string,Identifier,Accession nguyên gốc
-taxonRank,string,Organism,Genus/species/unknown; không ép rank
-modality,string,"Test,DataMatrix",DNA/RNA/unknown theo nguồn
-platform,string,"Test,SequencingRun",Tên platform theo từng nguồn; giữ conflict
+attribute_id,datatype,applies_to,description_en
+label,string,Entity,Original name or readable label
+sourcePatientId,string,Patient,Person's identifier within a study; logical key is study plus sourcePatientId
+age,decimal,Patient,Age as reported; retain the reference time when available
+sex,string,Patient,Original reported sex value
+description,string,Entity,Description from the source
+sourceUrl,anyURI,"SourceAsset,Study",Source URL
+localPath,string,SourceAsset,Local file path
+namespace,string,"Identifier,Feature",Identifier namespace
+accession,string,Identifier,Original accession
+taxonRank,string,Organism,"Genus, species, or unknown; do not force a taxonomic rank"
+modality,string,"Test,DataMatrix","DNA, RNA, or unknown as reported"
+platform,string,"Test,SequencingRun",Platform name from each source; retain conflicts
 libraryLayout,string,SequencingRun,SINGLE/PAIRED theo RunInfo
 librarySource,string,SequencingRun,METAGENOMIC/METATRANSCRIPTOMIC...
-numericValue,double,"Result,AggregateStatistic",Giá trị số; không tự đổi unit hoặc missing thành zero
-textValue,string,Result,Giá trị chữ nguyên gốc
-unit,string,"Result,AggregateStatistic",Đơn vị nguồn; unknown khi chưa xác minh
+numericValue,double,"Result,AggregateStatistic",Numeric value; do not silently change units or replace missing values with zero
+textValue,string,Result,Original text value
+unit,string,"Result,AggregateStatistic",Source unit; unknown if unverified
 measurementType,string,Result,read_count/gene_count/coverage/abundance/score/...
-resultStatus,string,Result,detected/negative/not_performed/not_collected/not_reported/unknown; zero là giá trị riêng
-infectionStatus,string,ClinicalAssessment,infectious/noninfectious/unknown/mixed theo adjudication nguồn
-certainty,string,"ClinicalAssessment,Claim",Độ chắc chắn nguồn; không phải extraction confidence
-assessmentStage,string,ClinicalAssessment,initial/interim/final/unknown; chỉ gán nếu xác minh
-assessmentMethod,string,ClinicalAssessment,Clinician review/reference criteria theo nguồn
-diagnosticClassification,string,ClinicalAssessment,True-negative/false-negative/... theo reference được báo cáo
-startTime,dateTime,"ClinicalEvent,Test,InfectionEpisode",Thời điểm bắt đầu nếu có đủ độ chính xác
-endTime,dateTime,"ClinicalEvent,Test,InfectionEpisode",Thời điểm kết thúc
-eventTime,dateTime,"Result,ClinicalAssessment",Thời điểm kết quả/đánh giá nếu biết
-collectionTime,dateTime,Specimen,Ngày giờ lấy mẫu nếu có
-rawTime,string,Entity,Ngày/khoảng thời gian nguyên văn khi chưa đủ để ép DateTime
+resultStatus,string,Result,"Detected, negative, not_performed, not_collected, not_reported, or unknown; numeric zero is separate"
+infectionStatus,string,ClinicalAssessment,"Infectious, noninfectious, unknown, or mixed according to source adjudication"
+certainty,string,"ClinicalAssessment,Claim",Certainty expressed in the source; distinct from extraction confidence
+assessmentStage,string,ClinicalAssessment,"Initial, interim, final, or unknown; assign only when verified"
+assessmentMethod,string,ClinicalAssessment,Clinician review or reference criteria as described in the source
+diagnosticClassification,string,ClinicalAssessment,"True-negative, false-negative, or other classification against the reported reference"
+startTime,dateTime,"ClinicalEvent,Test,InfectionEpisode",Start time when its precision is sufficient
+endTime,dateTime,"ClinicalEvent,Test,InfectionEpisode",End time
+eventTime,dateTime,"Result,ClinicalAssessment","Time of the result or assessment, if known"
+collectionTime,dateTime,Specimen,"Specimen collection date and time, if available"
+rawTime,string,Entity,Original date or time interval when insufficient for conversion to DateTime
 dateStatus,string,Entity,original/shifted/generalized/relative/unknown
-isControl,boolean,Specimen,true/false chỉ khi xác minh; không có thuộc tính là chưa rõ
-controlRole,string,"CohortGroup,Specimen",Vai trò control theo nguồn
+isControl,boolean,Specimen,True or false only when verified; absence of this attribute means unknown
+controlRole,string,"CohortGroup,Specimen",Control role as reported
 fileFormat,string,SourceAsset,CSV/XLSX/JATS/BioC/ZIP/...
-checksum,string,SourceAsset,SHA256 của file thực tế
-version,string,"SourceAsset,ProcessingPipeline",Phiên bản
-license,string,SourceAsset,License được ghi nhận; không đoán
+checksum,string,SourceAsset,SHA256 checksum of the actual file
+version,string,"SourceAsset,ProcessingPipeline",Version
+license,string,SourceAsset,Recorded license; do not guess
 retrievalStatus,string,SourceAsset,available/blocked/unusable/unknown
-retrievedAt,dateTime,SourceAsset,Thời gian lấy file nếu biết
-locator,string,SourceLocator,Sheet/row/column hoặc XML ID/XPath; không coi BioC offset là PDF page
-rawText,string,"SourceLocator,EvidenceUnit,Claim",Nguyên văn
-predicateIri,anyURI,Assertion,IRI predicate được phát biểu; không phải một class disease
-literalValue,string,Assertion,Literal nguyên gốc của phát biểu nếu không có assertionObject
-mappingStatus,string,Entity,verified/unresolved/conflict/unmapped; không tự tạo equivalence
+retrievedAt,dateTime,SourceAsset,"File retrieval time, if known"
+locator,string,SourceLocator,"Sheet, row, column, XML ID, or XPath; BioC offsets are not PDF page numbers"
+rawText,string,"SourceLocator,EvidenceUnit,Claim",Original text
+predicateIri,anyURI,Assertion,IRI of the asserted predicate; not a disease class
+literalValue,string,Assertion,Original literal value when no assertionObject is provided
+mappingStatus,string,Entity,"Verified, unresolved, conflict, or unmapped; do not automatically assert equivalence"
 extractionStatus,string,Entity,human_verified/auto_extracted/review_required/template
-extractionConfidence,double,"Assertion,PaperConceptLink",Độ tin cậy extraction nếu đo được; không bịa score
+extractionConfidence,double,"Assertion,PaperConceptLink","Extraction confidence, if measured; do not invent scores"
 evidenceRole,string,EvidenceLink,supports/contradicts/contextualizes
-referenceText,string,Citation,Reference nguyên văn khi chưa resolve
-relevanceReason,string,PaperConceptLink,Lý do paper liên quan concept; không phải citation
-denominator,integer,AggregateStatistic,Mẫu số thống kê
-sampleSize,integer,"AggregateStatistic,CohortGroup",Số người/mẫu với counting unit
+referenceText,string,Citation,Original reference text when unresolved
+relevanceReason,string,PaperConceptLink,Reason a paper is relevant to a concept; distinct from citation
+denominator,integer,AggregateStatistic,Statistic denominator
+sampleSize,integer,"AggregateStatistic,CohortGroup","Number of people or samples, with the counting unit"
 countingUnit,string,"AggregateStatistic,CohortGroup",patient/specimen/run/...
-rowAxis,string,DataMatrix,Ý nghĩa rows
-columnAxis,string,DataMatrix,Ý nghĩa columns
+rowAxis,string,DataMatrix,Meaning of matrix rows
+columnAxis,string,DataMatrix,Meaning of matrix columns
 referenceBuild,string,ProcessingPipeline,Genome/annotation build
-software,string,ProcessingPipeline,Phần mềm và version
-metadataJson,string,Entity,JSON nguyên bản cho các metadata chưa chuẩn hóa; không coi là ontology đã giải nghĩa
+software,string,ProcessingPipeline,Software and version
+metadataJson,string,Entity,Original JSON for metadata not yet normalized; does not imply that its meaning has been modeled
+activityCode,string,GrantAward,Reported grant activity code.
+instituteCode,string,Organization,Reported administering institute code; namespace retained in Identifier.
+city,string,Location,Reported city.
+state,string,Location,Reported state; not geocoded.
+country,string,Location,Reported country; not inferred from other fields.
+projectStartDate,date,GrantAward,Source project start date at date precision.
+projectEndDate,date,GrantAward,Source project end date at date precision.
+fiscalYear,gYear,GrantFundingRecord,Source fiscal year; not publication year.
+awardAmount,decimal,GrantFundingRecord,"Reported monetary amount, with unknown currency and additive scope unless verified separately."
+awardCurrency,string,GrantFundingRecord,Only populated when a currency is established by a source; absent here.
+awardNoticeDate,date,GrantFundingRecord,Reported notice date; not retrieval time.
+abstractText,string,GrantDocument,"Original abstract text, not an extracted Claim or full grant document."
+filingDate,date,Patent,Source-reported filing date.
+reportedDate,date,Patent,Value of generic date field; its meaning is explicitly unverified.
+reportedDateMeaning,string,Patent,Explicit semantic status of the generic date field.
+pageCount,integer,Patent,Source page count; not patient sample size.
+classificationScheme,string,ClassificationCode,Reported classification scheme.
+classificationSourceField,string,ClassificationCode,CPCI or CPCA as reported; their detailed meanings are not inferred.
+queryTerm,string,RetrievalMatch,Original search term.
+classificationFilter,string,RetrievalMatch,"CPC search filter, distinct from assigned classification."
+matchMethod,string,RetrievalMatch,Reported matching method.
+retrievalRelation,string,RetrievalMatch,Reported related label; not supports or a causal relation.
+retrievalSource,string,RetrievalMatch,Source of the retrieval metadata.
+referenceNamespaceStatus,string,TaxonReference,Verification status of the source identifier namespace; no namespace is inferred.
+reportedIdentifiers,string,TaxonReference,"Original identifier text, including pipe-separated lists; namespace remains unverified."
+reportedNames,string,TaxonReference,Original taxon keyword text; no forced pairing or normalized equivalence.
+nameResolutionStatus,string,PartyMention,"reported_only, placeholder, or incomplete_list; no global identity assertion."
+classificationCode,string,ClassificationCode,Original reported classification code.

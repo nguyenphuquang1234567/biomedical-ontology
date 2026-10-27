@@ -1,0 +1,2 @@
+PREFIX pilot: <https://example.org/nih-pilot/ontology/>
+SELECT ?patient ?feature ?value WHERE { ?r a pilot:GeneCountResult; pilot:resultFor ?patient; pilot:measures ?feature; pilot:numericValue ?value. }

@@ -1,0 +1,13 @@
+flowchart LR
+  Document -->|contains| DocumentSection
+  DocumentSection -->|contains| EvidenceUnit
+  EvidenceUnit -->|subtype| TextEvidence
+  EvidenceUnit -->|subtype| TableEvidence
+  EvidenceUnit -->|subtype| FigureEvidence
+  Claim -->|stated in| Document
+  EvidenceLink -->|claim| Claim
+  EvidenceLink -->|evidence and role| EvidenceUnit
+  Citation -->|citing paper| Document
+  Citation -->|cited paper, if resolved| CitedDocument[Document]
+  PaperConceptLink -->|paper| Document
+  PaperConceptLink -->|relevant to| OntologyConcept[Ontology class or concept]

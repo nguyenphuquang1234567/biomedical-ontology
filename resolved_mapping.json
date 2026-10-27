@@ -1,0 +1,1619 @@
+{
+  "mapping": [
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "award_key",
+      "existing_classes": [
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "accession",
+        "namespace",
+        "hasIdentifier"
+      ],
+      "real_example": "261200800001E",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "Keep each identifier in its own source namespace. Grant ownership and the grant entity type are not modeled yet; do not equate the two identifiers or assign them to Study automatically.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantAward",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "IDs attach to GrantAward, in distinct source namespaces; core_project_num is not treated as unique award identity.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "core_project_num",
+      "existing_classes": [
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "accession",
+        "namespace",
+        "hasIdentifier"
+      ],
+      "real_example": "26120080000",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "Keep each identifier in its own source namespace. Grant ownership and the grant entity type are not modeled yet; do not equate the two identifiers or assign them to Study automatically.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantAward",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "IDs attach to GrantAward, in distinct source namespaces; core_project_num is not treated as unique award identity.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "project_title",
+      "existing_classes": [
+        "Entity"
+      ],
+      "existing_attributes_or_relations": [
+        "label"
+      ],
+      "real_example": "Vaccine and Therapeutics Development:",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "The label attribute is reusable, but Entity alone does not identify a grant project. Preserve the title; a suitable grant entity type needs agreement.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantAward"
+      ],
+      "terms": [
+        "label"
+      ],
+      "resolution": "Title is the label of the grant award record.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "activity_code",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "N01",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "No grant activity/program property exists. Retain the original code; do not treat it as a clinical event type.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantAward"
+      ],
+      "terms": [
+        "activityCode"
+      ],
+      "resolution": "Grant activity code, separate from clinical event type.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "admin_ic_code",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "CA",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "No administering institute role exists. Identifier/label storage alone would not express which institute administers the grant.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantAward",
+        "Organization"
+      ],
+      "terms": [
+        "administeredBy",
+        "instituteCode",
+        "label"
+      ],
+      "resolution": "Administering organization is distinct from recipient.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "admin_ic_name",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "NCI",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "No administering institute role exists. Identifier/label storage alone would not express which institute administers the grant.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantAward",
+        "Organization"
+      ],
+      "terms": [
+        "administeredBy",
+        "instituteCode",
+        "label"
+      ],
+      "resolution": "Administering organization is distinct from recipient.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "org_name",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "LEIDOS BIOMEDICAL RESEARCH, INC.",
+      "nonempty_rows": 683,
+      "total_rows": 687,
+      "interpretation": "No Organization class or recipient-organization relationship exists. Do not store the organization as a Patient or infer its role beyond the source.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantAward",
+        "Organization"
+      ],
+      "terms": [
+        "recipientOrganization",
+        "label"
+      ],
+      "resolution": "Organization name from this award; no cross-record identity equivalence.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "org_city",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "FREDERICK",
+      "nonempty_rows": 583,
+      "total_rows": 687,
+      "interpretation": "No structured organization-location model exists. These locate the organization, not necessarily the research site or participant residence.",
+      "previous_status": "GAP",
+      "classes": [
+        "Organization",
+        "Location"
+      ],
+      "terms": [
+        "organizationLocation",
+        "city",
+        "state",
+        "country"
+      ],
+      "resolution": "Organization address only; missing recipient name leaves the organization link unasserted.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "org_state",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "MD",
+      "nonempty_rows": 574,
+      "total_rows": 687,
+      "interpretation": "No structured organization-location model exists. These locate the organization, not necessarily the research site or participant residence.",
+      "previous_status": "GAP",
+      "classes": [
+        "Organization",
+        "Location"
+      ],
+      "terms": [
+        "organizationLocation",
+        "city",
+        "state",
+        "country"
+      ],
+      "resolution": "Organization address only; missing recipient name leaves the organization link unasserted.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "org_country",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "UNITED STATES",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "No structured organization-location model exists. These locate the organization, not necessarily the research site or participant residence.",
+      "previous_status": "GAP",
+      "classes": [
+        "Organization",
+        "Location"
+      ],
+      "terms": [
+        "organizationLocation",
+        "city",
+        "state",
+        "country"
+      ],
+      "resolution": "Organization address only; missing recipient name leaves the organization link unasserted.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "contact_pi_name",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "TBD, TBD",
+      "nonempty_rows": 675,
+      "total_rows": 687,
+      "interpretation": "No investigator Person class or principal-investigator relationship exists. A principal investigator is not a Patient. Preserve TBD and multi-part names as source values.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantAward",
+        "PersonNameMention"
+      ],
+      "terms": [
+        "contactPIMention",
+        "label",
+        "nameResolutionStatus"
+      ],
+      "resolution": "Stores the reported PI name in its proper role; not a Patient or verified person identity.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "project_start_date",
+      "existing_classes": [
+        "Entity"
+      ],
+      "existing_attributes_or_relations": [
+        "rawTime",
+        "metadataJson"
+      ],
+      "real_example": "2008-09-26",
+      "nonempty_rows": 581,
+      "total_rows": 687,
+      "interpretation": "rawTime can retain the date text, but startTime/endTime are currently assigned to ClinicalEvent/Test/InfectionEpisode, not grants. Preserve start/end roles in raw metadata; do not invent time-of-day.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantAward"
+      ],
+      "terms": [
+        "projectStartDate",
+        "projectEndDate"
+      ],
+      "resolution": "Date-specific grant properties; no invented time or timezone.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "project_end_date",
+      "existing_classes": [
+        "Entity"
+      ],
+      "existing_attributes_or_relations": [
+        "rawTime",
+        "metadataJson"
+      ],
+      "real_example": "2018-09-25",
+      "nonempty_rows": 581,
+      "total_rows": 687,
+      "interpretation": "rawTime can retain the date text, but startTime/endTime are currently assigned to ClinicalEvent/Test/InfectionEpisode, not grants. Preserve start/end roles in raw metadata; do not invent time-of-day.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantAward"
+      ],
+      "terms": [
+        "projectStartDate",
+        "projectEndDate"
+      ],
+      "resolution": "Date-specific grant properties; no invented time or timezone.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_award.csv",
+      "source_field": "relevance_tier",
+      "existing_classes": [
+        "Entity"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "strong",
+      "nonempty_rows": 687,
+      "total_rows": 687,
+      "interpretation": "Preserve the source relevance label with the source record. It is neither clinical certainty nor a measured extraction-confidence score.",
+      "previous_status": "RETAIN_RAW",
+      "new_status": "RETAIN_RAW",
+      "classes": [
+        "Entity"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Preserve the source relevance label with the source record. It is neither clinical certainty nor a measured extraction-confidence score."
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "appl_id",
+      "existing_classes": [
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "namespace",
+        "accession",
+        "hasIdentifier"
+      ],
+      "real_example": "2003113",
+      "nonempty_rows": 2426,
+      "total_rows": 2426,
+      "interpretation": "Identifier mechanics exist, but grant/funding record types and their relationships are missing. appl_id is a row key in this input. Blank subproject_id does not imply zero.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantFundingRecord",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Application/funding identifiers; optional subproject ID stays absent when blank.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "award_key",
+      "existing_classes": [
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "namespace",
+        "accession",
+        "hasIdentifier"
+      ],
+      "real_example": "F32AI009866",
+      "nonempty_rows": 2426,
+      "total_rows": 2426,
+      "interpretation": "Identifier mechanics exist, but grant/funding record types and their relationships are missing. appl_id is a row key in this input. Blank subproject_id does not imply zero.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantFundingRecord",
+        "GrantAward"
+      ],
+      "terms": [
+        "fundingFor"
+      ],
+      "resolution": "Exact validated foreign key to the award; one funding record points to one award.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "fiscal_year",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "1997",
+      "nonempty_rows": 2426,
+      "total_rows": 2426,
+      "interpretation": "No fiscal-year property for funding records exists. A fiscal year is not a publication year, patient age, or exact event date.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantFundingRecord"
+      ],
+      "terms": [
+        "fiscalYear"
+      ],
+      "resolution": "Explicit fiscal year, not publication year.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "project_num",
+      "existing_classes": [
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "namespace",
+        "accession",
+        "hasIdentifier"
+      ],
+      "real_example": "1F32AI009866-01",
+      "nonempty_rows": 2426,
+      "total_rows": 2426,
+      "interpretation": "Identifier mechanics exist, but grant/funding record types and their relationships are missing. appl_id is a row key in this input. Blank subproject_id does not imply zero.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantFundingRecord",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Application/funding identifiers; optional subproject ID stays absent when blank.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "subproject_id",
+      "existing_classes": [
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "namespace",
+        "accession",
+        "hasIdentifier"
+      ],
+      "real_example": "0002",
+      "nonempty_rows": 451,
+      "total_rows": 2426,
+      "interpretation": "Identifier mechanics exist, but grant/funding record types and their relationships are missing. appl_id is a row key in this input. Blank subproject_id does not imply zero.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantFundingRecord",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Application/funding identifiers; optional subproject ID stays absent when blank.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "project_title",
+      "existing_classes": [
+        "Entity"
+      ],
+      "existing_attributes_or_relations": [
+        "label"
+      ],
+      "real_example": "GP125 AND EBOLA VIRUS PATHOGENESIS",
+      "nonempty_rows": 2426,
+      "total_rows": 2426,
+      "interpretation": "Reusable label, but the grant/funding owner must be defined. Do not create a separate Study from each annual funding row.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantFundingRecord",
+        "GrantDocument"
+      ],
+      "terms": [
+        "label"
+      ],
+      "resolution": "Preserve the source title without creating a new clinical Study.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "abstract_text",
+      "existing_classes": [
+        "SourceAsset",
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "locatedIn",
+        "rawText",
+        "recordedAt"
+      ],
+      "real_example": "This program project combines contemporary immunologic and epidemiologic\napproaches to study the pathogenesis and natural history of three\nemerging viruses: Lassa fever virus, Ebola virus and Sin Nombre virus.\nIn Project 1 the identity of p…",
+      "nonempty_rows": 2357,
+      "total_rows": 2426,
+      "interpretation": "Store the exact CSV cell as source text with row/column provenance. EvidenceUnit/TextEvidence additionally require a documented Document association via evidenceIn; do not assume the CSV contains full grant text or extracted claims.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantDocument"
+      ],
+      "terms": [
+        "abstractText",
+        "documentForFunding",
+        "recordedAt"
+      ],
+      "resolution": "Grant abstract linked to the funding/application record, with original CSV provenance. Not a Claim or full-text grant.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "award_amount",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "25420",
+      "nonempty_rows": 2376,
+      "total_rows": 2426,
+      "interpretation": "No financial award amount property or funding entity exists. Do not map money to Result.numericValue or AggregateStatistic. Currency and additive scope are not established by the CSV; do not sum rows as total project funding.",
+      "previous_status": "GAP",
+      "classes": [
+        "GrantFundingRecord"
+      ],
+      "terms": [
+        "awardAmount",
+        "awardCurrency"
+      ],
+      "resolution": "Decimal amount; currency remains absent because it is not established. No additive total is inferred.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "award_notice_date",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "rawText",
+        "locator"
+      ],
+      "real_example": "1997-09-30",
+      "nonempty_rows": 1890,
+      "total_rows": 2426,
+      "interpretation": "Preserve the notice date as source text. There is no notice-date predicate; do not map it to collectionTime or retrievedAt.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "GrantFundingRecord"
+      ],
+      "terms": [
+        "awardNoticeDate"
+      ],
+      "resolution": "Notice date kept distinct from project start or retrieval date.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "stg_grant_funding.csv",
+      "source_field": "project_detail_url",
+      "existing_classes": [
+        "SourceAsset"
+      ],
+      "existing_attributes_or_relations": [
+        "sourceUrl"
+      ],
+      "real_example": "https://reporter.nih.gov/project-details/2003113",
+      "nonempty_rows": 2426,
+      "total_rows": 2426,
+      "interpretation": "The project-detail page URL can be recorded as SourceAsset.sourceUrl. This does not mean the page was fetched or that a Grant class has been mapped.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "GrantDocument"
+      ],
+      "terms": [
+        "sourceUrl"
+      ],
+      "resolution": "Portal page URL attached to the grant document; no retrieval claim.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "evidence_id",
+      "existing_classes": [
+        "SourceLocator",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "real_example": "PATENT_0001",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Identifier of the input matching/evidence row, not an extracted scientific claim. Attach to its source-row locator, separately from patent_id.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "RetrievalMatch",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Matching-row identifier belongs to RetrievalMatch, not scientific EvidenceUnit.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "source_type",
+      "existing_classes": [
+        "Document"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "patent",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Preserve patent as source metadata on a Document. There is no Patent subclass in the current ontology; do not invent one silently.",
+      "previous_status": "RETAIN_RAW",
+      "classes": [
+        "Patent"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "The record is explicitly typed as Patent, subclass of Document; retain source_type too.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "patent_id",
+      "existing_classes": [
+        "Document",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "real_example": "US 11197910 B1",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Represent the patent as a Document with separately namespaced identifiers. Preserve publication, application, and family roles; family ID alone does not establish a family-membership edge or same-document identity.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "Patent",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Publication/application/family IDs stay separate; no sameAs inference.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "title",
+      "existing_classes": [
+        "Document"
+      ],
+      "existing_attributes_or_relations": [
+        "label"
+      ],
+      "real_example": "Fusion proteins for the diagnosis, prophylaxis and treatment of infectious diseases",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Map the patent title to Document.label. Document is defined as a paper/document; no Patent class is being added.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "Patent"
+      ],
+      "terms": [
+        "label",
+        "sourceUrl"
+      ],
+      "resolution": "Uses inherited Document/SourceAsset attributes.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "date",
+      "existing_classes": [
+        "Document"
+      ],
+      "existing_attributes_or_relations": [
+        "rawTime",
+        "metadataJson"
+      ],
+      "real_example": "2021-12-14",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Keep original dates and field roles. A single generic rawTime does not express publication versus filing; the meaning of date needs source confirmation. Do not invent dateTime precision.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "Patent"
+      ],
+      "terms": [
+        "reportedDate",
+        "reportedDateMeaning"
+      ],
+      "resolution": "Retains a source-reported date; its publication/issue meaning remains unverified rather than guessed.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "url",
+      "existing_classes": [
+        "Document"
+      ],
+      "existing_attributes_or_relations": [
+        "sourceUrl"
+      ],
+      "real_example": "https://patents.google.com/patent/US11197910B1",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Document inherits SourceAsset.sourceUrl. A URL in the CSV is not evidence that full text has been downloaded.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "Patent"
+      ],
+      "terms": [
+        "label",
+        "sourceUrl"
+      ],
+      "resolution": "Uses inherited Document/SourceAsset attributes.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "family_id",
+      "existing_classes": [
+        "Document",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "real_example": "78828615",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Represent the patent as a Document with separately namespaced identifiers. Preserve publication, application, and family roles; family ID alone does not establish a family-membership edge or same-document identity.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "Patent",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Publication/application/family IDs stay separate; no sameAs inference.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "application_number",
+      "existing_classes": [
+        "Document",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "real_example": "16/997639",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Represent the patent as a Document with separately namespaced identifiers. Preserve publication, application, and family roles; family ID alone does not establish a family-membership edge or same-document identity.",
+      "previous_status": "DIRECT",
+      "classes": [
+        "Patent",
+        "Identifier"
+      ],
+      "terms": [
+        "hasIdentifier",
+        "namespace",
+        "accession"
+      ],
+      "resolution": "Publication/application/family IDs stay separate; no sameAs inference.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "filing_date",
+      "existing_classes": [
+        "Document"
+      ],
+      "existing_attributes_or_relations": [
+        "rawTime",
+        "metadataJson"
+      ],
+      "real_example": "2020-08-19",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Keep original dates and field roles. A single generic rawTime does not express publication versus filing; the meaning of date needs source confirmation. Do not invent dateTime precision.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "Patent"
+      ],
+      "terms": [
+        "filingDate"
+      ],
+      "resolution": "Filing date is modeled separately.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "inventor",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "Ahmed; Mahiuddin et al.",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "No inventor Person class or inventedBy role exists. Do not map inventor to Patient or paper author; et al. means the name list may be incomplete.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "PersonNameMention"
+      ],
+      "terms": [
+        "inventorMention",
+        "label",
+        "nameResolutionStatus"
+      ],
+      "resolution": "Preserve inventor text including et al.; do not fabricate a complete inventor list.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "assignee",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "VITRUVIAE LLC",
+      "nonempty_rows": 31,
+      "total_rows": 72,
+      "interpretation": "No assignee/applicant organization or person role exists. These roles differ and must not be merged or substituted when one cell is blank.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "PartyMention"
+      ],
+      "terms": [
+        "assigneeMention",
+        "label"
+      ],
+      "resolution": "Assignee mention; does not assume organization versus individual.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "matched_entity_type",
+      "existing_classes": [
+        "LinkageRecord",
+        "Organism",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "linkFrom",
+        "linkTo",
+        "mappingStatus",
+        "metadataJson"
+      ],
+      "real_example": "taxon",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Can describe a candidate document-to-organism link after verifying the taxon identifier namespace and multi-value alignment. Type taxon alone does not establish NCBI Taxonomy. No confirmed concept edge is created now.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "RetrievalMatch",
+        "TaxonReference"
+      ],
+      "terms": [
+        "matchedTaxonReference",
+        "reportedIdentifiers",
+        "reportedNames",
+        "referenceNamespaceStatus",
+        "mappingStatus"
+      ],
+      "resolution": "Source taxon reference remains unverified. Combined ID/name strings are preserved without forced pairing or organism identity.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "matched_entity_id",
+      "existing_classes": [
+        "LinkageRecord",
+        "Organism",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "linkFrom",
+        "linkTo",
+        "mappingStatus",
+        "metadataJson"
+      ],
+      "real_example": "3052462",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Can describe a candidate document-to-organism link after verifying the taxon identifier namespace and multi-value alignment. Type taxon alone does not establish NCBI Taxonomy. No confirmed concept edge is created now.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "RetrievalMatch",
+        "TaxonReference"
+      ],
+      "terms": [
+        "matchedTaxonReference",
+        "reportedIdentifiers",
+        "reportedNames",
+        "referenceNamespaceStatus",
+        "mappingStatus"
+      ],
+      "resolution": "Source taxon reference remains unverified. Combined ID/name strings are preserved without forced pairing or organism identity.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "matched_keyword",
+      "existing_classes": [
+        "LinkageRecord",
+        "Organism",
+        "Identifier"
+      ],
+      "existing_attributes_or_relations": [
+        "linkFrom",
+        "linkTo",
+        "mappingStatus",
+        "metadataJson"
+      ],
+      "real_example": "Ebola virus",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Can describe a candidate document-to-organism link after verifying the taxon identifier namespace and multi-value alignment. Type taxon alone does not establish NCBI Taxonomy. No confirmed concept edge is created now.",
+      "previous_status": "PARTIAL",
+      "classes": [
+        "RetrievalMatch",
+        "TaxonReference"
+      ],
+      "terms": [
+        "matchedTaxonReference",
+        "reportedIdentifiers",
+        "reportedNames",
+        "referenceNamespaceStatus",
+        "mappingStatus"
+      ],
+      "resolution": "Source taxon reference remains unverified. Combined ID/name strings are preserved without forced pairing or organism identity.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "query_term",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "Ebola",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain retrieval/matching provenance. related is search relevance, not supports/contradicts. Do not use PaperConceptLink because the source is a patent, or EvidenceLink because no Claim was extracted. cpc_filter is a search constraint, not proof of a document classification.",
+      "previous_status": "RETAIN_RAW",
+      "classes": [
+        "RetrievalMatch"
+      ],
+      "terms": [
+        "queryTerm",
+        "classificationFilter",
+        "matchMethod",
+        "retrievalRelation",
+        "retrievalSource"
+      ],
+      "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "cpc_filter",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "A61K39/12",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain retrieval/matching provenance. related is search relevance, not supports/contradicts. Do not use PaperConceptLink because the source is a patent, or EvidenceLink because no Claim was extracted. cpc_filter is a search constraint, not proof of a document classification.",
+      "previous_status": "RETAIN_RAW",
+      "classes": [
+        "RetrievalMatch"
+      ],
+      "terms": [
+        "queryTerm",
+        "classificationFilter",
+        "matchMethod",
+        "retrievalRelation",
+        "retrievalSource"
+      ],
+      "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "match_method",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "abstract keyword + CPC filter",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain retrieval/matching provenance. related is search relevance, not supports/contradicts. Do not use PaperConceptLink because the source is a patent, or EvidenceLink because no Claim was extracted. cpc_filter is a search constraint, not proof of a document classification.",
+      "previous_status": "RETAIN_RAW",
+      "classes": [
+        "RetrievalMatch"
+      ],
+      "terms": [
+        "queryTerm",
+        "classificationFilter",
+        "matchMethod",
+        "retrievalRelation",
+        "retrievalSource"
+      ],
+      "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "relation",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "related",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain retrieval/matching provenance. related is search relevance, not supports/contradicts. Do not use PaperConceptLink because the source is a patent, or EvidenceLink because no Claim was extracted. cpc_filter is a search constraint, not proof of a document classification.",
+      "previous_status": "RETAIN_RAW",
+      "classes": [
+        "RetrievalMatch"
+      ],
+      "terms": [
+        "queryTerm",
+        "classificationFilter",
+        "matchMethod",
+        "retrievalRelation",
+        "retrievalSource"
+      ],
+      "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "source",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "USPTO Patent Public Search",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain retrieval/matching provenance. related is search relevance, not supports/contradicts. Do not use PaperConceptLink because the source is a patent, or EvidenceLink because no Claim was extracted. cpc_filter is a search constraint, not proof of a document classification.",
+      "previous_status": "RETAIN_RAW",
+      "classes": [
+        "RetrievalMatch"
+      ],
+      "terms": [
+        "queryTerm",
+        "classificationFilter",
+        "matchMethod",
+        "retrievalRelation",
+        "retrievalSource"
+      ],
+      "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Select",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "checked",
+      "nonempty_rows": 4,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "+",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "1.0",
+      "nonempty_rows": 50,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Result #",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "5",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "X",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "1",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "2",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "3",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "4",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "5",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Pages",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "68",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "No document page-count attribute exists. Do not reuse sampleSize, denominator, or countingUnit.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent"
+      ],
+      "terms": [
+        "pageCount"
+      ],
+      "resolution": "Document page count, not sample size.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "CPCI",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "A61K38/16;A61K39/0002;A61K39/002;A61K39/02;A61K39/12;A61K47/68;A61K47/6811;A61K47/6835;A61K47/6889;C07K14/70535;C07K14/76",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Preserve reported classification code lists. Identifier storage could hold codes, but no patent classification role is currently defined. Do not merge these with cpc_filter.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "ClassificationCode"
+      ],
+      "terms": [
+        "reportedClassification",
+        "classificationCode",
+        "classificationSourceField"
+      ],
+      "resolution": "Preserve source classification role and split semicolon-separated codes; do not conflate with query filter.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "CPCA",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "C07K2319/00;C07K2319/30;Y02A50/30",
+      "nonempty_rows": 71,
+      "total_rows": 72,
+      "interpretation": "Preserve reported classification code lists. Identifier storage could hold codes, but no patent classification role is currently defined. Do not merge these with cpc_filter.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "ClassificationCode"
+      ],
+      "terms": [
+        "reportedClassification",
+        "classificationCode",
+        "classificationSourceField"
+      ],
+      "resolution": "Preserve source classification role and split semicolon-separated codes; do not conflate with query filter.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Primary Examiner",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "Szperka; Michael",
+      "nonempty_rows": 5,
+      "total_rows": 72,
+      "interpretation": "No examiner-person role exists. Preserve names as source metadata, without using Patient.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "PersonNameMention"
+      ],
+      "terms": [
+        "primaryExaminerMention",
+        "assistantExaminerMention",
+        "label"
+      ],
+      "resolution": "Explicit examiner role mentions, not Patient records.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Assistant Examiner",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "Winkler; Ulrike",
+      "nonempty_rows": 2,
+      "total_rows": 72,
+      "interpretation": "No examiner-person role exists. Preserve names as source metadata, without using Patient.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "PersonNameMention"
+      ],
+      "terms": [
+        "primaryExaminerMention",
+        "assistantExaminerMention",
+        "label"
+      ],
+      "resolution": "Explicit examiner role mentions, not Patient records.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "OR",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "1/1",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "XREF",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "424/159.1",
+      "nonempty_rows": 17,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Applicant Name",
+      "existing_classes": [],
+      "existing_attributes_or_relations": [],
+      "real_example": "Vitruviae LLC",
+      "nonempty_rows": 57,
+      "total_rows": 72,
+      "interpretation": "No assignee/applicant organization or person role exists. These roles differ and must not be merged or substituted when one cell is blank.",
+      "previous_status": "GAP",
+      "classes": [
+        "Patent",
+        "PartyMention"
+      ],
+      "terms": [
+        "applicantMention",
+        "label"
+      ],
+      "resolution": "Applicant role, distinct from assignee; no substitution for blanks.",
+      "new_status": "RESOLVED"
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Notes",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Notes/Tagged",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "Relevancy",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "9.977047",
+      "nonempty_rows": 72,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    },
+    {
+      "file": "patent_evidence.csv",
+      "source_field": "C",
+      "existing_classes": [
+        "SourceLocator"
+      ],
+      "existing_attributes_or_relations": [
+        "metadataJson"
+      ],
+      "real_example": "",
+      "nonempty_rows": 0,
+      "total_rows": 72,
+      "interpretation": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted.",
+      "previous_status": "EXPORT_METADATA",
+      "new_status": "EXPORT_METADATA",
+      "classes": [
+        "SourceLocator"
+      ],
+      "terms": [
+        "metadataJson"
+      ],
+      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+    }
+  ],
+  "validation": {
+    "date": "2026-10-27",
+    "base_version": "0.2.0-draft",
+    "new_version": "0.3.0-draft",
+    "new_classes": 11,
+    "new_object_properties": 14,
+    "new_attributes": 28,
+    "total_classes": 86,
+    "source_fields": 64,
+    "previous_partial_gap_fields": 35,
+    "previous_partial_gap_without_resolution": 0,
+    "mapped_awards": 687,
+    "mapped_funding_records": 2426,
+    "mapped_patents": 72,
+    "grant_documents": 2426,
+    "metadata_triples": 309927,
+    "data_quality_issues": [
+      {
+        "source": "Z01BK003018",
+        "field": "org_name",
+        "reason": "Location present but organization name missing; do not assert a recipient organization."
+      },
+      {
+        "source": "Z01BK003023",
+        "field": "org_name",
+        "reason": "Location present but organization name missing; do not assert a recipient organization."
+      },
+      {
+        "source": "Z01BM002007",
+        "field": "org_name",
+        "reason": "Location present but organization name missing; do not assert a recipient organization."
+      },
+      {
+        "source": "Z01BM002009",
+        "field": "org_name",
+        "reason": "Location present but organization name missing; do not assert a recipient organization."
+      }
+    ],
+    "checks": [
+      "RDF terms declared",
+      "JSON-LD/Turtle isomorphic",
+      "2426 funding-to-award joins verified by SPARQL",
+      "No inferred currency, patient or scientific Claim",
+      "Original v2 ontology preserved"
+    ],
+    "remaining_semantic_limits": [
+      "Taxon identifier namespace unverified",
+      "Generic patent date meaning unverified",
+      "Currency and additive funding scope not provided",
+      "Person and organization identity not globally resolved",
+      "No full-text claim/hypothesis/discovery extraction",
+      "No OWL reasoner or complete SHACL audit"
+    ]
+  }
+}

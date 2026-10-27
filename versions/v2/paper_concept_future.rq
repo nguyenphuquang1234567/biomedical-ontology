@@ -1,0 +1,2 @@
+PREFIX pilot: <https://example.org/nih-pilot/ontology/>
+SELECT ?paper ?concept WHERE { ?link a pilot:PaperConceptLink; pilot:linkedPaper ?paper; pilot:linkedConcept ?concept. }

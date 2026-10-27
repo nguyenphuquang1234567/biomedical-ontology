@@ -1,0 +1,650 @@
+{
+  "@context": {
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "pilot": "https://example.org/nih-pilot/ontology/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "pilot:assigneeMention",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Assignee text as reported; may name an individual or organization."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patent"
+      },
+      "rdfs:range": {
+        "@id": "pilot:PartyMention"
+      }
+    },
+    {
+      "@id": "pilot:GrantDocument",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A grant project-detail record or abstract; not a claim that full grant text is available."
+      },
+      "rdfs:label": "GrantDocument",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:documentForFunding",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Project-detail/abstract document associated with the application record."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:GrantDocument"
+      },
+      "rdfs:range": {
+        "@id": "pilot:GrantFundingRecord"
+      }
+    },
+    {
+      "@id": "pilot:classificationFilter",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "CPC search filter, distinct from assigned classification."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:reportedDate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Value of generic date field; its meaning is explicitly unverified."
+      },
+      "rdfs:range": {
+        "@id": "xsd:date"
+      }
+    },
+    {
+      "@id": "pilot:GrantFundingRecord",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A funding/application record identified by appl_id and linked to an award; no assumption of additive budget scope."
+      },
+      "rdfs:label": "GrantFundingRecord",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:activityCode",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported grant activity code."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:matchedTaxonReference",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source reference; no verified taxonomic entity or claim-support relation is inferred."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:RetrievalMatch"
+      },
+      "rdfs:range": {
+        "@id": "pilot:TaxonReference"
+      }
+    },
+    {
+      "@id": "pilot:recipientOrganization",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported recipient organization, without assuming affiliation of every named person."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:GrantAward"
+      },
+      "rdfs:range": {
+        "@id": "pilot:Organization"
+      }
+    },
+    {
+      "@id": "pilot:retrievalRelation",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported related label; not supports or a causal relation."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:city",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported city."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:",
+      "owl:versionInfo": "0.3.0-draft"
+    },
+    {
+      "@id": "pilot:primaryExaminerMention",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Primary examiner text as reported."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patent"
+      },
+      "rdfs:range": {
+        "@id": "pilot:PersonNameMention"
+      }
+    },
+    {
+      "@id": "pilot:RetrievalMatch",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A recorded search match connecting a document to a source-provided concept reference; not scientific support."
+      },
+      "rdfs:label": "RetrievalMatch",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:fundingFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Funding record linked by the exact award_key foreign key."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:GrantFundingRecord"
+      },
+      "rdfs:range": {
+        "@id": "pilot:GrantAward"
+      }
+    },
+    {
+      "@id": "pilot:inventorMention",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Inventor text as reported, not a verified person identity."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patent"
+      },
+      "rdfs:range": {
+        "@id": "pilot:PersonNameMention"
+      }
+    },
+    {
+      "@id": "pilot:country",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported country; not inferred from other fields."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:contactPIMention",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "PI name as reported; placeholders and incomplete lists remain explicitly marked."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:GrantAward"
+      },
+      "rdfs:range": {
+        "@id": "pilot:PersonNameMention"
+      }
+    },
+    {
+      "@id": "pilot:Organization",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An organization as reported within a source record; identical labels do not establish global identity."
+      },
+      "rdfs:label": "Organization",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:GrantAward",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An award record keyed by award_key; not a Study or an individual annual funding record."
+      },
+      "rdfs:label": "GrantAward",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:ClassificationCode",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A reported patent classification code, preserving the source classification field."
+      },
+      "rdfs:label": "ClassificationCode",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:retrievalSource",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source of the retrieval metadata."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:awardAmount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported monetary amount, with unknown currency and additive scope unless verified separately."
+      },
+      "rdfs:range": {
+        "@id": "xsd:decimal"
+      }
+    },
+    {
+      "@id": "pilot:reportedIdentifiers",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Original identifier text, including pipe-separated lists; namespace remains unverified."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:awardCurrency",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Only populated when a currency is established by a source; absent here."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:classificationCode",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Original reported classification code."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:nameResolutionStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "reported_only, placeholder, or incomplete_list; no global identity assertion."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:TaxonReference",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Unverified source taxon identifier(s) and label(s), preserving combined values without assuming namespace or alignment."
+      },
+      "rdfs:label": "TaxonReference",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:reportedNames",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Original taxon keyword text; no forced pairing or normalized equivalence."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:PartyMention",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An original person or organization name string in a stated role, without resolved identity."
+      },
+      "rdfs:label": "PartyMention",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:classificationScheme",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported classification scheme."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:fiscalYear",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source fiscal year; not publication year."
+      },
+      "rdfs:range": {
+        "@id": "xsd:gYear"
+      }
+    },
+    {
+      "@id": "pilot:filingDate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source-reported filing date."
+      },
+      "rdfs:range": {
+        "@id": "xsd:date"
+      }
+    },
+    {
+      "@id": "pilot:PersonNameMention",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A source-reported person name or incomplete name list; not a Patient and not a resolved unique person."
+      },
+      "rdfs:label": "PersonNameMention",
+      "rdfs:subClassOf": {
+        "@id": "pilot:PartyMention"
+      }
+    },
+    {
+      "@id": "pilot:awardNoticeDate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported notice date; not retrieval time."
+      },
+      "rdfs:range": {
+        "@id": "xsd:date"
+      }
+    },
+    {
+      "@id": "pilot:assistantExaminerMention",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Assistant examiner text as reported."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patent"
+      },
+      "rdfs:range": {
+        "@id": "pilot:PersonNameMention"
+      }
+    },
+    {
+      "@id": "pilot:reportedClassification",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported classification preserving CPCI versus CPCA; not a search filter."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patent"
+      },
+      "rdfs:range": {
+        "@id": "pilot:ClassificationCode"
+      }
+    },
+    {
+      "@id": "pilot:projectStartDate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source project start date at date precision."
+      },
+      "rdfs:range": {
+        "@id": "xsd:date"
+      }
+    },
+    {
+      "@id": "pilot:reportedDateMeaning",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Explicit semantic status of the generic date field."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:state",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported state; not geocoded."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:referenceNamespaceStatus",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Verification status of the source identifier namespace; no namespace is inferred."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:matchedDocument",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Document returned by the retrieval match."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:RetrievalMatch"
+      },
+      "rdfs:range": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:projectEndDate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source project end date at date precision."
+      },
+      "rdfs:range": {
+        "@id": "xsd:date"
+      }
+    },
+    {
+      "@id": "pilot:Location",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source-reported city, state and country for an organization; not necessarily the study site."
+      },
+      "rdfs:label": "Location",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Entity"
+      }
+    },
+    {
+      "@id": "pilot:abstractText",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Original abstract text, not an extracted Claim or full grant document."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:matchMethod",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported matching method."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:queryTerm",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Original search term."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:organizationLocation",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported organizational location, not a clinical specimen collection site."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Organization"
+      },
+      "rdfs:range": {
+        "@id": "pilot:Location"
+      }
+    },
+    {
+      "@id": "pilot:administeredBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Administering institute described by its code and name, distinct from recipient."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:GrantAward"
+      },
+      "rdfs:range": {
+        "@id": "pilot:Organization"
+      }
+    },
+    {
+      "@id": "pilot:classificationSourceField",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "CPCI or CPCA as reported; their detailed meanings are not inferred."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:Patent",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A patent publication described by source metadata; scientific and legal claims are not inferred from metadata."
+      },
+      "rdfs:label": "Patent",
+      "rdfs:subClassOf": {
+        "@id": "pilot:Document"
+      }
+    },
+    {
+      "@id": "pilot:pageCount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Source page count; not patient sample size."
+      },
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      }
+    },
+    {
+      "@id": "pilot:instituteCode",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Reported administering institute code; namespace retained in Identifier."
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pilot:applicantMention",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Applicant text as reported; distinct from assignee."
+      },
+      "rdfs:domain": {
+        "@id": "pilot:Patent"
+      },
+      "rdfs:range": {
+        "@id": "pilot:PartyMention"
+      }
+    }
+  ]
+}

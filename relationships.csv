@@ -1,42 +1,56 @@
-property_id,domain,range,meaning_vi,cardinality,condition
-enrolledIn,Patient,Study,Người thuộc nghiên cứu,N:1,Exactly one study in pilot identity namespace
-groupInStudy,CohortGroup,Study,Nhóm thuộc nghiên cứu,N:1,Exactly one
-memberOfGroup,Patient,CohortGroup,Người được xếp vào nhóm,N:N,Only source-stated membership
-eventFor,ClinicalEvent,Patient,Sự kiện của người,N:1,Required for patient-specific event
-conditionConcept,ConditionOccurrence,Disease,Sự kiện ghi nhận khái niệm bệnh,N:1,Keep raw label; mapping optional
-treatmentConcept,TreatmentEvent,Treatment,Sự kiện dùng khái niệm điều trị,N:N,Source-grounded
-specimenFrom,Specimen,Patient,Mẫu lấy từ người,N:0..1,Do not invent missing patient/sample mapping
-testedSpecimen,Test,Specimen,Xét nghiệm thực hiện trên mẫu,N:0..1,A partial extraction may lack specimen identity
-runOf,SequencingRun,SequencingTest,Run thuộc assay giải trình tự,N:0..1,Only verified mapping; conflicts in LinkageRecord
-resultFor,Result,Patient,Kết quả của người,N:0..1,May be unknown; no row-order join
-producedByTest,Result,Test,Kết quả của xét nghiệm,N:0..1,Optional when assay is not identified
-measures,Result,Feature,Kết quả đo/phát hiện feature,N:1,Exactly one per atomic result when identified
-generatedBy,Result,ProcessingPipeline,Kết quả dẫn xuất từ pipeline,N:N,Only with processing evidence
-qualityOf,QualityMetricResult,Entity,QC của run/asset/pipeline,N:1,Must name correct target; no fake patient
-assessmentFor,ClinicalAssessment,Patient,Đánh giá dành cho người,N:1,Required for patient-level assessment
-diagnoses,DiagnosticAssessment,Disease,Đánh giá đưa ra chẩn đoán,N:N,May be unknown; preserve source wording
-considersResult,ClinicalAssessment,Result,Đánh giá có xem xét kết quả cụ thể,N:N,Optional; source must identify relationship
-assessmentOfEpisode,ClinicalAssessment,InfectionEpisode,Đánh giá cho đợt bệnh,N:0..1,Only if episode boundary known
-episodeFor,InfectionEpisode,Patient,Đợt bệnh của người,N:1,Exactly one patient
-implicatesOrganism,CoinfectionAssessment,Organism,Tác nhân được đánh giá liên quan đồng nhiễm,N:N,Not generated from detection count alone
-statisticForGroup,AggregateStatistic,CohortGroup,Thống kê cho nhóm,N:1,No copying group values to patients
-sourceInStudy,SourceAsset,Study,File thuộc nghiên cứu,N:N,Optional; paper can describe multiple studies
-derivedFrom,SourceAsset,SourceAsset,File dẫn xuất từ file khác,N:N,"Pipeline provenance, not citation"
-hasIdentifier,Entity,Identifier,Entity có mã external,N:N,Identifier namespace required; no automatic owl:sameAs
-recordedAt,Entity,SourceLocator,Bản ghi/concept được ghi nhận tại vị trí nguồn,N:N,Required provenance for extracted records; do not assert every property from this
-locatedIn,SourceLocator,SourceAsset,Vị trí nằm trong phiên bản file,N:1,Exactly one asset
-assertionSubject,Assertion,Entity,Chủ thể phát biểu có nguồn,N:1,One
-assertionObject,Assertion,Entity,Đối tượng phát biểu có nguồn,N:0..1,"Use object or literalValue, not both"
-assertionSource,Assertion,SourceLocator,Vị trí bằng chứng cho phát biểu,N:N,At least one for accepted extraction
-linkFrom,LinkageRecord,Entity,Đầu thứ nhất linkage ứng viên,N:1,One
-linkTo,LinkageRecord,Entity,Đầu thứ hai linkage ứng viên,N:1,One; unresolved record is not an established fact
-sectionOf,DocumentSection,Document,Section thuộc tài liệu,N:1,One
-evidenceIn,EvidenceUnit,Document,Evidence nằm trong tài liệu,N:1,One versioned document
-evidenceSection,EvidenceUnit,DocumentSection,Section chứa evidence,N:0..1,When available
-claimIn,Claim,Document,Claim được tác giả nêu trong tài liệu,N:N,Do not promote claim into factual layer without validation
-linkClaim,EvidenceLink,Claim,Liên kết evidence dành cho claim,N:1,One
-linkEvidence,EvidenceLink,EvidenceUnit,Evidence của liên kết,N:1,One; role is an attribute
-citingDocument,Citation,Document,Bài chứa trích dẫn,N:1,One
-citedDocument,Citation,Document,Bài được trích nếu resolve được,N:0..1,Keep unresolved reference text; never invent DOI
-linkedPaper,PaperConceptLink,Document,Paper được map với concept ontology,N:1,One
-linkedConcept,PaperConceptLink,Entity,Concept instance hoặc OWL class IRI liên quan,N:1,Class IRI handled via OWL punning; not subclass membership
+property_id,domain,range,meaning_en,cardinality,condition
+enrolledIn,Patient,Study,Person enrolled in a study,N:1,Exactly one study in pilot identity namespace
+groupInStudy,CohortGroup,Study,Group within a study,N:1,Exactly one
+memberOfGroup,Patient,CohortGroup,Person assigned to a group,N:N,Only source-stated membership
+eventFor,ClinicalEvent,Patient,Event concerning a person,N:1,Required for patient-specific event
+conditionConcept,ConditionOccurrence,Disease,Recorded condition linked to a disease concept,N:1,Keep raw label; mapping optional
+treatmentConcept,TreatmentEvent,Treatment,Treatment event linked to a treatment concept,N:N,Source-grounded
+specimenFrom,Specimen,Patient,Specimen collected from a person,N:0..1,Do not invent missing patient/sample mapping
+testedSpecimen,Test,Specimen,Test performed on a specimen,N:0..1,A partial extraction may lack specimen identity
+runOf,SequencingRun,SequencingTest,Run belonging to a sequencing assay,N:0..1,Only verified mapping; conflicts in LinkageRecord
+resultFor,Result,Patient,Result concerning a person,N:0..1,May be unknown; no row-order join
+producedByTest,Result,Test,Result produced by a test,N:0..1,Optional when assay is not identified
+measures,Result,Feature,Result measuring or detecting a feature,N:1,Exactly one per atomic result when identified
+generatedBy,Result,ProcessingPipeline,Result generated by a processing pipeline,N:N,Only with processing evidence
+qualityOf,QualityMetricResult,Entity,"QC measurement of a run, asset, or pipeline",N:1,Must name correct target; no fake patient
+assessmentFor,ClinicalAssessment,Patient,Assessment concerning a person,N:1,Required for patient-level assessment
+diagnoses,DiagnosticAssessment,Disease,Diagnosis made in an assessment,N:N,May be unknown; preserve source wording
+considersResult,ClinicalAssessment,Result,Assessment documented as considering a specific result,N:N,Optional; source must identify relationship
+assessmentOfEpisode,ClinicalAssessment,InfectionEpisode,Assessment of an illness episode,N:0..1,Only if episode boundary known
+episodeFor,InfectionEpisode,Patient,Illness episode concerning a person,N:1,Exactly one patient
+implicatesOrganism,CoinfectionAssessment,Organism,Organism implicated in an adjudicated coinfection,N:N,Not generated from detection count alone
+statisticForGroup,AggregateStatistic,CohortGroup,Statistic describing a group,N:1,No copying group values to patients
+sourceInStudy,SourceAsset,Study,Source file associated with a study,N:N,Optional; paper can describe multiple studies
+derivedFrom,SourceAsset,SourceAsset,File derived from another file,N:N,"Pipeline provenance, not citation"
+hasIdentifier,Entity,Identifier,Entity has an external identifier,N:N,Identifier namespace required; no automatic owl:sameAs
+recordedAt,Entity,SourceLocator,Record or concept documented at a source location,N:N,Required provenance for extracted records; do not assert every property from this
+locatedIn,SourceLocator,SourceAsset,Location within a specific file version,N:1,Exactly one asset
+assertionSubject,Assertion,Entity,Subject of a sourced assertion,N:1,One
+assertionObject,Assertion,Entity,Object of a sourced assertion,N:0..1,"Use object or literalValue, not both"
+assertionSource,Assertion,SourceLocator,Source location supporting an assertion,N:N,At least one for accepted extraction
+linkFrom,LinkageRecord,Entity,First endpoint of a candidate link,N:1,One
+linkTo,LinkageRecord,Entity,Second endpoint of a candidate link,N:1,One; unresolved record is not an established fact
+sectionOf,DocumentSection,Document,Section belongs to a document,N:1,One
+evidenceIn,EvidenceUnit,Document,Evidence occurs in a document,N:1,One versioned document
+evidenceSection,EvidenceUnit,DocumentSection,Section containing the evidence,N:0..1,When available
+claimIn,Claim,Document,Claim stated in a document,N:N,Do not promote claim into factual layer without validation
+linkClaim,EvidenceLink,Claim,Claim associated with an evidence link,N:1,One
+linkEvidence,EvidenceLink,EvidenceUnit,Evidence associated with an evidence link,N:1,One; role is an attribute
+citingDocument,Citation,Document,Document containing the citation,N:1,One
+citedDocument,Citation,Document,"Cited document, if resolved",N:0..1,Keep unresolved reference text; never invent DOI
+linkedPaper,PaperConceptLink,Document,Paper mapped to an ontology concept,N:1,One
+linkedConcept,PaperConceptLink,Entity,Relevant concept instance or OWL class IRI,N:1,Class IRI handled via OWL punning; not subclass membership
+fundingFor,GrantFundingRecord,GrantAward,Funding record linked by the exact award_key foreign key.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+recipientOrganization,GrantAward,Organization,"Reported recipient organization, without assuming affiliation of every named person.",see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+administeredBy,GrantAward,Organization,"Administering institute described by its code and name, distinct from recipient.",see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+organizationLocation,Organization,Location,"Reported organizational location, not a clinical specimen collection site.",see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+contactPIMention,GrantAward,PersonNameMention,PI name as reported; placeholders and incomplete lists remain explicitly marked.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+documentForFunding,GrantDocument,GrantFundingRecord,Project-detail/abstract document associated with the application record.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+inventorMention,Patent,PersonNameMention,"Inventor text as reported, not a verified person identity.",see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+assigneeMention,Patent,PartyMention,Assignee text as reported; may name an individual or organization.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+applicantMention,Patent,PartyMention,Applicant text as reported; distinct from assignee.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+primaryExaminerMention,Patent,PersonNameMention,Primary examiner text as reported.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+assistantExaminerMention,Patent,PersonNameMention,Assistant examiner text as reported.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+reportedClassification,Patent,ClassificationCode,Reported classification preserving CPCI versus CPCA; not a search filter.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+matchedDocument,RetrievalMatch,Document,Document returned by the retrieval match.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+matchedTaxonReference,RetrievalMatch,TaxonReference,Source reference; no verified taxonomic entity or claim-support relation is inferred.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.

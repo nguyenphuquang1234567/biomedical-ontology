@@ -1,0 +1,376 @@
+{
+  "classes": [
+    {
+      "class_id": "GrantAward",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "An award record keyed by award_key; not a Study or an individual annual funding record.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "GrantFundingRecord",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "A funding/application record identified by appl_id and linked to an award; no assumption of additive budget scope.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "Organization",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "An organization as reported within a source record; identical labels do not establish global identity.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "PartyMention",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "An original person or organization name string in a stated role, without resolved identity.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "PersonNameMention",
+      "parent": "PartyMention",
+      "layer": "grant_patent_metadata",
+      "definition_en": "A source-reported person name or incomplete name list; not a Patient and not a resolved unique person.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "Location",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "Source-reported city, state and country for an organization; not necessarily the study site.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "GrantDocument",
+      "parent": "Document",
+      "layer": "grant_patent_metadata",
+      "definition_en": "A grant project-detail record or abstract; not a claim that full grant text is available.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "Patent",
+      "parent": "Document",
+      "layer": "grant_patent_metadata",
+      "definition_en": "A patent publication described by source metadata; scientific and legal claims are not inferred from metadata.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "ClassificationCode",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "A reported patent classification code, preserving the source classification field.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "RetrievalMatch",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "A recorded search match connecting a document to a source-provided concept reference; not scientific support.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    },
+    {
+      "class_id": "TaxonReference",
+      "parent": "Entity",
+      "layer": "grant_patent_metadata",
+      "definition_en": "Unverified source taxon identifier(s) and label(s), preserving combined values without assuming namespace or alignment.",
+      "source_basis": "External grant/patent CSVs",
+      "status": "design"
+    }
+  ],
+  "relationships": [
+    {
+      "property_id": "fundingFor",
+      "domain": "GrantFundingRecord",
+      "range": "GrantAward",
+      "meaning_en": "Funding record linked by the exact award_key foreign key.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "recipientOrganization",
+      "domain": "GrantAward",
+      "range": "Organization",
+      "meaning_en": "Reported recipient organization, without assuming affiliation of every named person.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "administeredBy",
+      "domain": "GrantAward",
+      "range": "Organization",
+      "meaning_en": "Administering institute described by its code and name, distinct from recipient.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "organizationLocation",
+      "domain": "Organization",
+      "range": "Location",
+      "meaning_en": "Reported organizational location, not a clinical specimen collection site.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "contactPIMention",
+      "domain": "GrantAward",
+      "range": "PersonNameMention",
+      "meaning_en": "PI name as reported; placeholders and incomplete lists remain explicitly marked.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "documentForFunding",
+      "domain": "GrantDocument",
+      "range": "GrantFundingRecord",
+      "meaning_en": "Project-detail/abstract document associated with the application record.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "inventorMention",
+      "domain": "Patent",
+      "range": "PersonNameMention",
+      "meaning_en": "Inventor text as reported, not a verified person identity.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "assigneeMention",
+      "domain": "Patent",
+      "range": "PartyMention",
+      "meaning_en": "Assignee text as reported; may name an individual or organization.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "applicantMention",
+      "domain": "Patent",
+      "range": "PartyMention",
+      "meaning_en": "Applicant text as reported; distinct from assignee.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "primaryExaminerMention",
+      "domain": "Patent",
+      "range": "PersonNameMention",
+      "meaning_en": "Primary examiner text as reported.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "assistantExaminerMention",
+      "domain": "Patent",
+      "range": "PersonNameMention",
+      "meaning_en": "Assistant examiner text as reported.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "reportedClassification",
+      "domain": "Patent",
+      "range": "ClassificationCode",
+      "meaning_en": "Reported classification preserving CPCI versus CPCA; not a search filter.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "matchedDocument",
+      "domain": "RetrievalMatch",
+      "range": "Document",
+      "meaning_en": "Document returned by the retrieval match.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    },
+    {
+      "property_id": "matchedTaxonReference",
+      "domain": "RetrievalMatch",
+      "range": "TaxonReference",
+      "meaning_en": "Source reference; no verified taxonomic entity or claim-support relation is inferred.",
+      "cardinality": "see mapping rules",
+      "condition": "Source-grounded metadata only; unresolved identity is not equivalence."
+    }
+  ],
+  "attributes": [
+    {
+      "attribute_id": "activityCode",
+      "datatype": "string",
+      "applies_to": "GrantAward",
+      "description_en": "Reported grant activity code."
+    },
+    {
+      "attribute_id": "instituteCode",
+      "datatype": "string",
+      "applies_to": "Organization",
+      "description_en": "Reported administering institute code; namespace retained in Identifier."
+    },
+    {
+      "attribute_id": "city",
+      "datatype": "string",
+      "applies_to": "Location",
+      "description_en": "Reported city."
+    },
+    {
+      "attribute_id": "state",
+      "datatype": "string",
+      "applies_to": "Location",
+      "description_en": "Reported state; not geocoded."
+    },
+    {
+      "attribute_id": "country",
+      "datatype": "string",
+      "applies_to": "Location",
+      "description_en": "Reported country; not inferred from other fields."
+    },
+    {
+      "attribute_id": "projectStartDate",
+      "datatype": "date",
+      "applies_to": "GrantAward",
+      "description_en": "Source project start date at date precision."
+    },
+    {
+      "attribute_id": "projectEndDate",
+      "datatype": "date",
+      "applies_to": "GrantAward",
+      "description_en": "Source project end date at date precision."
+    },
+    {
+      "attribute_id": "fiscalYear",
+      "datatype": "gYear",
+      "applies_to": "GrantFundingRecord",
+      "description_en": "Source fiscal year; not publication year."
+    },
+    {
+      "attribute_id": "awardAmount",
+      "datatype": "decimal",
+      "applies_to": "GrantFundingRecord",
+      "description_en": "Reported monetary amount, with unknown currency and additive scope unless verified separately."
+    },
+    {
+      "attribute_id": "awardCurrency",
+      "datatype": "string",
+      "applies_to": "GrantFundingRecord",
+      "description_en": "Only populated when a currency is established by a source; absent here."
+    },
+    {
+      "attribute_id": "awardNoticeDate",
+      "datatype": "date",
+      "applies_to": "GrantFundingRecord",
+      "description_en": "Reported notice date; not retrieval time."
+    },
+    {
+      "attribute_id": "abstractText",
+      "datatype": "string",
+      "applies_to": "GrantDocument",
+      "description_en": "Original abstract text, not an extracted Claim or full grant document."
+    },
+    {
+      "attribute_id": "filingDate",
+      "datatype": "date",
+      "applies_to": "Patent",
+      "description_en": "Source-reported filing date."
+    },
+    {
+      "attribute_id": "reportedDate",
+      "datatype": "date",
+      "applies_to": "Patent",
+      "description_en": "Value of generic date field; its meaning is explicitly unverified."
+    },
+    {
+      "attribute_id": "reportedDateMeaning",
+      "datatype": "string",
+      "applies_to": "Patent",
+      "description_en": "Explicit semantic status of the generic date field."
+    },
+    {
+      "attribute_id": "pageCount",
+      "datatype": "integer",
+      "applies_to": "Patent",
+      "description_en": "Source page count; not patient sample size."
+    },
+    {
+      "attribute_id": "classificationScheme",
+      "datatype": "string",
+      "applies_to": "ClassificationCode",
+      "description_en": "Reported classification scheme."
+    },
+    {
+      "attribute_id": "classificationSourceField",
+      "datatype": "string",
+      "applies_to": "ClassificationCode",
+      "description_en": "CPCI or CPCA as reported; their detailed meanings are not inferred."
+    },
+    {
+      "attribute_id": "queryTerm",
+      "datatype": "string",
+      "applies_to": "RetrievalMatch",
+      "description_en": "Original search term."
+    },
+    {
+      "attribute_id": "classificationFilter",
+      "datatype": "string",
+      "applies_to": "RetrievalMatch",
+      "description_en": "CPC search filter, distinct from assigned classification."
+    },
+    {
+      "attribute_id": "matchMethod",
+      "datatype": "string",
+      "applies_to": "RetrievalMatch",
+      "description_en": "Reported matching method."
+    },
+    {
+      "attribute_id": "retrievalRelation",
+      "datatype": "string",
+      "applies_to": "RetrievalMatch",
+      "description_en": "Reported related label; not supports or a causal relation."
+    },
+    {
+      "attribute_id": "retrievalSource",
+      "datatype": "string",
+      "applies_to": "RetrievalMatch",
+      "description_en": "Source of the retrieval metadata."
+    },
+    {
+      "attribute_id": "referenceNamespaceStatus",
+      "datatype": "string",
+      "applies_to": "TaxonReference",
+      "description_en": "Verification status of the source identifier namespace; no namespace is inferred."
+    },
+    {
+      "attribute_id": "reportedIdentifiers",
+      "datatype": "string",
+      "applies_to": "TaxonReference",
+      "description_en": "Original identifier text, including pipe-separated lists; namespace remains unverified."
+    },
+    {
+      "attribute_id": "reportedNames",
+      "datatype": "string",
+      "applies_to": "TaxonReference",
+      "description_en": "Original taxon keyword text; no forced pairing or normalized equivalence."
+    },
+    {
+      "attribute_id": "nameResolutionStatus",
+      "datatype": "string",
+      "applies_to": "PartyMention",
+      "description_en": "reported_only, placeholder, or incomplete_list; no global identity assertion."
+    },
+    {
+      "attribute_id": "classificationCode",
+      "datatype": "string",
+      "applies_to": "ClassificationCode",
+      "description_en": "Original reported classification code."
+    }
+  ]
+}

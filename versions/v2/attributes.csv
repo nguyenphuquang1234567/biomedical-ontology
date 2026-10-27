@@ -1,0 +1,57 @@
+attribute_id,datatype,applies_to,description_vi
+label,string,Entity,Tên gốc/nhãn dễ đọc
+sourcePatientId,string,Patient,Mã người trong study; khóa logic study+sourcePatientId
+age,decimal,Patient,Tuổi như nguồn; lưu tuổi cùng thời điểm nếu có
+sex,string,Patient,Giá trị giới nguyên gốc
+description,string,Entity,Nội dung mô tả nguồn
+sourceUrl,anyURI,"SourceAsset,Study",Link nguồn
+localPath,string,SourceAsset,Đường dẫn file bản cục bộ
+namespace,string,"Identifier,Feature",Namespace mã
+accession,string,Identifier,Accession nguyên gốc
+taxonRank,string,Organism,Genus/species/unknown; không ép rank
+modality,string,"Test,DataMatrix",DNA/RNA/unknown theo nguồn
+platform,string,"Test,SequencingRun",Tên platform theo từng nguồn; giữ conflict
+libraryLayout,string,SequencingRun,SINGLE/PAIRED theo RunInfo
+librarySource,string,SequencingRun,METAGENOMIC/METATRANSCRIPTOMIC...
+numericValue,double,"Result,AggregateStatistic",Giá trị số; không tự đổi unit hoặc missing thành zero
+textValue,string,Result,Giá trị chữ nguyên gốc
+unit,string,"Result,AggregateStatistic",Đơn vị nguồn; unknown khi chưa xác minh
+measurementType,string,Result,read_count/gene_count/coverage/abundance/score/...
+resultStatus,string,Result,detected/negative/not_performed/not_collected/not_reported/unknown; zero là giá trị riêng
+infectionStatus,string,ClinicalAssessment,infectious/noninfectious/unknown/mixed theo adjudication nguồn
+certainty,string,"ClinicalAssessment,Claim",Độ chắc chắn nguồn; không phải extraction confidence
+assessmentStage,string,ClinicalAssessment,initial/interim/final/unknown; chỉ gán nếu xác minh
+assessmentMethod,string,ClinicalAssessment,Clinician review/reference criteria theo nguồn
+diagnosticClassification,string,ClinicalAssessment,True-negative/false-negative/... theo reference được báo cáo
+startTime,dateTime,"ClinicalEvent,Test,InfectionEpisode",Thời điểm bắt đầu nếu có đủ độ chính xác
+endTime,dateTime,"ClinicalEvent,Test,InfectionEpisode",Thời điểm kết thúc
+eventTime,dateTime,"Result,ClinicalAssessment",Thời điểm kết quả/đánh giá nếu biết
+collectionTime,dateTime,Specimen,Ngày giờ lấy mẫu nếu có
+rawTime,string,Entity,Ngày/khoảng thời gian nguyên văn khi chưa đủ để ép DateTime
+dateStatus,string,Entity,original/shifted/generalized/relative/unknown
+isControl,boolean,Specimen,true/false chỉ khi xác minh; không có thuộc tính là chưa rõ
+controlRole,string,"CohortGroup,Specimen",Vai trò control theo nguồn
+fileFormat,string,SourceAsset,CSV/XLSX/JATS/BioC/ZIP/...
+checksum,string,SourceAsset,SHA256 của file thực tế
+version,string,"SourceAsset,ProcessingPipeline",Phiên bản
+license,string,SourceAsset,License được ghi nhận; không đoán
+retrievalStatus,string,SourceAsset,available/blocked/unusable/unknown
+retrievedAt,dateTime,SourceAsset,Thời gian lấy file nếu biết
+locator,string,SourceLocator,Sheet/row/column hoặc XML ID/XPath; không coi BioC offset là PDF page
+rawText,string,"SourceLocator,EvidenceUnit,Claim",Nguyên văn
+predicateIri,anyURI,Assertion,IRI predicate được phát biểu; không phải một class disease
+literalValue,string,Assertion,Literal nguyên gốc của phát biểu nếu không có assertionObject
+mappingStatus,string,Entity,verified/unresolved/conflict/unmapped; không tự tạo equivalence
+extractionStatus,string,Entity,human_verified/auto_extracted/review_required/template
+extractionConfidence,double,"Assertion,PaperConceptLink",Độ tin cậy extraction nếu đo được; không bịa score
+evidenceRole,string,EvidenceLink,supports/contradicts/contextualizes
+referenceText,string,Citation,Reference nguyên văn khi chưa resolve
+relevanceReason,string,PaperConceptLink,Lý do paper liên quan concept; không phải citation
+denominator,integer,AggregateStatistic,Mẫu số thống kê
+sampleSize,integer,"AggregateStatistic,CohortGroup",Số người/mẫu với counting unit
+countingUnit,string,"AggregateStatistic,CohortGroup",patient/specimen/run/...
+rowAxis,string,DataMatrix,Ý nghĩa rows
+columnAxis,string,DataMatrix,Ý nghĩa columns
+referenceBuild,string,ProcessingPipeline,Genome/annotation build
+software,string,ProcessingPipeline,Phần mềm và version
+metadataJson,string,Entity,JSON nguyên bản cho các metadata chưa chuẩn hóa; không coi là ontology đã giải nghĩa

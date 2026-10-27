@@ -1,0 +1,99 @@
+@prefix pilot: <https://example.org/nih-pilot/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/nih-pilot/data/D1/result/row4/Pt-01> a pilot:GeneCountResult ;
+    pilot:measurementType "gene_count" ;
+    pilot:measures <https://example.org/nih-pilot/data/gene/ensembl/ENSG00000000003> ;
+    pilot:numericValue 4.5e+01 ;
+    pilot:recordedAt <https://example.org/nih-pilot/data/D1/locator/row4col2> ;
+    pilot:resultFor <https://example.org/nih-pilot/data/D1/patient/Pt-01> ;
+    pilot:unit "reads" .
+
+<https://example.org/nih-pilot/data/D2/assertion/patient10diagnosis> a pilot:Assertion ;
+    pilot:assertionObject <https://example.org/nih-pilot/data/disease/source-label/drug_induced_lung_disease> ;
+    pilot:assertionSource <https://example.org/nih-pilot/data/D2/locator/table2patient10> ;
+    pilot:assertionSubject <https://example.org/nih-pilot/data/D2/assessment/patient10> ;
+    pilot:extractionStatus "human_verified" ;
+    pilot:predicateIri "https://example.org/nih-pilot/ontology/diagnoses"^^xsd:anyURI .
+
+<https://example.org/nih-pilot/data/D2/result/patient10TTV> a pilot:MicrobialDetection ;
+    pilot:measurementType "read_count" ;
+    pilot:measures <https://example.org/nih-pilot/data/organism/source-label/Torque_teno_virus> ;
+    pilot:numericValue 5e+00 ;
+    pilot:recordedAt <https://example.org/nih-pilot/data/D2/locator/patient10mngs> ;
+    pilot:resultFor <https://example.org/nih-pilot/data/D2/patient/10> ;
+    pilot:resultStatus "detected" ;
+    pilot:unit "reads" .
+
+<https://example.org/nih-pilot/data/D1/asset/TableS6> a pilot:SourceAsset ;
+    pilot:checksum "4a25237a4c5f72821eba4796274bde857bf19af18004a16a52e0ee804a05635c" ;
+    pilot:label "TableS6.csv" ;
+    pilot:localPath "data/TableS6.csv" ;
+    pilot:sourceInStudy <https://example.org/nih-pilot/data/D1/study> .
+
+<https://example.org/nih-pilot/data/D1/locator/row4col2> a pilot:SourceLocator ;
+    pilot:locatedIn <https://example.org/nih-pilot/data/D1/asset/TableS6> ;
+    pilot:locator "CSV row 4; column Pt-01; ENSG00000000003" ;
+    pilot:rawText "45" .
+
+<https://example.org/nih-pilot/data/D1/patient/Pt-01> a pilot:Patient ;
+    pilot:enrolledIn <https://example.org/nih-pilot/data/D1/study> ;
+    pilot:label "Pt-01" ;
+    pilot:sourcePatientId "Pt-01" .
+
+<https://example.org/nih-pilot/data/D2/assessment/patient10> a pilot:DiagnosticAssessment ;
+    pilot:assessmentFor <https://example.org/nih-pilot/data/D2/patient/10> ;
+    pilot:diagnoses <https://example.org/nih-pilot/data/disease/source-label/drug_induced_lung_disease> ;
+    pilot:diagnosticClassification "true-negative" ;
+    pilot:infectionStatus "noninfectious" ;
+    pilot:recordedAt <https://example.org/nih-pilot/data/D2/locator/table2patient10> .
+
+<https://example.org/nih-pilot/data/D2/asset/supplement> a pilot:SourceAsset ;
+    pilot:checksum "7bbd66ee11b6efc1e6447a8e3d8f769ce59c5c22c5d0ced753c777570210b0b0" ;
+    pilot:label "PRJNA984933/Supplementary_Table_1.xlsx" ;
+    pilot:localPath "data/PRJNA984933/Supplementary_Table_1.xlsx" ;
+    pilot:sourceInStudy <https://example.org/nih-pilot/data/D2/study> .
+
+<https://example.org/nih-pilot/data/D2/asset/table2> a pilot:SourceAsset ;
+    pilot:checksum "8a267c056f1d5d8711c396096767a862bf44df2e522e4d2e24866f4cb3d41be8" ;
+    pilot:label "PRJNA984933/Table_2.csv" ;
+    pilot:localPath "data/PRJNA984933/Table_2.csv" ;
+    pilot:sourceInStudy <https://example.org/nih-pilot/data/D2/study> .
+
+<https://example.org/nih-pilot/data/D2/locator/patient10mngs> a pilot:SourceLocator ;
+    pilot:locatedIn <https://example.org/nih-pilot/data/D2/asset/supplement> ;
+    pilot:locator "Sheet1!E12; patient=10" ;
+    pilot:rawText "Torque teno virus_5" .
+
+<https://example.org/nih-pilot/data/gene/ensembl/ENSG00000000003> a pilot:Gene ;
+    pilot:hasIdentifier <https://example.org/nih-pilot/data/id/ENSG00000000003> ;
+    pilot:label "ENSG00000000003" ;
+    pilot:namespace "Ensembl" .
+
+<https://example.org/nih-pilot/data/id/ENSG00000000003> a pilot:Identifier ;
+    pilot:accession "ENSG00000000003" ;
+    pilot:namespace "Ensembl" .
+
+<https://example.org/nih-pilot/data/organism/source-label/Torque_teno_virus> a pilot:Virus ;
+    pilot:label "Torque teno virus" ;
+    pilot:mappingStatus "unmapped" .
+
+<https://example.org/nih-pilot/data/D1/study> a pilot:Study ;
+    pilot:label "Dryad 10.5061/dryad.800tj" .
+
+<https://example.org/nih-pilot/data/D2/locator/table2patient10> a pilot:SourceLocator ;
+    pilot:locatedIn <https://example.org/nih-pilot/data/D2/asset/table2> ;
+    pilot:locator "CSV data record NO=10" ;
+    pilot:rawText "Drug-induced interstitial lung disease (R-CHOP)" .
+
+<https://example.org/nih-pilot/data/D2/patient/10> a pilot:Patient ;
+    pilot:enrolledIn <https://example.org/nih-pilot/data/D2/study> ;
+    pilot:label "Patient 10" ;
+    pilot:sourcePatientId "10" .
+
+<https://example.org/nih-pilot/data/disease/source-label/drug_induced_lung_disease> a pilot:Disease ;
+    pilot:label "Drug-induced interstitial lung disease (R-CHOP)" .
+
+<https://example.org/nih-pilot/data/D2/study> a pilot:Study ;
+    pilot:label "PRJNA984933" .
+

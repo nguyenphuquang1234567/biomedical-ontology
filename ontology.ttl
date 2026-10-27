@@ -5,7 +5,7 @@
 
 pilot: a owl:Ontology ;
     rdfs:comment "Draft union ontology based on inspected local assets of five Table 1 sources. Namespace is provisional; no external biomedical equivalences asserted." ;
-    owl:versionInfo "0.2.0-draft" .
+    owl:versionInfo "0.3.0-draft" .
 
 pilot:AntigenTest a owl:Class ;
     rdfs:label "Antigen Test"@en ;
@@ -297,13 +297,31 @@ pilot:Virus a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:Organism .
 
+pilot:abstractText a owl:DatatypeProperty ;
+    rdfs:comment "Original abstract text, not an extracted Claim or full grant document."@en ;
+    rdfs:range xsd:string .
+
 pilot:accession a owl:DatatypeProperty ;
     rdfs:comment "Accession nguyên gốc"@vi ;
     rdfs:range xsd:string .
 
+pilot:activityCode a owl:DatatypeProperty ;
+    rdfs:comment "Reported grant activity code."@en ;
+    rdfs:range xsd:string .
+
+pilot:administeredBy a owl:ObjectProperty ;
+    rdfs:comment "Administering institute described by its code and name, distinct from recipient."@en ;
+    rdfs:domain pilot:GrantAward ;
+    rdfs:range pilot:Organization .
+
 pilot:age a owl:DatatypeProperty ;
     rdfs:comment "Tuổi như nguồn; lưu tuổi cùng thời điểm nếu có"@vi ;
     rdfs:range xsd:decimal .
+
+pilot:applicantMention a owl:ObjectProperty ;
+    rdfs:comment "Applicant text as reported; distinct from assignee."@en ;
+    rdfs:domain pilot:Patent ;
+    rdfs:range pilot:PartyMention .
 
 pilot:assertionObject a owl:ObjectProperty ;
     rdfs:label "assertionObject" ;
@@ -343,6 +361,28 @@ pilot:assessmentStage a owl:DatatypeProperty ;
     rdfs:comment "initial/interim/final/unknown; chỉ gán nếu xác minh"@vi ;
     rdfs:range xsd:string .
 
+pilot:assigneeMention a owl:ObjectProperty ;
+    rdfs:comment "Assignee text as reported; may name an individual or organization."@en ;
+    rdfs:domain pilot:Patent ;
+    rdfs:range pilot:PartyMention .
+
+pilot:assistantExaminerMention a owl:ObjectProperty ;
+    rdfs:comment "Assistant examiner text as reported."@en ;
+    rdfs:domain pilot:Patent ;
+    rdfs:range pilot:PersonNameMention .
+
+pilot:awardAmount a owl:DatatypeProperty ;
+    rdfs:comment "Reported monetary amount, with unknown currency and additive scope unless verified separately."@en ;
+    rdfs:range xsd:decimal .
+
+pilot:awardCurrency a owl:DatatypeProperty ;
+    rdfs:comment "Only populated when a currency is established by a source; absent here."@en ;
+    rdfs:range xsd:string .
+
+pilot:awardNoticeDate a owl:DatatypeProperty ;
+    rdfs:comment "Reported notice date; not retrieval time."@en ;
+    rdfs:range xsd:date .
+
 pilot:certainty a owl:DatatypeProperty ;
     rdfs:comment "Độ chắc chắn nguồn; không phải extraction confidence"@vi ;
     rdfs:range xsd:string .
@@ -363,11 +403,31 @@ pilot:citingDocument a owl:ObjectProperty ;
     rdfs:domain pilot:Citation ;
     rdfs:range pilot:Document .
 
+pilot:city a owl:DatatypeProperty ;
+    rdfs:comment "Reported city."@en ;
+    rdfs:range xsd:string .
+
 pilot:claimIn a owl:ObjectProperty ;
     rdfs:label "claimIn" ;
     rdfs:comment "Claim được tác giả nêu trong tài liệu"@vi ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:Document .
+
+pilot:classificationCode a owl:DatatypeProperty ;
+    rdfs:comment "Original reported classification code."@en ;
+    rdfs:range xsd:string .
+
+pilot:classificationFilter a owl:DatatypeProperty ;
+    rdfs:comment "CPC search filter, distinct from assigned classification."@en ;
+    rdfs:range xsd:string .
+
+pilot:classificationScheme a owl:DatatypeProperty ;
+    rdfs:comment "Reported classification scheme."@en ;
+    rdfs:range xsd:string .
+
+pilot:classificationSourceField a owl:DatatypeProperty ;
+    rdfs:comment "CPCI or CPCA as reported; their detailed meanings are not inferred."@en ;
+    rdfs:range xsd:string .
 
 pilot:collectionTime a owl:DatatypeProperty ;
     rdfs:comment "Ngày giờ lấy mẫu nếu có"@vi ;
@@ -389,12 +449,21 @@ pilot:considersResult a owl:ObjectProperty ;
     rdfs:domain pilot:ClinicalAssessment ;
     rdfs:range pilot:Result .
 
+pilot:contactPIMention a owl:ObjectProperty ;
+    rdfs:comment "PI name as reported; placeholders and incomplete lists remain explicitly marked."@en ;
+    rdfs:domain pilot:GrantAward ;
+    rdfs:range pilot:PersonNameMention .
+
 pilot:controlRole a owl:DatatypeProperty ;
     rdfs:comment "Vai trò control theo nguồn"@vi ;
     rdfs:range xsd:string .
 
 pilot:countingUnit a owl:DatatypeProperty ;
     rdfs:comment "patient/specimen/run/..."@vi ;
+    rdfs:range xsd:string .
+
+pilot:country a owl:DatatypeProperty ;
+    rdfs:comment "Reported country; not inferred from other fields."@en ;
     rdfs:range xsd:string .
 
 pilot:dateStatus a owl:DatatypeProperty ;
@@ -424,6 +493,11 @@ pilot:diagnoses a owl:ObjectProperty ;
 pilot:diagnosticClassification a owl:DatatypeProperty ;
     rdfs:comment "True-negative/false-negative/... theo reference được báo cáo"@vi ;
     rdfs:range xsd:string .
+
+pilot:documentForFunding a owl:ObjectProperty ;
+    rdfs:comment "Project-detail/abstract document associated with the application record."@en ;
+    rdfs:domain pilot:GrantDocument ;
+    rdfs:range pilot:GrantFundingRecord .
 
 pilot:endTime a owl:DatatypeProperty ;
     rdfs:comment "Thời điểm kết thúc"@vi ;
@@ -479,6 +553,19 @@ pilot:fileFormat a owl:DatatypeProperty ;
     rdfs:comment "CSV/XLSX/JATS/BioC/ZIP/..."@vi ;
     rdfs:range xsd:string .
 
+pilot:filingDate a owl:DatatypeProperty ;
+    rdfs:comment "Source-reported filing date."@en ;
+    rdfs:range xsd:date .
+
+pilot:fiscalYear a owl:DatatypeProperty ;
+    rdfs:comment "Source fiscal year; not publication year."@en ;
+    rdfs:range xsd:gYear .
+
+pilot:fundingFor a owl:ObjectProperty ;
+    rdfs:comment "Funding record linked by the exact award_key foreign key."@en ;
+    rdfs:domain pilot:GrantFundingRecord ;
+    rdfs:range pilot:GrantAward .
+
 pilot:generatedBy a owl:ObjectProperty ;
     rdfs:label "generatedBy" ;
     rdfs:comment "Kết quả dẫn xuất từ pipeline"@vi ;
@@ -506,6 +593,15 @@ pilot:implicatesOrganism a owl:ObjectProperty ;
 pilot:infectionStatus a owl:DatatypeProperty ;
     rdfs:comment "infectious/noninfectious/unknown/mixed theo adjudication nguồn"@vi ;
     rdfs:range xsd:string .
+
+pilot:instituteCode a owl:DatatypeProperty ;
+    rdfs:comment "Reported administering institute code; namespace retained in Identifier."@en ;
+    rdfs:range xsd:string .
+
+pilot:inventorMention a owl:ObjectProperty ;
+    rdfs:comment "Inventor text as reported, not a verified person identity."@en ;
+    rdfs:domain pilot:Patent ;
+    rdfs:range pilot:PersonNameMention .
 
 pilot:isControl a owl:DatatypeProperty ;
     rdfs:comment "true/false chỉ khi xác minh; không có thuộc tính là chưa rõ"@vi ;
@@ -584,6 +680,20 @@ pilot:mappingStatus a owl:DatatypeProperty ;
     rdfs:comment "verified/unresolved/conflict/unmapped; không tự tạo equivalence"@vi ;
     rdfs:range xsd:string .
 
+pilot:matchMethod a owl:DatatypeProperty ;
+    rdfs:comment "Reported matching method."@en ;
+    rdfs:range xsd:string .
+
+pilot:matchedDocument a owl:ObjectProperty ;
+    rdfs:comment "Document returned by the retrieval match."@en ;
+    rdfs:domain pilot:RetrievalMatch ;
+    rdfs:range pilot:Document .
+
+pilot:matchedTaxonReference a owl:ObjectProperty ;
+    rdfs:comment "Source reference; no verified taxonomic entity or claim-support relation is inferred."@en ;
+    rdfs:domain pilot:RetrievalMatch ;
+    rdfs:range pilot:TaxonReference .
+
 pilot:measurementType a owl:DatatypeProperty ;
     rdfs:comment "read_count/gene_count/coverage/abundance/score/..."@vi ;
     rdfs:range xsd:string .
@@ -608,6 +718,10 @@ pilot:modality a owl:DatatypeProperty ;
     rdfs:comment "DNA/RNA/unknown theo nguồn"@vi ;
     rdfs:range xsd:string .
 
+pilot:nameResolutionStatus a owl:DatatypeProperty ;
+    rdfs:comment "reported_only, placeholder, or incomplete_list; no global identity assertion."@en ;
+    rdfs:range xsd:string .
+
 pilot:namespace a owl:DatatypeProperty ;
     rdfs:comment "Namespace mã"@vi ;
     rdfs:range xsd:string .
@@ -615,6 +729,15 @@ pilot:namespace a owl:DatatypeProperty ;
 pilot:numericValue a owl:DatatypeProperty ;
     rdfs:comment "Giá trị số; không tự đổi unit hoặc missing thành zero"@vi ;
     rdfs:range xsd:double .
+
+pilot:organizationLocation a owl:ObjectProperty ;
+    rdfs:comment "Reported organizational location, not a clinical specimen collection site."@en ;
+    rdfs:domain pilot:Organization ;
+    rdfs:range pilot:Location .
+
+pilot:pageCount a owl:DatatypeProperty ;
+    rdfs:comment "Source page count; not patient sample size."@en ;
+    rdfs:range xsd:integer .
 
 pilot:platform a owl:DatatypeProperty ;
     rdfs:comment "Tên platform theo từng nguồn; giữ conflict"@vi ;
@@ -624,17 +747,34 @@ pilot:predicateIri a owl:DatatypeProperty ;
     rdfs:comment "IRI predicate được phát biểu; không phải một class disease"@vi ;
     rdfs:range xsd:anyURI .
 
+pilot:primaryExaminerMention a owl:ObjectProperty ;
+    rdfs:comment "Primary examiner text as reported."@en ;
+    rdfs:domain pilot:Patent ;
+    rdfs:range pilot:PersonNameMention .
+
 pilot:producedByTest a owl:ObjectProperty ;
     rdfs:label "producedByTest" ;
     rdfs:comment "Kết quả của xét nghiệm"@vi ;
     rdfs:domain pilot:Result ;
     rdfs:range pilot:Test .
 
+pilot:projectEndDate a owl:DatatypeProperty ;
+    rdfs:comment "Source project end date at date precision."@en ;
+    rdfs:range xsd:date .
+
+pilot:projectStartDate a owl:DatatypeProperty ;
+    rdfs:comment "Source project start date at date precision."@en ;
+    rdfs:range xsd:date .
+
 pilot:qualityOf a owl:ObjectProperty ;
     rdfs:label "qualityOf" ;
     rdfs:comment "QC của run/asset/pipeline"@vi ;
     rdfs:domain pilot:QualityMetricResult ;
     rdfs:range pilot:Entity .
+
+pilot:queryTerm a owl:DatatypeProperty ;
+    rdfs:comment "Original search term."@en ;
+    rdfs:range xsd:string .
 
 pilot:rawText a owl:DatatypeProperty ;
     rdfs:comment "Nguyên văn"@vi ;
@@ -643,6 +783,11 @@ pilot:rawText a owl:DatatypeProperty ;
 pilot:rawTime a owl:DatatypeProperty ;
     rdfs:comment "Ngày/khoảng thời gian nguyên văn khi chưa đủ để ép DateTime"@vi ;
     rdfs:range xsd:string .
+
+pilot:recipientOrganization a owl:ObjectProperty ;
+    rdfs:comment "Reported recipient organization, without assuming affiliation of every named person."@en ;
+    rdfs:domain pilot:GrantAward ;
+    rdfs:range pilot:Organization .
 
 pilot:recordedAt a owl:ObjectProperty ;
     rdfs:label "recordedAt" ;
@@ -654,12 +799,37 @@ pilot:referenceBuild a owl:DatatypeProperty ;
     rdfs:comment "Genome/annotation build"@vi ;
     rdfs:range xsd:string .
 
+pilot:referenceNamespaceStatus a owl:DatatypeProperty ;
+    rdfs:comment "Verification status of the source identifier namespace; no namespace is inferred."@en ;
+    rdfs:range xsd:string .
+
 pilot:referenceText a owl:DatatypeProperty ;
     rdfs:comment "Reference nguyên văn khi chưa resolve"@vi ;
     rdfs:range xsd:string .
 
 pilot:relevanceReason a owl:DatatypeProperty ;
     rdfs:comment "Lý do paper liên quan concept; không phải citation"@vi ;
+    rdfs:range xsd:string .
+
+pilot:reportedClassification a owl:ObjectProperty ;
+    rdfs:comment "Reported classification preserving CPCI versus CPCA; not a search filter."@en ;
+    rdfs:domain pilot:Patent ;
+    rdfs:range pilot:ClassificationCode .
+
+pilot:reportedDate a owl:DatatypeProperty ;
+    rdfs:comment "Value of generic date field; its meaning is explicitly unverified."@en ;
+    rdfs:range xsd:date .
+
+pilot:reportedDateMeaning a owl:DatatypeProperty ;
+    rdfs:comment "Explicit semantic status of the generic date field."@en ;
+    rdfs:range xsd:string .
+
+pilot:reportedIdentifiers a owl:DatatypeProperty ;
+    rdfs:comment "Original identifier text, including pipe-separated lists; namespace remains unverified."@en ;
+    rdfs:range xsd:string .
+
+pilot:reportedNames a owl:DatatypeProperty ;
+    rdfs:comment "Original taxon keyword text; no forced pairing or normalized equivalence."@en ;
     rdfs:range xsd:string .
 
 pilot:resultFor a owl:ObjectProperty ;
@@ -670,6 +840,14 @@ pilot:resultFor a owl:ObjectProperty ;
 
 pilot:resultStatus a owl:DatatypeProperty ;
     rdfs:comment "detected/negative/not_performed/not_collected/not_reported/unknown; zero là giá trị riêng"@vi ;
+    rdfs:range xsd:string .
+
+pilot:retrievalRelation a owl:DatatypeProperty ;
+    rdfs:comment "Reported related label; not supports or a causal relation."@en ;
+    rdfs:range xsd:string .
+
+pilot:retrievalSource a owl:DatatypeProperty ;
+    rdfs:comment "Source of the retrieval metadata."@en ;
     rdfs:range xsd:string .
 
 pilot:retrievalStatus a owl:DatatypeProperty ;
@@ -732,6 +910,10 @@ pilot:startTime a owl:DatatypeProperty ;
     rdfs:comment "Thời điểm bắt đầu nếu có đủ độ chính xác"@vi ;
     rdfs:range xsd:dateTime .
 
+pilot:state a owl:DatatypeProperty ;
+    rdfs:comment "Reported state; not geocoded."@en ;
+    rdfs:range xsd:string .
+
 pilot:statisticForGroup a owl:ObjectProperty ;
     rdfs:label "statisticForGroup" ;
     rdfs:comment "Thống kê cho nhóm"@vi ;
@@ -766,6 +948,11 @@ pilot:version a owl:DatatypeProperty ;
     rdfs:comment "Phiên bản"@vi ;
     rdfs:range xsd:string .
 
+pilot:ClassificationCode a owl:Class ;
+    rdfs:label "ClassificationCode" ;
+    rdfs:comment "A reported patent classification code, preserving the source classification field."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:CoinfectionAssessment a owl:Class ;
     rdfs:label "Coinfection Assessment"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -782,6 +969,11 @@ pilot:ConditionOccurrence a owl:Class ;
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:ClinicalEvent .
 
+pilot:GrantDocument a owl:Class ;
+    rdfs:label "GrantDocument" ;
+    rdfs:comment "A grant project-detail record or abstract; not a claim that full grant text is available."@en ;
+    rdfs:subClassOf pilot:Document .
+
 pilot:Identifier a owl:Class ;
     rdfs:label "Identifier"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -791,6 +983,11 @@ pilot:Identifier a owl:Class ;
         <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/>,
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "Source-reported city, state and country for an organization; not necessarily the study site."@en ;
     rdfs:subClassOf pilot:Entity .
 
 pilot:ProcessingPipeline a owl:Class ;
@@ -815,6 +1012,11 @@ pilot:SequencingRun a owl:Class ;
     rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:TaxonReference a owl:Class ;
+    rdfs:label "TaxonReference" ;
+    rdfs:comment "Unverified source taxon identifier(s) and label(s), preserving combined values without assuming namespace or alignment."@en ;
     rdfs:subClassOf pilot:Entity .
 
 pilot:Treatment a owl:Class ;
@@ -871,6 +1073,11 @@ pilot:EvidenceLink a owl:Class ;
         "Mapping claim/evidence với role supports/contradicts/contextualizes."@vi ;
     rdfs:subClassOf pilot:Entity .
 
+pilot:GrantFundingRecord a owl:Class ;
+    rdfs:label "GrantFundingRecord" ;
+    rdfs:comment "A funding/application record identified by appl_id and linked to an award; no assumption of additive budget scope."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:InfectionEpisode a owl:Class ;
     rdfs:label "Infection Episode"@en ;
     rdfs:comment "Design status: design",
@@ -893,6 +1100,11 @@ pilot:PaperConceptLink a owl:Class ;
         "Mapping N–N paper/concept, relevance và nguồn; không đồng nghĩa citation."@vi ;
     rdfs:subClassOf pilot:Entity .
 
+pilot:RetrievalMatch a owl:Class ;
+    rdfs:label "RetrievalMatch" ;
+    rdfs:comment "A recorded search match connecting a document to a source-provided concept reference; not scientific support."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:Assertion a owl:Class ;
     rdfs:label "Assertion"@en ;
     rdfs:comment "Design status: design",
@@ -906,6 +1118,16 @@ pilot:CohortGroup a owl:Class ;
     rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization as reported within a source record; identical labels do not establish global identity."@en ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:PartyMention a owl:Class ;
+    rdfs:label "PartyMention" ;
+    rdfs:comment "An original person or organization name string in a stated role, without resolved identity."@en ;
     rdfs:subClassOf pilot:Entity .
 
 pilot:SequencingTest a owl:Class ;
@@ -956,6 +1178,11 @@ pilot:ConventionalMicrobiologyTest a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:Test .
 
+pilot:GrantAward a owl:Class ;
+    rdfs:label "GrantAward" ;
+    rdfs:comment "An award record keyed by award_key; not a Study or an individual annual funding record."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:Organism a owl:Class ;
     rdfs:label "Organism"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -964,6 +1191,11 @@ pilot:Organism a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Feature .
+
+pilot:PersonNameMention a owl:Class ;
+    rdfs:label "PersonNameMention" ;
+    rdfs:comment "A source-reported person name or incomplete name list; not a Patient and not a resolved unique person."@en ;
+    rdfs:subClassOf pilot:PartyMention .
 
 pilot:TreatmentEvent a owl:Class ;
     rdfs:label "Treatment Event"@en ;
@@ -999,19 +1231,17 @@ pilot:Test a owl:Class ;
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
 
-pilot:Document a owl:Class ;
-    rdfs:label "Document"@en ;
-    rdfs:comment "Design status: source-grounded",
-        "Bài báo/tài liệu có định danh và nội dung theo phiên bản."@vi ;
-    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
-    rdfs:subClassOf pilot:SourceAsset .
-
 pilot:EvidenceUnit a owl:Class ;
     rdfs:label "Evidence Unit"@en ;
     rdfs:comment "Design status: source-grounded",
         "Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim."@vi ;
     rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
     rdfs:subClassOf pilot:Entity .
+
+pilot:Patent a owl:Class ;
+    rdfs:label "Patent" ;
+    rdfs:comment "A patent publication described by source metadata; scientific and legal claims are not inferred from metadata."@en ;
+    rdfs:subClassOf pilot:Document .
 
 pilot:SourceAsset a owl:Class ;
     rdfs:label "Source Asset"@en ;
@@ -1053,6 +1283,13 @@ pilot:Patient a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
+
+pilot:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Bài báo/tài liệu có định danh và nội dung theo phiên bản."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:SourceAsset .
 
 pilot:Result a owl:Class ;
     rdfs:label "Result"@en ;

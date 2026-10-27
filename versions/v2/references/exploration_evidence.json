@@ -1,0 +1,397 @@
+{
+  "PRJNA984933": {
+    "runs": 102,
+    "columns": 47,
+    "biosamples": 102,
+    "unique_sample_names": 102,
+    "model": {
+      "NextSeq 550": 102
+    },
+    "missing_clinical": {
+      "Subject_ID": 102,
+      "Sex": 102,
+      "Disease": 102,
+      "Body_Site": 102
+    },
+    "patients": 112,
+    "headers": [
+      "patient ",
+      "Sex",
+      "Age,year",
+      "Underlying disease",
+      "mNGS results（Number of reads）"
+    ],
+    "missing_results": 27,
+    "unique_age_range": [
+      16,
+      74
+    ],
+    "explicit_ttv": [
+      "10",
+      "24",
+      "33",
+      "43",
+      "53",
+      "57",
+      "58",
+      "60",
+      "64",
+      "67",
+      "82",
+      "84",
+      "85",
+      "86",
+      "89",
+      "91",
+      "94",
+      "95"
+    ]
+  },
+  "PRJNA808886": {
+    "runs": 66,
+    "columns": 47,
+    "biosamples": 66,
+    "unique_sample_names": 66,
+    "model": {
+      "BGISEQ-500": 66
+    },
+    "missing_clinical": {
+      "Subject_ID": 66,
+      "Sex": 66,
+      "Disease": 66,
+      "Body_Site": 66
+    },
+    "file1": {
+      "patients": 69,
+      "physical_data_rows": 152,
+      "headers": [
+        "Patient ID",
+        "Age,year",
+        "Sex",
+        "Underlying disease",
+        "Pathogens identified by CMTs",
+        "mNGS results",
+        "Number of unique reads",
+        "CovRate"
+      ],
+      "merged_or_continuation_rows": 83,
+      "blank_cells_are_not_patient_missing": true,
+      "example": {
+        "A": "PT1",
+        "B": "65",
+        "C": "female",
+        "D": "Dermatomyositis",
+        "E": "Staphylococcus hemolysis",
+        "F": "Human herpesvirus 6B",
+        "G": "187",
+        "H": "22.25"
+      }
+    },
+    "file2": {
+      "patients": 19,
+      "physical_data_rows": 63,
+      "headers": [
+        "Patient ID",
+        "Age,year",
+        "Sex",
+        "Underlying disease",
+        "Pathogens identified by CMTs",
+        "mNGS results",
+        "co-infection"
+      ],
+      "merged_or_continuation_rows": 44,
+      "blank_cells_are_not_patient_missing": true,
+      "example": {
+        "A": "PT2",
+        "B": "67",
+        "C": "male",
+        "D": "Lymphoma",
+        "E": "Pneumocystis",
+        "F": "Pneumocystis",
+        "G": "Pneumocystis"
+      }
+    }
+  },
+  "PRJNA1056765": {
+    "runs": 868,
+    "columns": 47,
+    "biosamples": 466,
+    "unique_sample_names": 466,
+    "model": {
+      "NextSeq 550": 868
+    },
+    "missing_clinical": {
+      "Subject_ID": 868,
+      "Sex": 868,
+      "Disease": 868,
+      "Body_Site": 868
+    },
+    "sheets": {
+      "Table S1": {
+        "rows": 434,
+        "columns": 18,
+        "headers": [
+          "Patients ID",
+          "Group",
+          "Biosample Accession",
+          "SRA Accession",
+          "total reads",
+          "total bases",
+          "clean reads",
+          "clean reads rate(%)",
+          "clean bases",
+          "Q20 rate(%)",
+          "Q30 rate(%)",
+          "GC(%)",
+          "unhost_reads",
+          "host_reads",
+          "host_ratio",
+          "unhost_unrRNA_reads",
+          "micro_reads",
+          "micro_ratio"
+        ],
+        "missing": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "F": 0,
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "J": 0,
+          "K": 0,
+          "L": 0,
+          "M": 0,
+          "N": 0,
+          "O": 0,
+          "P": 0,
+          "Q": 0,
+          "R": 0
+        },
+        "unique_id": 434,
+        "groups": {
+          "Bacterial infection": 114,
+          "Lung cancer": 123,
+          "Pulmonary tuberculosis": 86,
+          "Fungal infection": 79,
+          "NC": 32
+        },
+        "unmatched_runs": [],
+        "mismatched_sample_names": 32,
+        "mismatched_biosamples": 0
+      },
+      "TableS2": {
+        "rows": 434,
+        "columns": 18,
+        "headers": [
+          "Patients ID",
+          "Group",
+          "Biosample Accession",
+          "SRA Accession",
+          "total reads",
+          "total bases",
+          "clean reads",
+          "clean reads rate(%)",
+          "clean bases",
+          "Q20 rate(%)",
+          "Q30 rate(%)",
+          "GC(%)",
+          "unhost_reads",
+          "host_reads",
+          "host_ratio",
+          "unhost_unrRNA_reads",
+          "micro_reads",
+          "micro_ratio"
+        ],
+        "missing": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "F": 0,
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "J": 0,
+          "K": 0,
+          "L": 0,
+          "M": 0,
+          "N": 0,
+          "O": 0,
+          "P": 0,
+          "Q": 0,
+          "R": 0
+        },
+        "unique_id": 434,
+        "groups": {
+          "Bacterial infection": 114,
+          "Lung cancer": 123,
+          "Pulmonary tuberculosis": 86,
+          "Fungal infection": 79,
+          "NC": 32
+        },
+        "unmatched_runs": [],
+        "mismatched_sample_names": 32,
+        "mismatched_biosamples": 0
+      },
+      "Table S3": {
+        "rows": 32,
+        "columns": 8,
+        "headers": [
+          "Patients ID",
+          "Age (year)",
+          "Sex",
+          "Collecation Date",
+          "BAL microbiology",
+          "mNGS DNA Pathogen_Reads number",
+          "mNGS RNA Pathogen_Reads number",
+          "Diagnosis"
+        ],
+        "missing": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "F": 0,
+          "G": 0,
+          "H": 0
+        },
+        "unique_id": 32
+      }
+    },
+    "dna_rna_same_run_ids": 32,
+    "same_run_examples": [
+      "20210611MCX006",
+      "20210612MCX014",
+      "20210727MCX013"
+    ],
+    "paired_patient_ids_equal": true,
+    "matrices": {
+      "55594994_CIBERSORTx_cell_type_abs.txt.txt": {
+        "rows": 402,
+        "columns": 26,
+        "row_keys_first": [
+          "20210421MCX013",
+          "20211004MCX022",
+          "20211004MCX024"
+        ],
+        "headers_first": [
+          "Mixture",
+          "B cells naive",
+          "B cells memory",
+          "Plasma cells",
+          "T cells CD8"
+        ],
+        "widths": {
+          "26": 403
+        }
+      },
+      "55594991_CNV_info_table.txt": {
+        "rows": 49,
+        "columns": 403,
+        "row_keys_first": [
+          "TumorFraction",
+          "chr1num",
+          "chr2num"
+        ],
+        "headers_first": [
+          "ID",
+          "20210227MCX003",
+          "20210309MCX007",
+          "20210309MCX010",
+          "20210312MCX003"
+        ],
+        "widths": {
+          "403": 50
+        }
+      },
+      "55594970_genus_abundances.txt": {
+        "rows": 1630,
+        "columns": 403,
+        "row_keys_first": [
+          "Dictyoglomus",
+          "Chlorobaculum",
+          "Chlorobium"
+        ],
+        "headers_first": [
+          "Classification",
+          "20210612MCX010",
+          "20210612MCX012",
+          "20210617MCX008",
+          "20210617MCX009"
+        ],
+        "widths": {
+          "403": 1631
+        }
+      },
+      "55594967_genus_abundances.txt": {
+        "rows": 1500,
+        "columns": 403,
+        "row_keys_first": [
+          "Abiotrophia",
+          "Abyssicoccus",
+          "Acetilactobacillus"
+        ],
+        "headers_first": [
+          "Classification",
+          "20210421MCX013",
+          "20211004MCX022",
+          "20211004MCX024",
+          "20211215MCX012"
+        ],
+        "widths": {
+          "403": 1501
+        }
+      },
+      "55594988_species_abundances.txt": {
+        "usable": false,
+        "bytes": 2
+      },
+      "55594985_species_abundances.txt": {
+        "usable": false,
+        "bytes": 2
+      },
+      "RNAseq_featurecount.txt": {
+        "rows": 28278,
+        "columns": 403,
+        "headers_first": [
+          "Geneid",
+          "20210421MCX013",
+          "20211004MCX022",
+          "20211004MCX024",
+          "20211215MCX012"
+        ],
+        "row_keys_first": [
+          "DDX11L1",
+          "WASH7P",
+          "MIR6859-1"
+        ],
+        "widths": {
+          "403": 28279
+        }
+      }
+    }
+  },
+  "PMC": {
+    "9052728": {
+      "tables": 3,
+      "figures": 3,
+      "references": 24,
+      "sections": 27,
+      "supplements": 2,
+      "license": "CC BY 4.0"
+    },
+    "10338636": {
+      "tables": 3,
+      "figures": 5,
+      "references": 34,
+      "sections": 29,
+      "supplements": 1,
+      "license": "CC BY 4.0"
+    }
+  }
+}

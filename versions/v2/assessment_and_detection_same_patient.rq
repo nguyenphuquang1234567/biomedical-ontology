@@ -1,0 +1,3 @@
+# Joining on patient does not prove this assessment considered this result.
+PREFIX pilot: <https://example.org/nih-pilot/ontology/>
+SELECT ?patient ?organism ?reads ?diagnosis WHERE { ?r a pilot:MicrobialDetection; pilot:resultFor ?patient; pilot:measures ?organism; pilot:numericValue ?reads. ?a a pilot:DiagnosticAssessment; pilot:assessmentFor ?patient; pilot:diagnoses ?diagnosis; pilot:infectionStatus "noninfectious". }

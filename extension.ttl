@@ -1,0 +1,243 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/nih-pilot/ontology/> owl:versionInfo "0.3.0-draft" .
+
+<https://example.org/nih-pilot/ontology/abstractText> a owl:DatatypeProperty ;
+    rdfs:comment "Original abstract text, not an extracted Claim or full grant document."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/activityCode> a owl:DatatypeProperty ;
+    rdfs:comment "Reported grant activity code."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/administeredBy> a owl:ObjectProperty ;
+    rdfs:comment "Administering institute described by its code and name, distinct from recipient."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/GrantAward> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/Organization> .
+
+<https://example.org/nih-pilot/ontology/applicantMention> a owl:ObjectProperty ;
+    rdfs:comment "Applicant text as reported; distinct from assignee."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Patent> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/PartyMention> .
+
+<https://example.org/nih-pilot/ontology/assigneeMention> a owl:ObjectProperty ;
+    rdfs:comment "Assignee text as reported; may name an individual or organization."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Patent> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/PartyMention> .
+
+<https://example.org/nih-pilot/ontology/assistantExaminerMention> a owl:ObjectProperty ;
+    rdfs:comment "Assistant examiner text as reported."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Patent> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/PersonNameMention> .
+
+<https://example.org/nih-pilot/ontology/awardAmount> a owl:DatatypeProperty ;
+    rdfs:comment "Reported monetary amount, with unknown currency and additive scope unless verified separately."@en ;
+    rdfs:range xsd:decimal .
+
+<https://example.org/nih-pilot/ontology/awardCurrency> a owl:DatatypeProperty ;
+    rdfs:comment "Only populated when a currency is established by a source; absent here."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/awardNoticeDate> a owl:DatatypeProperty ;
+    rdfs:comment "Reported notice date; not retrieval time."@en ;
+    rdfs:range xsd:date .
+
+<https://example.org/nih-pilot/ontology/city> a owl:DatatypeProperty ;
+    rdfs:comment "Reported city."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/classificationCode> a owl:DatatypeProperty ;
+    rdfs:comment "Original reported classification code."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/classificationFilter> a owl:DatatypeProperty ;
+    rdfs:comment "CPC search filter, distinct from assigned classification."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/classificationScheme> a owl:DatatypeProperty ;
+    rdfs:comment "Reported classification scheme."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/classificationSourceField> a owl:DatatypeProperty ;
+    rdfs:comment "CPCI or CPCA as reported; their detailed meanings are not inferred."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/contactPIMention> a owl:ObjectProperty ;
+    rdfs:comment "PI name as reported; placeholders and incomplete lists remain explicitly marked."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/GrantAward> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/PersonNameMention> .
+
+<https://example.org/nih-pilot/ontology/country> a owl:DatatypeProperty ;
+    rdfs:comment "Reported country; not inferred from other fields."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/documentForFunding> a owl:ObjectProperty ;
+    rdfs:comment "Project-detail/abstract document associated with the application record."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/GrantDocument> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/GrantFundingRecord> .
+
+<https://example.org/nih-pilot/ontology/filingDate> a owl:DatatypeProperty ;
+    rdfs:comment "Source-reported filing date."@en ;
+    rdfs:range xsd:date .
+
+<https://example.org/nih-pilot/ontology/fiscalYear> a owl:DatatypeProperty ;
+    rdfs:comment "Source fiscal year; not publication year."@en ;
+    rdfs:range xsd:gYear .
+
+<https://example.org/nih-pilot/ontology/fundingFor> a owl:ObjectProperty ;
+    rdfs:comment "Funding record linked by the exact award_key foreign key."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/GrantFundingRecord> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/GrantAward> .
+
+<https://example.org/nih-pilot/ontology/instituteCode> a owl:DatatypeProperty ;
+    rdfs:comment "Reported administering institute code; namespace retained in Identifier."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/inventorMention> a owl:ObjectProperty ;
+    rdfs:comment "Inventor text as reported, not a verified person identity."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Patent> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/PersonNameMention> .
+
+<https://example.org/nih-pilot/ontology/matchMethod> a owl:DatatypeProperty ;
+    rdfs:comment "Reported matching method."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/matchedDocument> a owl:ObjectProperty ;
+    rdfs:comment "Document returned by the retrieval match."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/RetrievalMatch> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/Document> .
+
+<https://example.org/nih-pilot/ontology/matchedTaxonReference> a owl:ObjectProperty ;
+    rdfs:comment "Source reference; no verified taxonomic entity or claim-support relation is inferred."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/RetrievalMatch> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/TaxonReference> .
+
+<https://example.org/nih-pilot/ontology/nameResolutionStatus> a owl:DatatypeProperty ;
+    rdfs:comment "reported_only, placeholder, or incomplete_list; no global identity assertion."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/organizationLocation> a owl:ObjectProperty ;
+    rdfs:comment "Reported organizational location, not a clinical specimen collection site."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Organization> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/Location> .
+
+<https://example.org/nih-pilot/ontology/pageCount> a owl:DatatypeProperty ;
+    rdfs:comment "Source page count; not patient sample size."@en ;
+    rdfs:range xsd:integer .
+
+<https://example.org/nih-pilot/ontology/primaryExaminerMention> a owl:ObjectProperty ;
+    rdfs:comment "Primary examiner text as reported."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Patent> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/PersonNameMention> .
+
+<https://example.org/nih-pilot/ontology/projectEndDate> a owl:DatatypeProperty ;
+    rdfs:comment "Source project end date at date precision."@en ;
+    rdfs:range xsd:date .
+
+<https://example.org/nih-pilot/ontology/projectStartDate> a owl:DatatypeProperty ;
+    rdfs:comment "Source project start date at date precision."@en ;
+    rdfs:range xsd:date .
+
+<https://example.org/nih-pilot/ontology/queryTerm> a owl:DatatypeProperty ;
+    rdfs:comment "Original search term."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/recipientOrganization> a owl:ObjectProperty ;
+    rdfs:comment "Reported recipient organization, without assuming affiliation of every named person."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/GrantAward> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/Organization> .
+
+<https://example.org/nih-pilot/ontology/referenceNamespaceStatus> a owl:DatatypeProperty ;
+    rdfs:comment "Verification status of the source identifier namespace; no namespace is inferred."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/reportedClassification> a owl:ObjectProperty ;
+    rdfs:comment "Reported classification preserving CPCI versus CPCA; not a search filter."@en ;
+    rdfs:domain <https://example.org/nih-pilot/ontology/Patent> ;
+    rdfs:range <https://example.org/nih-pilot/ontology/ClassificationCode> .
+
+<https://example.org/nih-pilot/ontology/reportedDate> a owl:DatatypeProperty ;
+    rdfs:comment "Value of generic date field; its meaning is explicitly unverified."@en ;
+    rdfs:range xsd:date .
+
+<https://example.org/nih-pilot/ontology/reportedDateMeaning> a owl:DatatypeProperty ;
+    rdfs:comment "Explicit semantic status of the generic date field."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/reportedIdentifiers> a owl:DatatypeProperty ;
+    rdfs:comment "Original identifier text, including pipe-separated lists; namespace remains unverified."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/reportedNames> a owl:DatatypeProperty ;
+    rdfs:comment "Original taxon keyword text; no forced pairing or normalized equivalence."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/retrievalRelation> a owl:DatatypeProperty ;
+    rdfs:comment "Reported related label; not supports or a causal relation."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/retrievalSource> a owl:DatatypeProperty ;
+    rdfs:comment "Source of the retrieval metadata."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/state> a owl:DatatypeProperty ;
+    rdfs:comment "Reported state; not geocoded."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/ontology/ClassificationCode> a owl:Class ;
+    rdfs:label "ClassificationCode" ;
+    rdfs:comment "A reported patent classification code, preserving the source classification field."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/GrantDocument> a owl:Class ;
+    rdfs:label "GrantDocument" ;
+    rdfs:comment "A grant project-detail record or abstract; not a claim that full grant text is available."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Document> .
+
+<https://example.org/nih-pilot/ontology/Location> a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "Source-reported city, state and country for an organization; not necessarily the study site."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/TaxonReference> a owl:Class ;
+    rdfs:label "TaxonReference" ;
+    rdfs:comment "Unverified source taxon identifier(s) and label(s), preserving combined values without assuming namespace or alignment."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/GrantFundingRecord> a owl:Class ;
+    rdfs:label "GrantFundingRecord" ;
+    rdfs:comment "A funding/application record identified by appl_id and linked to an award; no assumption of additive budget scope."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/RetrievalMatch> a owl:Class ;
+    rdfs:label "RetrievalMatch" ;
+    rdfs:comment "A recorded search match connecting a document to a source-provided concept reference; not scientific support."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/Organization> a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization as reported within a source record; identical labels do not establish global identity."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/PartyMention> a owl:Class ;
+    rdfs:label "PartyMention" ;
+    rdfs:comment "An original person or organization name string in a stated role, without resolved identity."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/GrantAward> a owl:Class ;
+    rdfs:label "GrantAward" ;
+    rdfs:comment "An award record keyed by award_key; not a Study or an individual annual funding record."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Entity> .
+
+<https://example.org/nih-pilot/ontology/PersonNameMention> a owl:Class ;
+    rdfs:label "PersonNameMention" ;
+    rdfs:comment "A source-reported person name or incomplete name list; not a Patient and not a resolved unique person."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/PartyMention> .
+
+<https://example.org/nih-pilot/ontology/Patent> a owl:Class ;
+    rdfs:label "Patent" ;
+    rdfs:comment "A patent publication described by source metadata; scientific and legal claims are not inferred from metadata."@en ;
+    rdfs:subClassOf <https://example.org/nih-pilot/ontology/Document> .
+

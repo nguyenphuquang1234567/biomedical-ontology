@@ -1,0 +1,42 @@
+property_id,domain,range,meaning_vi,cardinality,condition
+enrolledIn,Patient,Study,Người thuộc nghiên cứu,N:1,Exactly one study in pilot identity namespace
+groupInStudy,CohortGroup,Study,Nhóm thuộc nghiên cứu,N:1,Exactly one
+memberOfGroup,Patient,CohortGroup,Người được xếp vào nhóm,N:N,Only source-stated membership
+eventFor,ClinicalEvent,Patient,Sự kiện của người,N:1,Required for patient-specific event
+conditionConcept,ConditionOccurrence,Disease,Sự kiện ghi nhận khái niệm bệnh,N:1,Keep raw label; mapping optional
+treatmentConcept,TreatmentEvent,Treatment,Sự kiện dùng khái niệm điều trị,N:N,Source-grounded
+specimenFrom,Specimen,Patient,Mẫu lấy từ người,N:0..1,Do not invent missing patient/sample mapping
+testedSpecimen,Test,Specimen,Xét nghiệm thực hiện trên mẫu,N:0..1,A partial extraction may lack specimen identity
+runOf,SequencingRun,SequencingTest,Run thuộc assay giải trình tự,N:0..1,Only verified mapping; conflicts in LinkageRecord
+resultFor,Result,Patient,Kết quả của người,N:0..1,May be unknown; no row-order join
+producedByTest,Result,Test,Kết quả của xét nghiệm,N:0..1,Optional when assay is not identified
+measures,Result,Feature,Kết quả đo/phát hiện feature,N:1,Exactly one per atomic result when identified
+generatedBy,Result,ProcessingPipeline,Kết quả dẫn xuất từ pipeline,N:N,Only with processing evidence
+qualityOf,QualityMetricResult,Entity,QC của run/asset/pipeline,N:1,Must name correct target; no fake patient
+assessmentFor,ClinicalAssessment,Patient,Đánh giá dành cho người,N:1,Required for patient-level assessment
+diagnoses,DiagnosticAssessment,Disease,Đánh giá đưa ra chẩn đoán,N:N,May be unknown; preserve source wording
+considersResult,ClinicalAssessment,Result,Đánh giá có xem xét kết quả cụ thể,N:N,Optional; source must identify relationship
+assessmentOfEpisode,ClinicalAssessment,InfectionEpisode,Đánh giá cho đợt bệnh,N:0..1,Only if episode boundary known
+episodeFor,InfectionEpisode,Patient,Đợt bệnh của người,N:1,Exactly one patient
+implicatesOrganism,CoinfectionAssessment,Organism,Tác nhân được đánh giá liên quan đồng nhiễm,N:N,Not generated from detection count alone
+statisticForGroup,AggregateStatistic,CohortGroup,Thống kê cho nhóm,N:1,No copying group values to patients
+sourceInStudy,SourceAsset,Study,File thuộc nghiên cứu,N:N,Optional; paper can describe multiple studies
+derivedFrom,SourceAsset,SourceAsset,File dẫn xuất từ file khác,N:N,"Pipeline provenance, not citation"
+hasIdentifier,Entity,Identifier,Entity có mã external,N:N,Identifier namespace required; no automatic owl:sameAs
+recordedAt,Entity,SourceLocator,Bản ghi/concept được ghi nhận tại vị trí nguồn,N:N,Required provenance for extracted records; do not assert every property from this
+locatedIn,SourceLocator,SourceAsset,Vị trí nằm trong phiên bản file,N:1,Exactly one asset
+assertionSubject,Assertion,Entity,Chủ thể phát biểu có nguồn,N:1,One
+assertionObject,Assertion,Entity,Đối tượng phát biểu có nguồn,N:0..1,"Use object or literalValue, not both"
+assertionSource,Assertion,SourceLocator,Vị trí bằng chứng cho phát biểu,N:N,At least one for accepted extraction
+linkFrom,LinkageRecord,Entity,Đầu thứ nhất linkage ứng viên,N:1,One
+linkTo,LinkageRecord,Entity,Đầu thứ hai linkage ứng viên,N:1,One; unresolved record is not an established fact
+sectionOf,DocumentSection,Document,Section thuộc tài liệu,N:1,One
+evidenceIn,EvidenceUnit,Document,Evidence nằm trong tài liệu,N:1,One versioned document
+evidenceSection,EvidenceUnit,DocumentSection,Section chứa evidence,N:0..1,When available
+claimIn,Claim,Document,Claim được tác giả nêu trong tài liệu,N:N,Do not promote claim into factual layer without validation
+linkClaim,EvidenceLink,Claim,Liên kết evidence dành cho claim,N:1,One
+linkEvidence,EvidenceLink,EvidenceUnit,Evidence của liên kết,N:1,One; role is an attribute
+citingDocument,Citation,Document,Bài chứa trích dẫn,N:1,One
+citedDocument,Citation,Document,Bài được trích nếu resolve được,N:0..1,Keep unresolved reference text; never invent DOI
+linkedPaper,PaperConceptLink,Document,Paper được map với concept ontology,N:1,One
+linkedConcept,PaperConceptLink,Entity,Concept instance hoặc OWL class IRI liên quan,N:1,Class IRI handled via OWL punning; not subclass membership

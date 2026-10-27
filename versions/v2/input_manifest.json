@@ -1,0 +1,136 @@
+{
+  "scope": "five Table 1 sources; reused 2026-10-05 quantitative exploration; headers and two examples rechecked 2026-10-20",
+  "assets": [
+    {
+      "path": "references/Table1_Exploration_VI.md",
+      "bytes": 23562,
+      "sha256": "5f5b8e92bf48bc441cb500bd67fb6a7fd6a02bd9b0f5ed07ff5851dab5d587d1"
+    },
+    {
+      "path": "references/exploration_evidence.json",
+      "bytes": 8470,
+      "sha256": "0b2eca4bd056179efb3a1c4783f88404c7e217f8dd844449eef86eea967261be"
+    },
+    {
+      "path": "data/PMC_Open_Access/PMC10338636_BioC.xml",
+      "bytes": 141194,
+      "sha256": "1c51daec7cd67a6f97ffacb17aee7e6b4a96eb616829e30b8721235654a60dcc"
+    },
+    {
+      "path": "data/PMC_Open_Access/PMC10338636_JATS_OAI.xml",
+      "bytes": 121550,
+      "sha256": "a0b06ec8dfe7714f7ef63e956ac073b2aacfa86ebc649f7b6bdce1d40ddeb789"
+    },
+    {
+      "path": "data/PMC_Open_Access/PMC9052728_BioC.xml",
+      "bytes": 73331,
+      "sha256": "82d590e147c4ef997da04f66c973e4c1689117f8e26eb3a85ba99c5774a073c4"
+    },
+    {
+      "path": "data/PMC_Open_Access/PMC9052728_JATS_OAI.xml",
+      "bytes": 78759,
+      "sha256": "eb35e379039523429bc340f92fe1cbee9531f50c2081eb1deca7066fe0f2a765"
+    },
+    {
+      "path": "data/PRJNA1056765/55594967_genus_abundances.txt",
+      "bytes": 1337079,
+      "sha256": "41dbc784e057d546fb492f525422e74f1bb639a1c06a5bb6e4f73c7641b42792"
+    },
+    {
+      "path": "data/PRJNA1056765/55594970_genus_abundances.txt",
+      "bytes": 1785975,
+      "sha256": "d92203dbacdde93dfc93cb7175182c47971256ecc52654eeea7c6d29c91abf48"
+    },
+    {
+      "path": "data/PRJNA1056765/55594991_CNV_info_table.txt",
+      "bytes": 164152,
+      "sha256": "a31d8173762fd8abd6d2233d86c139dde726d306faa18256a869fe66487076f9"
+    },
+    {
+      "path": "data/PRJNA1056765/55594994_CIBERSORTx_cell_type_abs.txt.txt",
+      "bytes": 122956,
+      "sha256": "c37f2d15f3e22a1eaf7202ff9915e823dd7c1c9310e12695b3b1d06fb673533c"
+    },
+    {
+      "path": "data/PRJNA1056765/55595006_RNAseq_featurecount.zip",
+      "bytes": 10443504,
+      "sha256": "27ab88d5c3f62dd30307ae7af90c77e4415967fda325fd5e72f62437d84b6885"
+    },
+    {
+      "path": "data/PRJNA1056765/PRJNA1056765_RunInfo.csv",
+      "bytes": 443159,
+      "sha256": "a74c2b137c52b871b48d7c01b91766720e79e64a29d3a2001292a7d2272fa68d"
+    },
+    {
+      "path": "data/PRJNA1056765/Supplementary_Tables_S1-S3.xlsx",
+      "bytes": 157320,
+      "sha256": "cf1d899fb341b483965cdeaf1007ac876f753d79784164fb5eebdb536953d34a"
+    },
+    {
+      "path": "data/PRJNA808886/Additional_file_1.xlsx",
+      "bytes": 23676,
+      "sha256": "9bf8912aa6bbf8a2717107c6a1249f498899f4321ada6f340350968ef530c080"
+    },
+    {
+      "path": "data/PRJNA808886/Additional_file_2.xlsx",
+      "bytes": 16471,
+      "sha256": "74fc94f067f594b7734d7ce64aed833a1096eacfb48568c8b152484e0523d107"
+    },
+    {
+      "path": "data/PRJNA808886/PRJNA808886_RunInfo.csv",
+      "bytes": 33788,
+      "sha256": "32a513e1c1be3b2805c1650d731e45aeb41c932c531310c591094323877669fe"
+    },
+    {
+      "path": "data/PRJNA808886/Table_1.csv",
+      "bytes": 963,
+      "sha256": "ec415ea847082c039f4148392c4eafc20ad90dd68ae16e0453cfbfbadf73004f"
+    },
+    {
+      "path": "data/PRJNA808886/Table_2.csv",
+      "bytes": 142,
+      "sha256": "8bcbea1ce0ab4a70531a34185532e810c0e088d59314953283d1fc5c3d9b5ee0"
+    },
+    {
+      "path": "data/PRJNA808886/Table_3.csv",
+      "bytes": 1110,
+      "sha256": "9608a42f723c17e1bab8d78b54d27cf0ae7f146e72ba2c16ee1031cb9a2586de"
+    },
+    {
+      "path": "data/PRJNA984933/PRJNA984933_RunInfo.csv",
+      "bytes": 51276,
+      "sha256": "f85783a1cd84f9bc5d108a657a727bc907d6a05120c0f10dabe4ac3468704431"
+    },
+    {
+      "path": "data/PRJNA984933/Supplementary_Table_1.xlsx",
+      "bytes": 16261,
+      "sha256": "7bbd66ee11b6efc1e6447a8e3d8f769ce59c5c22c5d0ced753c777570210b0b0"
+    },
+    {
+      "path": "data/PRJNA984933/Table_1.csv",
+      "bytes": 1517,
+      "sha256": "4d62953d2aaaf94575c6b6e2c0def1e2fd4590030c41ef614de6a78046c6f15b"
+    },
+    {
+      "path": "data/PRJNA984933/Table_2.csv",
+      "bytes": 5185,
+      "sha256": "8a267c056f1d5d8711c396096767a862bf44df2e522e4d2e24866f4cb3d41be8"
+    },
+    {
+      "path": "data/PRJNA984933/Table_3.csv",
+      "bytes": 4382,
+      "sha256": "0782da5479000cb6b28faf8b114604566c7e6ada18c82f1e409f3d693bcf84dc"
+    },
+    {
+      "path": "data/PRJNA984933/article.xml",
+      "bytes": 104485,
+      "sha256": "2ab953e617556cc6ac942f51f04dd3abc648fe664aa3bce07185c92a0f5821b3"
+    },
+    {
+      "path": "data/TableS6.csv",
+      "bytes": 3789560,
+      "sha256": "4a25237a4c5f72821eba4796274bde857bf19af18004a16a52e0ee804a05635c"
+    }
+  ],
+  "note": "Paths are portable references to original inputs; raw datasets and private meeting notes are not bundled."
+}
