@@ -15,6 +15,8 @@ Version `0.3.0-draft` extends the five-source clinical/paper ontology with grant
 
 ## Metadata subgraphs
 
+**[Open the interactive subgraph viewer](https://nguyenphuquang1234567.github.io/biomedical-ontology/subgraphs/)**
+
 **[Browse the RDF subgraphs](subgraphs/README.md)** · **[Download all subgraphs](https://nguyenphuquang1234567.github.io/biomedical-ontology/subgraphs/CSV_Subgraphs.zip)**
 
 The combined graph contains 309,927 triples from all three grant/patent CSVs. Separate Turtle files, a combined Turtle file, JSON-LD and validation are included.
