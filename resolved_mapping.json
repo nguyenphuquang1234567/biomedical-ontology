@@ -26,7 +26,9 @@
         "accession"
       ],
       "resolution": "IDs attach to GrantAward, in distinct source namespaces; core_project_num is not treated as unique award identity.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → hasIdentifier → Identifier.accession [namespace: source:award_key]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -54,7 +56,9 @@
         "accession"
       ],
       "resolution": "IDs attach to GrantAward, in distinct source namespaces; core_project_num is not treated as unique award identity.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → hasIdentifier → Identifier.accession [namespace: source:core_project_num]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -77,7 +81,9 @@
         "label"
       ],
       "resolution": "Title is the label of the grant award record.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward.label",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -96,7 +102,9 @@
         "activityCode"
       ],
       "resolution": "Grant activity code, separate from clinical event type.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward.activityCode",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -118,7 +126,9 @@
         "label"
       ],
       "resolution": "Administering organization is distinct from recipient.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → administeredBy → Organization.instituteCode",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -140,7 +150,9 @@
         "label"
       ],
       "resolution": "Administering organization is distinct from recipient.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → administeredBy → Organization.label",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -161,7 +173,9 @@
         "label"
       ],
       "resolution": "Organization name from this award; no cross-record identity equivalence.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → recipientOrganization → Organization.label",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -184,7 +198,9 @@
         "country"
       ],
       "resolution": "Organization address only; missing recipient name leaves the organization link unasserted.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → recipientOrganization → Organization → organizationLocation → Location.city",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -207,7 +223,9 @@
         "country"
       ],
       "resolution": "Organization address only; missing recipient name leaves the organization link unasserted.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → recipientOrganization → Organization → organizationLocation → Location.state",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -230,7 +248,9 @@
         "country"
       ],
       "resolution": "Organization address only; missing recipient name leaves the organization link unasserted.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → recipientOrganization → Organization → organizationLocation → Location.country",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -252,7 +272,9 @@
         "nameResolutionStatus"
       ],
       "resolution": "Stores the reported PI name in its proper role; not a Patient or verified person identity.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward → contactPIMention → PersonNameMention.label",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -277,7 +299,9 @@
         "projectEndDate"
       ],
       "resolution": "Date-specific grant properties; no invented time or timezone.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward.projectStartDate",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -302,7 +326,9 @@
         "projectEndDate"
       ],
       "resolution": "Date-specific grant properties; no invented time or timezone.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantAward.projectEndDate",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_award.csv",
@@ -320,12 +346,16 @@
       "previous_status": "RETAIN_RAW",
       "new_status": "RETAIN_RAW",
       "classes": [
-        "Entity"
+        "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Preserve the source relevance label with the source record. It is neither clinical certainty nor a measured extraction-confidence score."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: relevance_tier; source-row provenance]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -353,7 +383,9 @@
         "accession"
       ],
       "resolution": "Application/funding identifiers; optional subproject ID stays absent when blank.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord → hasIdentifier → Identifier.accession [namespace: source:appl_id]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -379,7 +411,9 @@
         "fundingFor"
       ],
       "resolution": "Exact validated foreign key to the award; one funding record points to one award.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord → fundingFor → GrantAward [join by award_key]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -398,7 +432,9 @@
         "fiscalYear"
       ],
       "resolution": "Explicit fiscal year, not publication year.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord.fiscalYear",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -426,7 +462,9 @@
         "accession"
       ],
       "resolution": "Application/funding identifiers; optional subproject ID stays absent when blank.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord → hasIdentifier → Identifier.accession [namespace: source:project_num]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -454,7 +492,9 @@
         "accession"
       ],
       "resolution": "Application/funding identifiers; optional subproject ID stays absent when blank.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord → hasIdentifier → Identifier.accession [namespace: source:subproject_id]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -478,7 +518,9 @@
         "label"
       ],
       "resolution": "Preserve the source title without creating a new clinical Study.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord.label; GrantDocument.label",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -506,7 +548,9 @@
         "recordedAt"
       ],
       "resolution": "Grant abstract linked to the funding/application record, with original CSV provenance. Not a Claim or full-text grant.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantDocument.abstractText [GrantDocument → documentForFunding → GrantFundingRecord]",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -526,7 +570,9 @@
         "awardCurrency"
       ],
       "resolution": "Decimal amount; currency remains absent because it is not established. No additive total is inferred.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord.awardAmount [awardCurrency remains unset]",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -550,7 +596,9 @@
         "awardNoticeDate"
       ],
       "resolution": "Notice date kept distinct from project start or retrieval date.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantFundingRecord.awardNoticeDate",
+      "display_status": "MAPPED"
     },
     {
       "file": "stg_grant_funding.csv",
@@ -573,7 +621,9 @@
         "sourceUrl"
       ],
       "resolution": "Portal page URL attached to the grant document; no retrieval claim.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "GrantDocument.sourceUrl",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -602,7 +652,9 @@
         "accession"
       ],
       "resolution": "Matching-row identifier belongs to RetrievalMatch, not scientific EvidenceUnit.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch → hasIdentifier → Identifier.accession [namespace: source:evidence_id]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -625,7 +677,9 @@
         "metadataJson"
       ],
       "resolution": "The record is explicitly typed as Patent, subclass of Document; retain source_type too.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent (class); original value retained at SourceLocator.rawText",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -654,7 +708,9 @@
         "accession"
       ],
       "resolution": "Publication/application/family IDs stay separate; no sameAs inference.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → hasIdentifier → Identifier.accession [namespace: source:patent_id]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -678,7 +734,9 @@
         "sourceUrl"
       ],
       "resolution": "Uses inherited Document/SourceAsset attributes.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent.label [inherited from Entity]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -703,7 +761,9 @@
         "reportedDateMeaning"
       ],
       "resolution": "Retains a source-reported date; its publication/issue meaning remains unverified rather than guessed.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent.reportedDate [reportedDateMeaning: unverified source date role]",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -727,7 +787,9 @@
         "sourceUrl"
       ],
       "resolution": "Uses inherited Document/SourceAsset attributes.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent.sourceUrl [inherited from SourceAsset]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -756,7 +818,9 @@
         "accession"
       ],
       "resolution": "Publication/application/family IDs stay separate; no sameAs inference.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → hasIdentifier → Identifier.accession [namespace: source:family_id]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -785,7 +849,9 @@
         "accession"
       ],
       "resolution": "Publication/application/family IDs stay separate; no sameAs inference.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → hasIdentifier → Identifier.accession [namespace: source:application_number]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -809,7 +875,9 @@
         "filingDate"
       ],
       "resolution": "Filing date is modeled separately.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent.filingDate",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -831,7 +899,9 @@
         "nameResolutionStatus"
       ],
       "resolution": "Preserve inventor text including et al.; do not fabricate a complete inventor list.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → inventorMention → PersonNameMention.label",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -852,7 +922,9 @@
         "label"
       ],
       "resolution": "Assignee mention; does not assume organization versus individual.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → assigneeMention → PartyMention.label",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -885,7 +957,9 @@
         "mappingStatus"
       ],
       "resolution": "Source taxon reference remains unverified. Combined ID/name strings are preserved without forced pairing or organism identity.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "TaxonReference (for source type taxon); original type retained at SourceLocator.rawText",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -918,7 +992,9 @@
         "mappingStatus"
       ],
       "resolution": "Source taxon reference remains unverified. Combined ID/name strings are preserved without forced pairing or organism identity.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch → matchedTaxonReference → TaxonReference.reportedIdentifiers",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -951,7 +1027,9 @@
         "mappingStatus"
       ],
       "resolution": "Source taxon reference remains unverified. Combined ID/name strings are preserved without forced pairing or organism identity.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch → matchedTaxonReference → TaxonReference.reportedNames",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -978,7 +1056,9 @@
         "retrievalSource"
       ],
       "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch.queryTerm",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1005,7 +1085,9 @@
         "retrievalSource"
       ],
       "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch.classificationFilter",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1032,7 +1114,9 @@
         "retrievalSource"
       ],
       "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch.matchMethod",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1059,7 +1143,9 @@
         "retrievalSource"
       ],
       "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch.retrievalRelation",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1086,7 +1172,9 @@
         "retrievalSource"
       ],
       "resolution": "Retrieval metadata with explicit semantics; related is not scientific supports.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "RetrievalMatch.retrievalSource",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1107,9 +1195,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: Select; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1130,9 +1222,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: +; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1153,9 +1249,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: Result #; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1176,9 +1276,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: X; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1199,9 +1303,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: 1; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1222,9 +1330,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: 2; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1245,9 +1357,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: 3; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1268,9 +1384,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: 4; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1291,9 +1411,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: 5; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1312,7 +1436,9 @@
         "pageCount"
       ],
       "resolution": "Document page count, not sample size.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent.pageCount",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1334,7 +1460,9 @@
         "classificationSourceField"
       ],
       "resolution": "Preserve source classification role and split semicolon-separated codes; do not conflate with query filter.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → reportedClassification → ClassificationCode.classificationCode [classificationSourceField: CPCI]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1356,7 +1484,9 @@
         "classificationSourceField"
       ],
       "resolution": "Preserve source classification role and split semicolon-separated codes; do not conflate with query filter.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → reportedClassification → ClassificationCode.classificationCode [classificationSourceField: CPCA]",
+      "display_status": "MAPPED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1378,7 +1508,9 @@
         "label"
       ],
       "resolution": "Explicit examiner role mentions, not Patient records.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → primaryExaminerMention → PersonNameMention.label",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1400,7 +1532,9 @@
         "label"
       ],
       "resolution": "Explicit examiner role mentions, not Patient records.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → assistantExaminerMention → PersonNameMention.label",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1421,9 +1555,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: OR; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1444,9 +1582,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: XREF; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1467,7 +1609,9 @@
         "label"
       ],
       "resolution": "Applicant role, distinct from assignee; no substitution for blanks.",
-      "new_status": "RESOLVED"
+      "new_status": "RESOLVED",
+      "target_path": "Patent → applicantMention → PartyMention.label",
+      "display_status": "MAPPED_AS_REPORTED"
     },
     {
       "file": "patent_evidence.csv",
@@ -1488,9 +1632,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: Notes; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1511,9 +1659,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: Notes/Tagged; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1534,9 +1686,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: Relevancy; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     },
     {
       "file": "patent_evidence.csv",
@@ -1557,9 +1713,13 @@
         "SourceLocator"
       ],
       "terms": [
-        "metadataJson"
+        "rawText",
+        "locator",
+        "locatedIn"
       ],
-      "resolution": "Retain as export/search metadata pending source documentation; do not infer clinical meaning. Search rank/relevance is not extraction confidence. Currently empty columns remain empty and are not deleted."
+      "resolution": "Preserve the original source cell and its column/record location. This is source/export metadata, not a scientific result or a verified claim. An empty cell stays empty.",
+      "target_path": "SourceLocator.rawText [column: C; export/search metadata]",
+      "display_status": "SOURCE_METADATA"
     }
   ],
   "validation": {

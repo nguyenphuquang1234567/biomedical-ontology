@@ -21,6 +21,7 @@ Version `0.3.0-draft` extends the five-source clinical/paper ontology with grant
 - [Class catalog](classes.csv), [relationships](relationships.csv), [attributes](attributes.csv).
 - [Full source mapping](source_field_mapping.csv): 319 field/structure mapping rows, including the original five sources and 64 new grant/patent columns.
 - [Detailed new mapping](resolved_mapping.json): before/after decisions for those 64 columns.
+- [Full 64-column mapping table](mapping_review.html) and [downloadable CSV](full_mapping.csv): searchable by file, field, value, class or relationship.
 - [Validation](validation.json): local checks and remaining limits.
 - [Original five-source report](Ontology_v2_VI.md) and [earlier exploration](references/Table1_Exploration_VI.md) are retained as historical documentation.
 
