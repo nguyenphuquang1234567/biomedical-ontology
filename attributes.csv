@@ -83,3 +83,5 @@ reportedIdentifiers,string,TaxonReference,"Original identifier text, including p
 reportedNames,string,TaxonReference,Original taxon keyword text; no forced pairing or normalized equivalence.
 nameResolutionStatus,string,PartyMention,"reported_only, placeholder, or incomplete_list; no global identity assertion."
 classificationCode,string,ClassificationCode,Original reported classification code.
+processStatus,string,Experiment,reported or proposed; do not turn a planned experiment into a completed experiment.
+sectionKind,string,DocumentSection,"Background, related_work, hypothesis, methods, results, conclusion, or other; preserve the original heading in label."

@@ -42,3 +42,7 @@ The generated grant/patent metadata graphs are published in subgraphs/. Raw inpu
 JSON-LD/Turtle equivalence, metadata term references, funding joins and inherited-attribute search were checked. Full OWL reasoning and SHACL validation remain incomplete. The example.org namespace is provisional. Third-party source terms still apply; no blanket license is assigned to upstream content.
 
 Open ontology_explorer.html directly for offline use. The English explorer links to a Vietnamese update report.
+
+## Paper extraction — v3.1 draft
+
+[Compact guide](https://nguyenphuquang1234567.github.io/biomedical-ontology/paper-extraction/) with schema downloads and a synthetic RDF example. The shared ontology now includes Experiment, ProcessStep and extraction relationships. New terms retain the `https://example.org/nih-pilot/extraction/` namespace.

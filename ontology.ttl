@@ -3,9 +3,72 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://example.org/nih-pilot/extraction/aboutEntity> a owl:ObjectProperty ;
+    rdfs:comment "An entity explicitly addressed by a claim."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Entity .
+
+<https://example.org/nih-pilot/extraction/claimSection> a owl:ObjectProperty ;
+    rdfs:comment "Section containing the claim."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:DocumentSection .
+
+<https://example.org/nih-pilot/extraction/contradictsClaim> a owl:ObjectProperty ;
+    rdfs:comment "The subject claim contradicts the object claim, as explicitly attributed in the source."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
+
+<https://example.org/nih-pilot/extraction/experimentIn> a owl:ObjectProperty ;
+    rdfs:comment "Document describing the experiment."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/Experiment> ;
+    rdfs:range pilot:Document .
+
+<https://example.org/nih-pilot/extraction/hasInput> a owl:ObjectProperty ;
+    rdfs:comment "A documented input, such as a specimen."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:range pilot:Entity .
+
+<https://example.org/nih-pilot/extraction/hasOutput> a owl:ObjectProperty ;
+    rdfs:comment "A documented output, such as a result."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:range pilot:Entity .
+
+<https://example.org/nih-pilot/extraction/hasStep> a owl:ObjectProperty ;
+    rdfs:comment "A step belonging to this experiment."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/Experiment> ;
+    rdfs:range <https://example.org/nih-pilot/extraction/ProcessStep> .
+
+<https://example.org/nih-pilot/extraction/nextStep> a owl:ObjectProperty ;
+    rdfs:comment "Direct next step, only when order is established by the source."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:range <https://example.org/nih-pilot/extraction/ProcessStep> .
+
+<https://example.org/nih-pilot/extraction/processStatus> a owl:DatatypeProperty ;
+    rdfs:comment "reported or proposed; do not turn a planned experiment into a completed experiment."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/extraction/sectionKind> a owl:DatatypeProperty ;
+    rdfs:comment "Background, related_work, hypothesis, methods, results, conclusion, or other; preserve the original heading in label."@en ;
+    rdfs:range xsd:string .
+
+<https://example.org/nih-pilot/extraction/stepSection> a owl:ObjectProperty ;
+    rdfs:comment "Section describing the step."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:range pilot:DocumentSection .
+
+<https://example.org/nih-pilot/extraction/supportsClaim> a owl:ObjectProperty ;
+    rdfs:comment "The subject claim supports the object claim, as explicitly attributed in the source."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
+
+<https://example.org/nih-pilot/extraction/usesTest> a owl:ObjectProperty ;
+    rdfs:comment "An actual test execution used by the step; a generic method mention alone is insufficient."@en ;
+    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:range pilot:Test .
+
 pilot: a owl:Ontology ;
     rdfs:comment "Draft union ontology based on inspected local assets of five Table 1 sources. Namespace is provisional; no external biomedical equivalences asserted." ;
-    owl:versionInfo "0.3.0-draft" .
+    owl:versionInfo "0.3.1-draft" .
 
 pilot:AntigenTest a owl:Class ;
     rdfs:label "Antigen Test"@en ;
@@ -1027,6 +1090,10 @@ pilot:Treatment a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:Entity .
 
+<https://example.org/nih-pilot/extraction/Experiment> a owl:Class ;
+    rdfs:comment "A source-described experiment or explicitly proposed experimental process."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:AggregateStatistic a owl:Class ;
     rdfs:label "Aggregate Statistic"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -1058,13 +1125,6 @@ pilot:Disease a owl:Class ;
     rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
-    rdfs:subClassOf pilot:Entity .
-
-pilot:DocumentSection a owl:Class ;
-    rdfs:label "Document Section"@en ;
-    rdfs:comment "Design status: source-grounded",
-        "Section của tài liệu: methods/results/...; giữ nhãn nguồn."@vi ;
-    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
     rdfs:subClassOf pilot:Entity .
 
 pilot:EvidenceLink a owl:Class ;
@@ -1178,6 +1238,13 @@ pilot:ConventionalMicrobiologyTest a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:Test .
 
+pilot:DocumentSection a owl:Class ;
+    rdfs:label "Document Section"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Section của tài liệu: methods/results/...; giữ nhãn nguồn."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:GrantAward a owl:Class ;
     rdfs:label "GrantAward" ;
     rdfs:comment "An award record keyed by award_key; not a Study or an individual annual funding record."@en ;
@@ -1205,28 +1272,11 @@ pilot:TreatmentEvent a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:ClinicalEvent .
 
-pilot:Claim a owl:Class ;
-    rdfs:label "Claim"@en ;
-    rdfs:comment "Design status: design",
-        "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."@vi ;
-    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
-    rdfs:subClassOf pilot:Entity .
-
 pilot:ClinicalEvent a owl:Class ;
     rdfs:label "Clinical Event"@en ;
     rdfs:comment "Design status: source-grounded",
         "Sự kiện hoặc ghi nhận lâm sàng cụ thể của một người."@vi ;
     rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
-        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
-        <https://www.nature.com/articles/s41597-025-06171-6> ;
-    rdfs:subClassOf pilot:Entity .
-
-pilot:Test a owl:Class ;
-    rdfs:label "Test"@en ;
-    rdfs:comment "Design status: source-grounded",
-        "Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung."@vi ;
-    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
-        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
@@ -1264,6 +1314,20 @@ pilot:Specimen a owl:Class ;
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
 
+pilot:Test a owl:Class ;
+    rdfs:label "Test"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+<https://example.org/nih-pilot/extraction/ProcessStep> a owl:Class ;
+    rdfs:comment "One source-described action in a process; not a clinical event unless independently documented as such."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:Feature a owl:Class ;
     rdfs:label "Feature"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -1290,6 +1354,13 @@ pilot:Document a owl:Class ;
         "Bài báo/tài liệu có định danh và nội dung theo phiên bản."@vi ;
     rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
     rdfs:subClassOf pilot:SourceAsset .
+
+pilot:Claim a owl:Class ;
+    rdfs:label "Claim"@en ;
+    rdfs:comment "Design status: design",
+        "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Entity .
 
 pilot:Result a owl:Class ;
     rdfs:label "Result"@en ;

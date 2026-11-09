@@ -1,0 +1,1633 @@
+[
+  {
+    "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Evidence Unit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/TextEvidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Đoạn văn có vị trí trong phiên bản tài liệu."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Text Evidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/testedSpecimen",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Xét nghiệm thực hiện trên mẫu"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Test"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "testedSpecimen"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Specimen"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/hasOutput",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A documented output, such as a result."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/DocumentSection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Section của tài liệu: methods/results/...; giữ nhãn nguồn."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Document Section"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/extractionStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "human_verified/auto_extracted/review_required/template"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/Experiment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A source-described experiment or explicitly proposed experimental process."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Hypothesis",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: design"
+      },
+      {
+        "@language": "vi",
+        "@value": "Giả thuyết của bài; không phải fact được xác nhận."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Hypothesis"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/EvidenceLink",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: design"
+      },
+      {
+        "@language": "vi",
+        "@value": "Mapping claim/evidence với role supports/contradicts/contextualizes."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Evidence Link"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/supportsClaim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The subject claim supports the object claim, as explicitly attributed in the source."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/resultFor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Kết quả của người"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Result"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "resultFor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Patient"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Entity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: design"
+      },
+      {
+        "@language": "vi",
+        "@value": "Lớp gốc cho record và concept; không phải bảng phải nhập dữ liệu."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/SourceAsset",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "File hoặc phiên bản nguồn, URI/checksum/license/retrieval status."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Source Asset"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/processStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "reported or proposed; do not turn a planned experiment into a completed experiment."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/PCRTest",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "PCR được mô tả trong methods; chỉ gán cá nhân khi có kết quả tương ứng."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "P C R Test"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/ConventionalMicrobiologyTest"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Nội dung mô tả nguồn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/certainty",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Độ chắc chắn nguồn; không phải extraction confidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Organism",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Taxon/vi sinh vật concept; không mặc định là pathogen."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Organism"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Feature"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Identifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Mã external có namespace; BioSample/run/PMCID là các namespace khác nhau."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/citedDocument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Bài được trích nếu resolve được"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Citation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "citedDocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/recordedAt",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Bản ghi/concept được ghi nhận tại vị trí nguồn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "recordedAt"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/SourceLocator"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/label",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Tên gốc/nhãn dễ đọc"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/evidenceSection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Section chứa evidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "evidenceSection"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/DocumentSection"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/TableEvidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Bảng hoặc vùng ô; có header và phạm vi."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Table Evidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/nextStep",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Direct next step, only when order is established by the source."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/SourceLocator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Vị trí chính xác: sheet/row/column, XML ID/XPath hoặc trang PDF đã xác minh."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Source Locator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/hasInput",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A documented input, such as a specimen."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/experimentIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Document describing the experiment."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/Experiment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Document",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Bài báo/tài liệu có định danh và nội dung theo phiên bản."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Document"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/SourceAsset"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/sectionOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Section thuộc tài liệu"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/DocumentSection"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "sectionOf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/evidenceRole",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "supports/contradicts/contextualizes"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/sourceUrl",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Link nguồn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/linkClaim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Liên kết evidence dành cho claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceLink"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "linkClaim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/producedByTest",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Kết quả của xét nghiệm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Result"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "producedByTest"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Test"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/locator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Sheet/row/column hoặc XML ID/XPath; không coi BioC offset là PDF page"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/sectionKind",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Background, related_work, hypothesis, methods, results, conclusion, or other; preserve the original heading in label."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/evidenceIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Evidence nằm trong tài liệu"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "evidenceIn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/rawText",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Nguyên văn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/accession",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Accession nguyên gốc"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/citingDocument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Bài chứa trích dẫn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Citation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "citingDocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/FigureEvidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Hình/caption; chưa đồng nghĩa đã extract giá trị ảnh."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Figure Evidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Result",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Một kết quả/observation với giá trị, đơn vị, loại phép đo và trạng thái."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Result"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/hasStep",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A step belonging to this experiment."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/Experiment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Specimen",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Mẫu sinh học thực tế; Sample là tên cũ tương ứng."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Specimen"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/ProcessStep",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "One source-described action in a process; not a clinical event unless independently documented as such."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/linkEvidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Evidence của liên kết"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceLink"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "linkEvidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/EvidenceUnit"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/MethodClaim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: design"
+      },
+      {
+        "@language": "vi",
+        "@value": "Phát biểu về phương pháp nghiên cứu."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Method Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Test",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Test"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      },
+      {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/claimSection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Section containing the claim."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/DocumentSection"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Virus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Taxon virus; ví dụ TTV, HHV6B trong nguồn."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Virus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Organism"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Claim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: design"
+      },
+      {
+        "@language": "vi",
+        "@value": "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/claimIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Claim được tác giả nêu trong tài liệu"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "claimIn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/usesTest",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An actual test execution used by the step; a generic method mention alone is insufficient."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Test"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/locatedIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Vị trí nằm trong phiên bản file"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/SourceLocator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "locatedIn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/SourceAsset"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/FindingClaim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: design"
+      },
+      {
+        "@language": "vi",
+        "@value": "Phát biểu về kết quả nghiên cứu."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Finding Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/Citation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Record trích dẫn có paper nguồn, reference text và target nếu resolve được."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Citation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/stepSection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Section describing the step."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/DocumentSection"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/contradictsClaim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The subject claim contradicts the object claim, as explicitly attributed in the source."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/ConventionalMicrobiologyTest",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Design status: source-grounded"
+      },
+      {
+        "@language": "vi",
+        "@value": "Xét nghiệm vi sinh thông thường; CMT tổng quát không tự suy thành PCR/culture."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Conventional Microbiology Test"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Test"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/aboutEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An entity explicitly addressed by a claim."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/namespace",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Namespace mã"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/ontology/hasIdentifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "vi",
+        "@value": "Entity có mã external"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "hasIdentifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Identifier"
+      }
+    ]
+  }
+]

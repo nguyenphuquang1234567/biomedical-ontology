@@ -1,0 +1,384 @@
+@prefix extract: <https://example.org/nih-pilot/extraction/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pilot: <https://example.org/nih-pilot/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+extract:aboutEntity a owl:ObjectProperty ;
+    rdfs:comment "An entity explicitly addressed by a claim."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Entity .
+
+extract:claimSection a owl:ObjectProperty ;
+    rdfs:comment "Section containing the claim."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:DocumentSection .
+
+extract:contradictsClaim a owl:ObjectProperty ;
+    rdfs:comment "The subject claim contradicts the object claim, as explicitly attributed in the source."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
+
+extract:experimentIn a owl:ObjectProperty ;
+    rdfs:comment "Document describing the experiment."@en ;
+    rdfs:domain extract:Experiment ;
+    rdfs:range pilot:Document .
+
+extract:hasInput a owl:ObjectProperty ;
+    rdfs:comment "A documented input, such as a specimen."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:Entity .
+
+extract:hasOutput a owl:ObjectProperty ;
+    rdfs:comment "A documented output, such as a result."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:Entity .
+
+extract:hasStep a owl:ObjectProperty ;
+    rdfs:comment "A step belonging to this experiment."@en ;
+    rdfs:domain extract:Experiment ;
+    rdfs:range extract:ProcessStep .
+
+extract:nextStep a owl:ObjectProperty ;
+    rdfs:comment "Direct next step, only when order is established by the source."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range extract:ProcessStep .
+
+extract:processStatus a owl:DatatypeProperty ;
+    rdfs:comment "reported or proposed; do not turn a planned experiment into a completed experiment."@en ;
+    rdfs:range xsd:string .
+
+extract:sectionKind a owl:DatatypeProperty ;
+    rdfs:comment "Background, related_work, hypothesis, methods, results, conclusion, or other; preserve the original heading in label."@en ;
+    rdfs:range xsd:string .
+
+extract:stepSection a owl:ObjectProperty ;
+    rdfs:comment "Section describing the step."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:DocumentSection .
+
+extract:supportsClaim a owl:ObjectProperty ;
+    rdfs:comment "The subject claim supports the object claim, as explicitly attributed in the source."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
+
+extract:usesTest a owl:ObjectProperty ;
+    rdfs:comment "An actual test execution used by the step; a generic method mention alone is insufficient."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:Test .
+
+pilot:FigureEvidence a owl:Class ;
+    rdfs:label "Figure Evidence"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Hình/caption; chưa đồng nghĩa đã extract giá trị ảnh."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:EvidenceUnit .
+
+pilot:FindingClaim a owl:Class ;
+    rdfs:label "Finding Claim"@en ;
+    rdfs:comment "Design status: design",
+        "Phát biểu về kết quả nghiên cứu."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Claim .
+
+pilot:Hypothesis a owl:Class ;
+    rdfs:label "Hypothesis"@en ;
+    rdfs:comment "Design status: design",
+        "Giả thuyết của bài; không phải fact được xác nhận."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Claim .
+
+pilot:MethodClaim a owl:Class ;
+    rdfs:label "Method Claim"@en ;
+    rdfs:comment "Design status: design",
+        "Phát biểu về phương pháp nghiên cứu."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Claim .
+
+pilot:PCRTest a owl:Class ;
+    rdfs:label "P C R Test"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "PCR được mô tả trong methods; chỉ gán cá nhân khi có kết quả tương ứng."@vi ;
+    rdfs:seeAlso <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
+    rdfs:subClassOf pilot:ConventionalMicrobiologyTest .
+
+pilot:TableEvidence a owl:Class ;
+    rdfs:label "Table Evidence"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Bảng hoặc vùng ô; có header và phạm vi."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:EvidenceUnit .
+
+pilot:TextEvidence a owl:Class ;
+    rdfs:label "Text Evidence"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Đoạn văn có vị trí trong phiên bản tài liệu."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:EvidenceUnit .
+
+pilot:Virus a owl:Class ;
+    rdfs:label "Virus"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Taxon virus; ví dụ TTV, HHV6B trong nguồn."@vi ;
+    rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
+    rdfs:subClassOf pilot:Organism .
+
+pilot:accession a owl:DatatypeProperty ;
+    rdfs:comment "Accession nguyên gốc"@vi ;
+    rdfs:range xsd:string .
+
+pilot:certainty a owl:DatatypeProperty ;
+    rdfs:comment "Độ chắc chắn nguồn; không phải extraction confidence"@vi ;
+    rdfs:range xsd:string .
+
+pilot:citedDocument a owl:ObjectProperty ;
+    rdfs:label "citedDocument" ;
+    rdfs:comment "Bài được trích nếu resolve được"@vi ;
+    rdfs:domain pilot:Citation ;
+    rdfs:range pilot:Document .
+
+pilot:citingDocument a owl:ObjectProperty ;
+    rdfs:label "citingDocument" ;
+    rdfs:comment "Bài chứa trích dẫn"@vi ;
+    rdfs:domain pilot:Citation ;
+    rdfs:range pilot:Document .
+
+pilot:claimIn a owl:ObjectProperty ;
+    rdfs:label "claimIn" ;
+    rdfs:comment "Claim được tác giả nêu trong tài liệu"@vi ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Document .
+
+pilot:description a owl:DatatypeProperty ;
+    rdfs:comment "Nội dung mô tả nguồn"@vi ;
+    rdfs:range xsd:string .
+
+pilot:evidenceIn a owl:ObjectProperty ;
+    rdfs:label "evidenceIn" ;
+    rdfs:comment "Evidence nằm trong tài liệu"@vi ;
+    rdfs:domain pilot:EvidenceUnit ;
+    rdfs:range pilot:Document .
+
+pilot:evidenceRole a owl:DatatypeProperty ;
+    rdfs:comment "supports/contradicts/contextualizes"@vi ;
+    rdfs:range xsd:string .
+
+pilot:evidenceSection a owl:ObjectProperty ;
+    rdfs:label "evidenceSection" ;
+    rdfs:comment "Section chứa evidence"@vi ;
+    rdfs:domain pilot:EvidenceUnit ;
+    rdfs:range pilot:DocumentSection .
+
+pilot:extractionStatus a owl:DatatypeProperty ;
+    rdfs:comment "human_verified/auto_extracted/review_required/template"@vi ;
+    rdfs:range xsd:string .
+
+pilot:hasIdentifier a owl:ObjectProperty ;
+    rdfs:label "hasIdentifier" ;
+    rdfs:comment "Entity có mã external"@vi ;
+    rdfs:domain pilot:Entity ;
+    rdfs:range pilot:Identifier .
+
+pilot:label a owl:DatatypeProperty ;
+    rdfs:comment "Tên gốc/nhãn dễ đọc"@vi ;
+    rdfs:range xsd:string .
+
+pilot:linkClaim a owl:ObjectProperty ;
+    rdfs:label "linkClaim" ;
+    rdfs:comment "Liên kết evidence dành cho claim"@vi ;
+    rdfs:domain pilot:EvidenceLink ;
+    rdfs:range pilot:Claim .
+
+pilot:linkEvidence a owl:ObjectProperty ;
+    rdfs:label "linkEvidence" ;
+    rdfs:comment "Evidence của liên kết"@vi ;
+    rdfs:domain pilot:EvidenceLink ;
+    rdfs:range pilot:EvidenceUnit .
+
+pilot:locatedIn a owl:ObjectProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:comment "Vị trí nằm trong phiên bản file"@vi ;
+    rdfs:domain pilot:SourceLocator ;
+    rdfs:range pilot:SourceAsset .
+
+pilot:locator a owl:DatatypeProperty ;
+    rdfs:comment "Sheet/row/column hoặc XML ID/XPath; không coi BioC offset là PDF page"@vi ;
+    rdfs:range xsd:string .
+
+pilot:namespace a owl:DatatypeProperty ;
+    rdfs:comment "Namespace mã"@vi ;
+    rdfs:range xsd:string .
+
+pilot:producedByTest a owl:ObjectProperty ;
+    rdfs:label "producedByTest" ;
+    rdfs:comment "Kết quả của xét nghiệm"@vi ;
+    rdfs:domain pilot:Result ;
+    rdfs:range pilot:Test .
+
+pilot:rawText a owl:DatatypeProperty ;
+    rdfs:comment "Nguyên văn"@vi ;
+    rdfs:range xsd:string .
+
+pilot:recordedAt a owl:ObjectProperty ;
+    rdfs:label "recordedAt" ;
+    rdfs:comment "Bản ghi/concept được ghi nhận tại vị trí nguồn"@vi ;
+    rdfs:domain pilot:Entity ;
+    rdfs:range pilot:SourceLocator .
+
+pilot:resultFor a owl:ObjectProperty ;
+    rdfs:label "resultFor" ;
+    rdfs:comment "Kết quả của người"@vi ;
+    rdfs:domain pilot:Result ;
+    rdfs:range pilot:Patient .
+
+pilot:sectionOf a owl:ObjectProperty ;
+    rdfs:label "sectionOf" ;
+    rdfs:comment "Section thuộc tài liệu"@vi ;
+    rdfs:domain pilot:DocumentSection ;
+    rdfs:range pilot:Document .
+
+pilot:sourceUrl a owl:DatatypeProperty ;
+    rdfs:comment "Link nguồn"@vi ;
+    rdfs:range xsd:anyURI .
+
+pilot:testedSpecimen a owl:ObjectProperty ;
+    rdfs:label "testedSpecimen" ;
+    rdfs:comment "Xét nghiệm thực hiện trên mẫu"@vi ;
+    rdfs:domain pilot:Test ;
+    rdfs:range pilot:Specimen .
+
+pilot:ConventionalMicrobiologyTest a owl:Class ;
+    rdfs:label "Conventional Microbiology Test"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Xét nghiệm vi sinh thông thường; CMT tổng quát không tự suy thành PCR/culture."@vi ;
+    rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
+    rdfs:subClassOf pilot:Test .
+
+pilot:Identifier a owl:Class ;
+    rdfs:label "Identifier"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Mã external có namespace; BioSample/run/PMCID là các namespace khác nhau."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Organism a owl:Class ;
+    rdfs:label "Organism"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Taxon/vi sinh vật concept; không mặc định là pathogen."@vi ;
+    rdfs:seeAlso <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Feature .
+
+pilot:Specimen a owl:Class ;
+    rdfs:label "Specimen"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Mẫu sinh học thực tế; Sample là tên cũ tương ứng."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+extract:Experiment a owl:Class ;
+    rdfs:comment "A source-described experiment or explicitly proposed experimental process."@en ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Citation a owl:Class ;
+    rdfs:label "Citation"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Record trích dẫn có paper nguồn, reference text và target nếu resolve được."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:EvidenceLink a owl:Class ;
+    rdfs:label "Evidence Link"@en ;
+    rdfs:comment "Design status: design",
+        "Mapping claim/evidence với role supports/contradicts/contextualizes."@vi ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Result a owl:Class ;
+    rdfs:label "Result"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Một kết quả/observation với giá trị, đơn vị, loại phép đo và trạng thái."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:SourceAsset a owl:Class ;
+    rdfs:label "Source Asset"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "File hoặc phiên bản nguồn, URI/checksum/license/retrieval status."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:SourceLocator a owl:Class ;
+    rdfs:label "Source Locator"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Vị trí chính xác: sheet/row/column, XML ID/XPath hoặc trang PDF đã xác minh."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:DocumentSection a owl:Class ;
+    rdfs:label "Document Section"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Section của tài liệu: methods/results/...; giữ nhãn nguồn."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Test a owl:Class ;
+    rdfs:label "Test"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Một lần thực hiện xét nghiệm/assay, khác với tên phương pháp dùng chung."@vi ;
+    rdfs:seeAlso <https://datadryad.org/dataset/doi:10.5061/dryad.800tj>,
+        <https://link.springer.com/article/10.1186/s12879-022-07381-8>,
+        <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full>,
+        <https://www.nature.com/articles/s41597-025-06171-6> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Bài báo/tài liệu có định danh và nội dung theo phiên bản."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:SourceAsset .
+
+pilot:EvidenceUnit a owl:Class ;
+    rdfs:label "Evidence Unit"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Entity .
+
+extract:ProcessStep a owl:Class ;
+    rdfs:comment "One source-described action in a process; not a clinical event unless independently documented as such."@en ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Claim a owl:Class ;
+    rdfs:label "Claim"@en ;
+    rdfs:comment "Design status: design",
+        "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:Entity .
+
+pilot:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "Design status: design",
+        "Lớp gốc cho record và concept; không phải bảng phải nhập dữ liệu."@vi .
+

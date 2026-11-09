@@ -54,3 +54,14 @@ assistantExaminerMention,Patent,PersonNameMention,Assistant examiner text as rep
 reportedClassification,Patent,ClassificationCode,Reported classification preserving CPCI versus CPCA; not a search filter.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
 matchedDocument,RetrievalMatch,Document,Document returned by the retrieval match.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
 matchedTaxonReference,RetrievalMatch,TaxonReference,Source reference; no verified taxonomic entity or claim-support relation is inferred.,see mapping rules,Source-grounded metadata only; unresolved identity is not equivalence.
+aboutEntity,Claim,Entity,An entity explicitly addressed by a claim.,N:N,Optional; source-supported edges only. No completeness constraint.
+claimSection,Claim,DocumentSection,Section containing the claim.,N:N,Optional; source-supported edges only. No completeness constraint.
+contradictsClaim,Claim,Claim,"The subject claim contradicts the object claim, as explicitly attributed in the source.",N:N,Optional; source-supported edges only. No completeness constraint.
+experimentIn,Experiment,Document,Document describing the experiment.,N:N,Optional; source-supported edges only. No completeness constraint.
+hasInput,ProcessStep,Entity,"A documented input, such as a specimen.",N:N,Optional; source-supported edges only. No completeness constraint.
+hasOutput,ProcessStep,Entity,"A documented output, such as a result.",N:N,Optional; source-supported edges only. No completeness constraint.
+hasStep,Experiment,ProcessStep,A step belonging to this experiment.,N:N,Optional; source-supported edges only. No completeness constraint.
+nextStep,ProcessStep,ProcessStep,"Direct next step, only when order is established by the source.",N:N,Optional; source-supported edges only. No completeness constraint.
+stepSection,ProcessStep,DocumentSection,Section describing the step.,N:N,Optional; source-supported edges only. No completeness constraint.
+supportsClaim,Claim,Claim,"The subject claim supports the object claim, as explicitly attributed in the source.",N:N,Optional; source-supported edges only. No completeness constraint.
+usesTest,ProcessStep,Test,An actual test execution used by the step; a generic method mention alone is insufficient.,N:N,Optional; source-supported edges only. No completeness constraint.

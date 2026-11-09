@@ -1,0 +1,8 @@
+{
+  "example_triples": 54,
+  "profile_triples": 316,
+  "new_classes": 2,
+  "new_object_properties": 11,
+  "undefined_example_terms": [],
+  "scope": "Schema and synthetic RDF validation; no real-paper extraction performed."
+}

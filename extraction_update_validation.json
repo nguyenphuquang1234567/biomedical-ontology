@@ -1,0 +1,11 @@
+{
+  "version": "0.3.1-draft",
+  "classes": 88,
+  "object_properties": 66,
+  "attributes": 86,
+  "added_classes": 2,
+  "added_object_properties": 11,
+  "added_attributes": 2,
+  "rdf_serializations_equivalent": true,
+  "note": "Extraction term IRIs use https://example.org/nih-pilot/extraction/. CSV names are local names; RDF files are authoritative. Existing metadata subgraphs retain their historical schema snapshot."
+}

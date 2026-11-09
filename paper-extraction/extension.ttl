@@ -1,0 +1,77 @@
+@prefix extract: <https://example.org/nih-pilot/extraction/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pilot: <https://example.org/nih-pilot/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+extract:aboutEntity a owl:ObjectProperty ;
+    rdfs:comment "An entity explicitly addressed by a claim."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Entity .
+
+extract:claimSection a owl:ObjectProperty ;
+    rdfs:comment "Section containing the claim."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:DocumentSection .
+
+extract:contradictsClaim a owl:ObjectProperty ;
+    rdfs:comment "The subject claim contradicts the object claim, as explicitly attributed in the source."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
+
+extract:experimentIn a owl:ObjectProperty ;
+    rdfs:comment "Document describing the experiment."@en ;
+    rdfs:domain extract:Experiment ;
+    rdfs:range pilot:Document .
+
+extract:hasInput a owl:ObjectProperty ;
+    rdfs:comment "A documented input, such as a specimen."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:Entity .
+
+extract:hasOutput a owl:ObjectProperty ;
+    rdfs:comment "A documented output, such as a result."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:Entity .
+
+extract:hasStep a owl:ObjectProperty ;
+    rdfs:comment "A step belonging to this experiment."@en ;
+    rdfs:domain extract:Experiment ;
+    rdfs:range extract:ProcessStep .
+
+extract:nextStep a owl:ObjectProperty ;
+    rdfs:comment "Direct next step, only when order is established by the source."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range extract:ProcessStep .
+
+extract:processStatus a owl:DatatypeProperty ;
+    rdfs:comment "reported or proposed; do not turn a planned experiment into a completed experiment."@en ;
+    rdfs:range xsd:string .
+
+extract:sectionKind a owl:DatatypeProperty ;
+    rdfs:comment "Background, related_work, hypothesis, methods, results, conclusion, or other; preserve the original heading in label."@en ;
+    rdfs:range xsd:string .
+
+extract:stepSection a owl:ObjectProperty ;
+    rdfs:comment "Section describing the step."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:DocumentSection .
+
+extract:supportsClaim a owl:ObjectProperty ;
+    rdfs:comment "The subject claim supports the object claim, as explicitly attributed in the source."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
+
+extract:usesTest a owl:ObjectProperty ;
+    rdfs:comment "An actual test execution used by the step; a generic method mention alone is insufficient."@en ;
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range pilot:Test .
+
+extract:Experiment a owl:Class ;
+    rdfs:comment "A source-described experiment or explicitly proposed experimental process."@en ;
+    rdfs:subClassOf pilot:Entity .
+
+extract:ProcessStep a owl:Class ;
+    rdfs:comment "One source-described action in a process; not a clinical event unless independently documented as such."@en ;
+    rdfs:subClassOf pilot:Entity .
+

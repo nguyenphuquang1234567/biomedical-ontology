@@ -1,0 +1,36 @@
+@prefix pilot: <https://example.org/nih-pilot/ontology/> .
+@prefix extract: <https://example.org/nih-pilot/extraction/> .
+@prefix demo: <https://example.org/demo/> .
+
+# SYNTHETIC TEACHING EXAMPLE. No real scientific finding is asserted.
+demo:paper a pilot:Document ; pilot:label "Synthetic teaching example" .
+demo:methods a pilot:DocumentSection ; pilot:label "Methods" ;
+    pilot:sectionOf demo:paper ; extract:sectionKind "methods" .
+demo:conclusion a pilot:DocumentSection ; pilot:label "Conclusion" ;
+    pilot:sectionOf demo:paper ; extract:sectionKind "conclusion" .
+demo:virus a pilot:Virus ; pilot:label "Virus V (fictional)" .
+demo:sample a pilot:Specimen ; pilot:label "Specimen S" .
+demo:test a pilot:PCRTest ; pilot:label "PCR execution T" ;
+    pilot:testedSpecimen demo:sample .
+demo:result a pilot:Result ; pilot:label "Positive detection reported in this example" ;
+    pilot:producedByTest demo:test .
+demo:experiment a extract:Experiment ; extract:experimentIn demo:paper ;
+    extract:processStatus "reported" ; extract:hasStep demo:step1, demo:step2 .
+demo:step1 a extract:ProcessStep ; pilot:label "Collect specimen S" ;
+    extract:hasOutput demo:sample ; extract:nextStep demo:step2 ;
+    extract:stepSection demo:methods .
+demo:step2 a extract:ProcessStep ; pilot:label "Run PCR T on specimen S" ;
+    extract:hasInput demo:sample ; extract:usesTest demo:test ;
+    extract:hasOutput demo:result ; extract:stepSection demo:methods .
+demo:claim a pilot:FindingClaim ;
+    pilot:label "PCR T detected virus V in specimen S" ;
+    pilot:claimIn demo:paper ; extract:claimSection demo:conclusion ;
+    extract:aboutEntity demo:virus, demo:test .
+demo:evidence a pilot:TextEvidence ;
+    pilot:rawText "PCR T detected virus V in specimen S." ;
+    pilot:evidenceIn demo:paper ; pilot:evidenceSection demo:conclusion ;
+    pilot:recordedAt demo:location .
+demo:location a pilot:SourceLocator ; pilot:locatedIn demo:paper ;
+    pilot:locator "Conclusion, paragraph 1, sentence 1 (synthetic)" .
+demo:link a pilot:EvidenceLink ; pilot:linkClaim demo:claim ;
+    pilot:linkEvidence demo:evidence ; pilot:evidenceRole "supports" .
