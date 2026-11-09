@@ -1,5 +1,7 @@
 # Biomedical ontology pilot — v3.1
 
+**[Classes, Relationships & Attributes — complete schema catalog](https://nguyenphuquang1234567.github.io/biomedical-ontology/schema/)**
+
 **[Open the Ontology Explorer](https://nguyenphuquang1234567.github.io/biomedical-ontology/ontology_explorer.html)**
 
 **[Grant/patent mapping: actual before-and-after examples](https://nguyenphuquang1234567.github.io/biomedical-ontology/grant_patent_mapping_v3.html)**
