@@ -1,12 +1,19 @@
-# Biomedical ontology pilot — v3
+# Biomedical ontology pilot — v3.1
 
 **[Open the Ontology Explorer](https://nguyenphuquang1234567.github.io/biomedical-ontology/ontology_explorer.html)**
 
 **[Grant/patent mapping: actual before-and-after examples](https://nguyenphuquang1234567.github.io/biomedical-ontology/grant_patent_mapping_v3.html)**
 
-Version `0.3.0-draft` extends the five-source clinical/paper ontology with grant and patent metadata. The current draft has **86 classes, 55 object properties, and 84 datatype properties**. The previous public version remains in [versions/v2](versions/v2/README.md).
+Version `0.3.1-draft` extends the clinical, grant and patent ontology with paper extraction: experiments, process steps, claim-to-entity links, and claim support/contradiction relationships. The current draft has **88 classes, 66 object properties, and 86 datatype properties**. The previous public version remains in [versions/v2](versions/v2/README.md).
 
-## What changed
+## What changed in v3.1
+
+- Added `Experiment` and `ProcessStep`, 11 object properties, and 2 datatype properties.
+- Added a [compact paper extraction guide](https://nguyenphuquang1234567.github.io/biomedical-ontology/paper-extraction/) with downloadable schema and a synthetic RDF example.
+- Added links for process order, inputs/outputs, section attribution, claims about entities, and support/contradiction between claims.
+- Schema validation passed; extraction quality on a real paper has not yet been evaluated.
+
+## Earlier v3 changes
 
 - Added 11 classes for grant awards, funding records, organizations, locations, reported name mentions, grant documents, patents, classification codes, retrieval matches and unverified taxon references.
 - Added 14 relationships and 28 attributes, including funding-to-award links, named roles, fiscal year, financial amount, filing date and page count.
