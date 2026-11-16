@@ -1,4 +1,4 @@
-# Biomedical ontology pilot — v3.1
+# Biomedical ontology pilot — v3.2
 
 **[Classes, Relationships & Attributes — complete schema catalog](https://nguyenphuquang1234567.github.io/biomedical-ontology/schema/)**
 
@@ -6,7 +6,13 @@
 
 **[Grant/patent mapping: actual before-and-after examples](https://nguyenphuquang1234567.github.io/biomedical-ontology/grant_patent_mapping_v3.html)**
 
-Version `0.3.1-draft` extends the clinical, grant and patent ontology with paper extraction: experiments, process steps, claim-to-entity links, and claim support/contradiction relationships. The current draft has **88 classes, 66 object properties, and 86 datatype properties**. The previous public version remains in [versions/v2](versions/v2/README.md).
+Version `0.3.2-draft` models paper experiments, patent workflows and grant research plans under `Process`. The schema has **92 classes, 68 object properties, and 86 datatype properties**.
+
+## What changed in v3.2
+
+- Added `Process` as the parent of `Experiment`, `PatentWorkflow` and `ResearchPlan`.
+- Added `ResearchTask` under `ProcessStep` and `hasSubtask` for nested grant tasks.
+- Generalized `hasStep` to `Process` and added `describedIn` to link a process to its source document. Existing extraction identifiers remain valid.
 
 ## What changed in v3.1
 

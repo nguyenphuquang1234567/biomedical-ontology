@@ -4,6 +4,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+extract:PatentWorkflow a owl:Class ;
+    rdfs:comment "A procedure or mechanism described in a patent, including how an invention is made or operates."@en ;
+    rdfs:subClassOf extract:Process .
+
+extract:ResearchPlan a owl:Class ;
+    rdfs:comment "A proposed research plan described in a grant or other research document."@en ;
+    rdfs:subClassOf extract:Process .
+
 extract:aboutEntity a owl:ObjectProperty ;
     rdfs:comment "An entity explicitly addressed by a claim."@en ;
     rdfs:domain pilot:Claim ;
@@ -22,7 +30,8 @@ extract:contradictsClaim a owl:ObjectProperty ;
 extract:experimentIn a owl:ObjectProperty ;
     rdfs:comment "Document describing the experiment."@en ;
     rdfs:domain extract:Experiment ;
-    rdfs:range pilot:Document .
+    rdfs:range pilot:Document ;
+    rdfs:subPropertyOf extract:describedIn .
 
 extract:hasInput a owl:ObjectProperty ;
     rdfs:comment "A documented input, such as a specimen."@en ;
@@ -35,9 +44,14 @@ extract:hasOutput a owl:ObjectProperty ;
     rdfs:range pilot:Entity .
 
 extract:hasStep a owl:ObjectProperty ;
-    rdfs:comment "A step belonging to this experiment."@en ;
-    rdfs:domain extract:Experiment ;
+    rdfs:comment "A step or task belonging to a process."@en ;
+    rdfs:domain extract:Process ;
     rdfs:range extract:ProcessStep .
+
+extract:hasSubtask a owl:ObjectProperty ;
+    rdfs:comment "A narrower task within a research task. This relationship does not specify execution order."@en ;
+    rdfs:domain extract:ResearchTask ;
+    rdfs:range extract:ResearchTask .
 
 extract:nextStep a owl:ObjectProperty ;
     rdfs:comment "Direct next step, only when order is established by the source."@en ;
@@ -45,7 +59,8 @@ extract:nextStep a owl:ObjectProperty ;
     rdfs:range extract:ProcessStep .
 
 extract:processStatus a owl:DatatypeProperty ;
-    rdfs:comment "reported or proposed; do not turn a planned experiment into a completed experiment."@en ;
+    rdfs:comment "Use reported for work described as performed and proposed for planned work. Omit when execution status is unspecified."@en ;
+    rdfs:domain extract:Process ;
     rdfs:range xsd:string .
 
 extract:sectionKind a owl:DatatypeProperty ;
@@ -69,6 +84,19 @@ extract:usesTest a owl:ObjectProperty ;
 
 extract:Experiment a owl:Class ;
     rdfs:comment "A source-described experiment or explicitly proposed experimental process."@en ;
+    rdfs:subClassOf extract:Process .
+
+extract:describedIn a owl:ObjectProperty ;
+    rdfs:comment "Document describing the process."@en ;
+    rdfs:domain extract:Process ;
+    rdfs:range pilot:Document .
+
+extract:ResearchTask a owl:Class ;
+    rdfs:comment "A proposed research task that can contain smaller tasks."@en ;
+    rdfs:subClassOf extract:ProcessStep .
+
+extract:Process a owl:Class ;
+    rdfs:comment "A process described in a source, including experimental procedures, invention workflows and research plans."@en ;
     rdfs:subClassOf pilot:Entity .
 
 extract:ProcessStep a owl:Class ;

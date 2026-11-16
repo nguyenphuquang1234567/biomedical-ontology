@@ -1,74 +1,90 @@
+@prefix extract: <https://example.org/nih-pilot/extraction/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pilot: <https://example.org/nih-pilot/ontology/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/nih-pilot/extraction/aboutEntity> a owl:ObjectProperty ;
+extract:PatentWorkflow a owl:Class ;
+    rdfs:comment "A procedure or mechanism described in a patent, including how an invention is made or operates."@en ;
+    rdfs:subClassOf extract:Process .
+
+extract:ResearchPlan a owl:Class ;
+    rdfs:comment "A proposed research plan described in a grant or other research document."@en ;
+    rdfs:subClassOf extract:Process .
+
+extract:aboutEntity a owl:ObjectProperty ;
     rdfs:comment "An entity explicitly addressed by a claim."@en ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:Entity .
 
-<https://example.org/nih-pilot/extraction/claimSection> a owl:ObjectProperty ;
+extract:claimSection a owl:ObjectProperty ;
     rdfs:comment "Section containing the claim."@en ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:DocumentSection .
 
-<https://example.org/nih-pilot/extraction/contradictsClaim> a owl:ObjectProperty ;
+extract:contradictsClaim a owl:ObjectProperty ;
     rdfs:comment "The subject claim contradicts the object claim, as explicitly attributed in the source."@en ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:Claim .
 
-<https://example.org/nih-pilot/extraction/experimentIn> a owl:ObjectProperty ;
+extract:experimentIn a owl:ObjectProperty ;
     rdfs:comment "Document describing the experiment."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/Experiment> ;
-    rdfs:range pilot:Document .
+    rdfs:domain extract:Experiment ;
+    rdfs:range pilot:Document ;
+    rdfs:subPropertyOf extract:describedIn .
 
-<https://example.org/nih-pilot/extraction/hasInput> a owl:ObjectProperty ;
+extract:hasInput a owl:ObjectProperty ;
     rdfs:comment "A documented input, such as a specimen."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:domain extract:ProcessStep ;
     rdfs:range pilot:Entity .
 
-<https://example.org/nih-pilot/extraction/hasOutput> a owl:ObjectProperty ;
+extract:hasOutput a owl:ObjectProperty ;
     rdfs:comment "A documented output, such as a result."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:domain extract:ProcessStep ;
     rdfs:range pilot:Entity .
 
-<https://example.org/nih-pilot/extraction/hasStep> a owl:ObjectProperty ;
-    rdfs:comment "A step belonging to this experiment."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/Experiment> ;
-    rdfs:range <https://example.org/nih-pilot/extraction/ProcessStep> .
+extract:hasStep a owl:ObjectProperty ;
+    rdfs:comment "A step or task belonging to a process."@en ;
+    rdfs:domain extract:Process ;
+    rdfs:range extract:ProcessStep .
 
-<https://example.org/nih-pilot/extraction/nextStep> a owl:ObjectProperty ;
+extract:hasSubtask a owl:ObjectProperty ;
+    rdfs:comment "A narrower task within a research task. This relationship does not specify execution order."@en ;
+    rdfs:domain extract:ResearchTask ;
+    rdfs:range extract:ResearchTask .
+
+extract:nextStep a owl:ObjectProperty ;
     rdfs:comment "Direct next step, only when order is established by the source."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
-    rdfs:range <https://example.org/nih-pilot/extraction/ProcessStep> .
+    rdfs:domain extract:ProcessStep ;
+    rdfs:range extract:ProcessStep .
 
-<https://example.org/nih-pilot/extraction/processStatus> a owl:DatatypeProperty ;
-    rdfs:comment "reported or proposed; do not turn a planned experiment into a completed experiment."@en ;
+extract:processStatus a owl:DatatypeProperty ;
+    rdfs:comment "Use reported for work described as performed and proposed for planned work. Omit when execution status is unspecified."@en ;
+    rdfs:domain extract:Process ;
     rdfs:range xsd:string .
 
-<https://example.org/nih-pilot/extraction/sectionKind> a owl:DatatypeProperty ;
+extract:sectionKind a owl:DatatypeProperty ;
     rdfs:comment "Background, related_work, hypothesis, methods, results, conclusion, or other; preserve the original heading in label."@en ;
     rdfs:range xsd:string .
 
-<https://example.org/nih-pilot/extraction/stepSection> a owl:ObjectProperty ;
+extract:stepSection a owl:ObjectProperty ;
     rdfs:comment "Section describing the step."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:domain extract:ProcessStep ;
     rdfs:range pilot:DocumentSection .
 
-<https://example.org/nih-pilot/extraction/supportsClaim> a owl:ObjectProperty ;
+extract:supportsClaim a owl:ObjectProperty ;
     rdfs:comment "The subject claim supports the object claim, as explicitly attributed in the source."@en ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:Claim .
 
-<https://example.org/nih-pilot/extraction/usesTest> a owl:ObjectProperty ;
+extract:usesTest a owl:ObjectProperty ;
     rdfs:comment "An actual test execution used by the step; a generic method mention alone is insufficient."@en ;
-    rdfs:domain <https://example.org/nih-pilot/extraction/ProcessStep> ;
+    rdfs:domain extract:ProcessStep ;
     rdfs:range pilot:Test .
 
 pilot: a owl:Ontology ;
     rdfs:comment "Draft union ontology based on inspected local assets of five Table 1 sources. Namespace is provisional; no external biomedical equivalences asserted." ;
-    owl:versionInfo "0.3.1-draft" .
+    owl:versionInfo "0.3.2-draft" .
 
 pilot:AntigenTest a owl:Class ;
     rdfs:label "Antigen Test"@en ;
@@ -1011,6 +1027,15 @@ pilot:version a owl:DatatypeProperty ;
     rdfs:comment "Phiên bản"@vi ;
     rdfs:range xsd:string .
 
+extract:Experiment a owl:Class ;
+    rdfs:comment "A source-described experiment or explicitly proposed experimental process."@en ;
+    rdfs:subClassOf extract:Process .
+
+extract:describedIn a owl:ObjectProperty ;
+    rdfs:comment "Document describing the process."@en ;
+    rdfs:domain extract:Process ;
+    rdfs:range pilot:Document .
+
 pilot:ClassificationCode a owl:Class ;
     rdfs:label "ClassificationCode" ;
     rdfs:comment "A reported patent classification code, preserving the source classification field."@en ;
@@ -1090,9 +1115,9 @@ pilot:Treatment a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:Entity .
 
-<https://example.org/nih-pilot/extraction/Experiment> a owl:Class ;
-    rdfs:comment "A source-described experiment or explicitly proposed experimental process."@en ;
-    rdfs:subClassOf pilot:Entity .
+extract:ResearchTask a owl:Class ;
+    rdfs:comment "A proposed research task that can contain smaller tasks."@en ;
+    rdfs:subClassOf extract:ProcessStep .
 
 pilot:AggregateStatistic a owl:Class ;
     rdfs:label "Aggregate Statistic"@en ;
@@ -1281,6 +1306,10 @@ pilot:ClinicalEvent a owl:Class ;
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
 
+extract:Process a owl:Class ;
+    rdfs:comment "A process described in a source, including experimental procedures, invention workflows and research plans."@en ;
+    rdfs:subClassOf pilot:Entity .
+
 pilot:EvidenceUnit a owl:Class ;
     rdfs:label "Evidence Unit"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -1324,10 +1353,6 @@ pilot:Test a owl:Class ;
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
 
-<https://example.org/nih-pilot/extraction/ProcessStep> a owl:Class ;
-    rdfs:comment "One source-described action in a process; not a clinical event unless independently documented as such."@en ;
-    rdfs:subClassOf pilot:Entity .
-
 pilot:Feature a owl:Class ;
     rdfs:label "Feature"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -1348,12 +1373,9 @@ pilot:Patient a owl:Class ;
         <https://www.nature.com/articles/s41597-025-06171-6> ;
     rdfs:subClassOf pilot:Entity .
 
-pilot:Document a owl:Class ;
-    rdfs:label "Document"@en ;
-    rdfs:comment "Design status: source-grounded",
-        "Bài báo/tài liệu có định danh và nội dung theo phiên bản."@vi ;
-    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
-    rdfs:subClassOf pilot:SourceAsset .
+extract:ProcessStep a owl:Class ;
+    rdfs:comment "One source-described action in a process; not a clinical event unless independently documented as such."@en ;
+    rdfs:subClassOf pilot:Entity .
 
 pilot:Claim a owl:Class ;
     rdfs:label "Claim"@en ;
@@ -1361,6 +1383,13 @@ pilot:Claim a owl:Class ;
         "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."@vi ;
     rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
     rdfs:subClassOf pilot:Entity .
+
+pilot:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "Design status: source-grounded",
+        "Bài báo/tài liệu có định danh và nội dung theo phiên bản."@vi ;
+    rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/tools/openftlist/> ;
+    rdfs:subClassOf pilot:SourceAsset .
 
 pilot:Result a owl:Class ;
     rdfs:label "Result"@en ;

@@ -60,8 +60,10 @@ contradictsClaim,Claim,Claim,"The subject claim contradicts the object claim, as
 experimentIn,Experiment,Document,Document describing the experiment.,N:N,Optional; source-supported edges only. No completeness constraint.
 hasInput,ProcessStep,Entity,"A documented input, such as a specimen.",N:N,Optional; source-supported edges only. No completeness constraint.
 hasOutput,ProcessStep,Entity,"A documented output, such as a result.",N:N,Optional; source-supported edges only. No completeness constraint.
-hasStep,Experiment,ProcessStep,A step belonging to this experiment.,N:N,Optional; source-supported edges only. No completeness constraint.
+hasStep,Process,ProcessStep,A step or task belonging to a process.,N:N,Optional; source-supported edges only. No completeness constraint.
 nextStep,ProcessStep,ProcessStep,"Direct next step, only when order is established by the source.",N:N,Optional; source-supported edges only. No completeness constraint.
 stepSection,ProcessStep,DocumentSection,Section describing the step.,N:N,Optional; source-supported edges only. No completeness constraint.
 supportsClaim,Claim,Claim,"The subject claim supports the object claim, as explicitly attributed in the source.",N:N,Optional; source-supported edges only. No completeness constraint.
 usesTest,ProcessStep,Test,An actual test execution used by the step; a generic method mention alone is insufficient.,N:N,Optional; source-supported edges only. No completeness constraint.
+describedIn,Process,Document,Document describing the process.,N:N,Optional; source-supported edges only.
+hasSubtask,ResearchTask,ResearchTask,A narrower task within a research task. This relationship does not specify execution order.,N:N,Optional; source-supported edges only.

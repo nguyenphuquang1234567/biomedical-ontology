@@ -84,3 +84,9 @@ flowchart LR
   Entity -->|subtype| ClassificationCode
   Entity -->|subtype| RetrievalMatch
   Entity -->|subtype| TaxonReference
+  Entity -->|subtype| Process
+  Process -->|subtype| Experiment
+  Process -->|subtype| PatentWorkflow
+  Process -->|subtype| ResearchPlan
+  Entity -->|subtype| ProcessStep
+  ProcessStep -->|subtype| ResearchTask

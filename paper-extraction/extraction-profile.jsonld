@@ -6,11 +6,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Đoạn, bảng, hình hoặc cell dùng làm evidence; không tự xác thực claim."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -171,7 +171,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://example.org/nih-pilot/ontology/Entity"
+        "@id": "https://example.org/nih-pilot/extraction/Process"
       }
     ]
   },
@@ -213,11 +213,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: design"
-      },
-      {
         "@language": "vi",
         "@value": "Mapping claim/evidence với role supports/contradicts/contextualizes."
+      },
+      {
+        "@value": "Design status: design"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -324,19 +324,19 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
-        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      {
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
       },
       {
         "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
       },
       {
-        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
-      },
-      {
-        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -353,7 +353,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "reported or proposed; do not turn a planned experiment into a completed experiment."
+        "@value": "Use reported for work described as performed and proposed for planned work. Omit when execution status is unspecified."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/Process"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -434,11 +439,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Taxon/vi sinh vật concept; không mặc định là pathogen."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -449,13 +454,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
-      },
-      {
         "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
         "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -471,11 +476,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Mã external có namespace; BioSample/run/PMCID là các namespace khác nhau."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -486,19 +491,19 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      {
         "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
         "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       },
       {
         "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
-      },
-      {
-        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
-      },
-      {
-        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -612,11 +617,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Bảng hoặc vùng ô; có header và phạm vi."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -683,16 +688,16 @@
         "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
       },
       {
-        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
-      },
-      {
-        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
-      },
-      {
         "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
         "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+      },
+      {
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+      },
+      {
+        "@id": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -743,6 +748,11 @@
       {
         "@id": "https://example.org/nih-pilot/ontology/Document"
       }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/describedIn"
+      }
     ]
   },
   {
@@ -752,11 +762,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Bài báo/tài liệu có định danh và nội dung theo phiên bản."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1020,11 +1030,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Hình/caption; chưa đồng nghĩa đã extract giá trị ảnh."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1066,16 +1076,16 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
       },
       {
-        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
       },
       {
         "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
-        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -1092,12 +1102,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A step belonging to this experiment."
+        "@value": "A step or task belonging to a process."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://example.org/nih-pilot/extraction/Experiment"
+        "@id": "https://example.org/nih-pilot/extraction/Process"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -1113,11 +1123,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Mẫu sinh học thực tế; Sample là tên cũ tương ứng."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1128,16 +1138,16 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
         "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       },
       {
-        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
       },
       {
-        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -1197,11 +1207,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: design"
-      },
-      {
         "@language": "vi",
         "@value": "Phát biểu về phương pháp nghiên cứu."
+      },
+      {
+        "@value": "Design status: design"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1243,16 +1253,16 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
-      },
-      {
         "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       },
       {
-        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
       },
       {
-        "@id": "https://www.nature.com/articles/s41597-025-06171-6"
+        "@id": "https://datadryad.org/dataset/doi:10.5061/dryad.800tj"
+      },
+      {
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -1290,11 +1300,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: source-grounded"
-      },
-      {
         "@language": "vi",
         "@value": "Taxon virus; ví dụ TTV, HHV6B trong nguồn."
+      },
+      {
+        "@value": "Design status: source-grounded"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1305,10 +1315,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
-        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -1324,11 +1334,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: design"
-      },
-      {
         "@language": "vi",
         "@value": "Phát biểu được quy cho tác giả/tài liệu, giữ ngữ cảnh/độ chắc chắn."
+      },
+      {
+        "@value": "Design status: design"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1431,11 +1441,11 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@value": "Design status: design"
-      },
-      {
         "@language": "vi",
         "@value": "Phát biểu về kết quả nghiên cứu."
+      },
+      {
+        "@value": "Design status: design"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1552,10 +1562,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
+        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
       },
       {
-        "@id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full"
+        "@id": "https://link.springer.com/article/10.1186/s12879-022-07381-8"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -1627,6 +1637,118 @@
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "https://example.org/nih-pilot/ontology/Identifier"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/describedIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Document describing the process."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/Process"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Document"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/hasSubtask",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A narrower task within a research task. This relationship does not specify execution order."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ResearchTask"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ResearchTask"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/ResearchPlan",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A proposed research plan described in a grant or other research document."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/Process"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/PatentWorkflow",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A procedure or mechanism described in a patent, including how an invention is made or operates."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/Process"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/ResearchTask",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A proposed research task that can contain smaller tasks."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/extraction/ProcessStep"
+      }
+    ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/Process",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A process described in a source, including experimental procedures, invention workflows and research plans."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Entity"
       }
     ]
   }

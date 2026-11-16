@@ -85,5 +85,9 @@ Patent,Document,grant_patent_metadata,A patent publication described by source m
 ClassificationCode,Entity,grant_patent_metadata,"A reported patent classification code, preserving the source classification field.",External grant/patent CSVs,design
 RetrievalMatch,Entity,grant_patent_metadata,A recorded search match connecting a document to a source-provided concept reference; not scientific support.,External grant/patent CSVs,design
 TaxonReference,Entity,grant_patent_metadata,"Unverified source taxon identifier(s) and label(s), preserving combined values without assuming namespace or alignment.",External grant/patent CSVs,design
-Experiment,Entity,process,A source-described experiment or explicitly proposed experimental process.,Meeting extraction requirements,design
+Experiment,Process,process,A source-described experiment or explicitly proposed experimental process.,Meeting extraction requirements,design
 ProcessStep,Entity,process,One source-described action in a process; not a clinical event unless independently documented as such.,Meeting extraction requirements,design
+Process,Entity,process,"A process described in a source, including experimental procedures, invention workflows and research plans.",Meeting extraction requirements,design
+PatentWorkflow,Process,process,"A procedure or mechanism described in a patent, including how an invention is made or operates.",Meeting extraction requirements,design
+ResearchPlan,Process,process,A proposed research plan described in a grant or other research document.,Meeting extraction requirements,design
+ResearchTask,ProcessStep,process,A proposed research task that can contain smaller tasks.,Meeting extraction requirements,design
