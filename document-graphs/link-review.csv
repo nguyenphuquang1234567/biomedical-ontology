@@ -1,0 +1,8 @@
+proposal,decision,reason
+link-paper-ebov,accepted_local_concept,Paper references local shared Ebola concept; external fact-layer identity remains unresolved.
+link-paper-gp,accepted_local_concept,Paper references local shared GP concept at broad label level; exact sequence/strain scope unresolved.
+link-grant-hypothesis-ebov,accepted,Added ext:aboutEntity from the source-backed hypothesis.
+link-grant-hypothesis-integrin,accepted,Added ext:aboutEntity; integrin member remains unspecified.
+link-grant-aim1-gp,accepted,"Added ext:taskSubject, not aboutEntity, because the subject is ResearchTask."
+link-grant-structural-gp,accepted,Added ext:taskSubject from the abstract.
+link-paper-gp2-grant-aim1,unresolved,A protein region and a research task have different roles. Topic overlap alone does not establish a direct research or funding relationship.

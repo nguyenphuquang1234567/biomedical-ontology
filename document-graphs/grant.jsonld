@@ -1,0 +1,267 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "ext": "https://example.org/nih-pilot/extraction/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "kg": "https://example.org/nih-pilot/metadata/grantdocument/2564563/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "ont": "https://example.org/nih-pilot/ontology/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "kg:identify-alternative",
+      "@type": "ext:ResearchTask",
+      "ext:taskSubject": {
+        "@id": "https://example.org/nih-pilot/core/ebov"
+      },
+      "ont:description": "Conditional task. Applies only if integrin does not serve as a receptor.",
+      "ont:label": "Use an established method to identify a receptor if integrin does not serve as one",
+      "ont:recordedAt": {
+        "@id": "kg:source-identify-alternative"
+      }
+    },
+    {
+      "@id": "kg:source-aim-1",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “The first specific aim”"
+    },
+    {
+      "@id": "kg:source-test-integrin",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “test this hypothesis by exposing different”"
+    },
+    {
+      "@id": "kg:test-integrin",
+      "@type": "ext:ResearchTask",
+      "ext:taskSubject": [
+        {
+          "@id": "https://example.org/nih-pilot/core/integrin"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/core/ebov"
+        }
+      ],
+      "ont:label": "Test the receptor hypothesis by exposing different integrin subunits",
+      "ont:recordedAt": {
+        "@id": "kg:source-test-integrin"
+      }
+    },
+    {
+      "@id": "kg:map-binding-fusion",
+      "@type": "ext:ResearchTask",
+      "ext:taskSubject": {
+        "@id": "https://example.org/nih-pilot/core/ebov-gp"
+      },
+      "ont:label": "Use mutagenesis in the recombinant VSV system to identify regions involved in receptor binding and fusion",
+      "ont:recordedAt": {
+        "@id": "kg:source-map-binding-fusion"
+      }
+    },
+    {
+      "@id": "kg:source-identify-alternative",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “Should integrin not serve as a receptor”"
+    },
+    {
+      "@id": "kg:aim-2",
+      "@type": "ext:ResearchTask",
+      "ext:hasSubtask": [
+        {
+          "@id": "kg:identify-alternative"
+        },
+        {
+          "@id": "kg:test-integrin"
+        }
+      ],
+      "ext:taskSubject": {
+        "@id": "https://example.org/nih-pilot/core/ebov"
+      },
+      "ont:label": "Characterize cellular receptors for Ebola virus",
+      "ont:recordedAt": {
+        "@id": "kg:source-aim-2"
+      }
+    },
+    {
+      "@id": "kg:source-aim-2",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “Aim 2 seeks to”"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/core/ebov",
+      "@type": "ont:Virus",
+      "ont:description": "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed.",
+      "ont:label": "Ebola virus (shared document-level concept)",
+      "ont:mappingStatus": "unresolved",
+      "ont:recordedAt": {
+        "@id": "kg:source-hypothesis"
+      }
+    },
+    {
+      "@id": "kg:source-hypothesis",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “perhaps serving as its receptor”"
+    },
+    {
+      "@id": "kg:source-map-binding-fusion",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “responsible for receptor binding and fusion”"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/core/integrin",
+      "@type": "ont:Feature",
+      "ont:description": "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed.",
+      "ont:label": "Integrin (unspecified family member)",
+      "ont:mappingStatus": "unresolved",
+      "ont:recordedAt": {
+        "@id": "kg:source-hypothesis"
+      }
+    },
+    {
+      "@id": "kg:source-check-structural-features",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “will also be examined for functional importance”"
+    },
+    {
+      "@id": "kg:plan",
+      "@type": "ext:ResearchPlan",
+      "ext:describedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ext:hasStep": [
+        {
+          "@id": "kg:aim-1"
+        },
+        {
+          "@id": "kg:aim-2"
+        }
+      ],
+      "ext:processStatus": "proposed",
+      "ont:label": "Investigate Ebola virus glycoprotein and cellular receptors",
+      "ont:recordedAt": {
+        "@id": "kg:source-plan"
+      }
+    },
+    {
+      "@id": "kg:hypothesis",
+      "@type": "ont:Hypothesis",
+      "ext:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/core/ebov"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/core/integrin"
+        }
+      ],
+      "ont:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:label": "Integrin may act as a cellular receptor for Ebola virus",
+      "ont:recordedAt": {
+        "@id": "kg:source-hypothesis"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563",
+      "@type": "ont:GrantDocument",
+      "ont:label": "MOLECULAR PATHOGENESIS OF EBOLA VIRUS INFECTION",
+      "ont:sourceUrl": {
+        "@type": "xsd:anyURI",
+        "@value": "https://reporter.nih.gov/project-details/2564563"
+      }
+    },
+    {
+      "@id": "kg:source-plan",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "https://example.org/nih-pilot/metadata/grantdocument/2564563"
+      },
+      "ont:locator": "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “the proposed research seeks”"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/core/ebov-gp",
+      "@type": "ont:Feature",
+      "ont:description": "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed.",
+      "ont:label": "Ebola virus glycoprotein (shared document-level concept)",
+      "ont:mappingStatus": "unresolved",
+      "ont:recordedAt": {
+        "@id": "kg:source-aim-1"
+      }
+    },
+    {
+      "@id": "kg:check-structural-features",
+      "@type": "ext:ResearchTask",
+      "ext:taskSubject": {
+        "@id": "https://example.org/nih-pilot/core/ebov-gp"
+      },
+      "ont:label": "Examine the functional importance of selected structural features of the glycoprotein",
+      "ont:recordedAt": {
+        "@id": "kg:source-check-structural-features"
+      }
+    },
+    {
+      "@id": "kg:aim-1",
+      "@type": "ext:ResearchTask",
+      "ext:hasSubtask": [
+        {
+          "@id": "kg:check-structural-features"
+        },
+        {
+          "@id": "kg:map-binding-fusion"
+        }
+      ],
+      "ext:taskSubject": {
+        "@id": "https://example.org/nih-pilot/core/ebov-gp"
+      },
+      "ont:label": "Map functional domains of Ebola virus glycoprotein",
+      "ont:recordedAt": {
+        "@id": "kg:source-aim-1"
+      }
+    }
+  ]
+}

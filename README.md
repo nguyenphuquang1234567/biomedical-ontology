@@ -6,7 +6,7 @@
 
 **[Grant/patent mapping: actual before-and-after examples](https://nguyenphuquang1234567.github.io/biomedical-ontology/grant_patent_mapping_v3.html)**
 
-Version `0.3.2-draft` models paper experiments, patent workflows and grant research plans under `Process`. The schema has **92 classes, 68 object properties, and 86 datatype properties**.
+Version `0.3.2-draft` models paper experiments, patent workflows and grant research plans under `Process`. The schema has **92 classes, 69 object properties, and 86 datatype properties**.
 
 ## What changed in v3.2
 
@@ -61,3 +61,7 @@ Open ontology_explorer.html directly for offline use. The English explorer links
 ## Paper extraction — v3.1 draft
 
 [Compact guide](https://nguyenphuquang1234567.github.io/biomedical-ontology/paper-extraction/) with schema downloads and a synthetic RDF example. The shared ontology now includes Experiment, ProcessStep and extraction relationships. New terms retain the `https://example.org/nih-pilot/extraction/` namespace.
+
+## Linked document examples
+
+[Paper, patent and grant RDF files](document-graphs/) include local shared biological concepts, source locators, and a seven-proposal link review. Fact-layer IDs remain unresolved. The schema includes taskSubject for ResearchTask → Entity.

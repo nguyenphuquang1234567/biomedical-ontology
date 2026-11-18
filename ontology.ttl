@@ -77,6 +77,11 @@ extract:supportsClaim a owl:ObjectProperty ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:Claim .
 
+extract:taskSubject a owl:ObjectProperty ;
+    rdfs:comment "Entity explicitly investigated or addressed by a research task."@en ;
+    rdfs:domain extract:ResearchTask ;
+    rdfs:range pilot:Entity .
+
 extract:usesTest a owl:ObjectProperty ;
     rdfs:comment "An actual test execution used by the step; a generic method mention alone is insufficient."@en ;
     rdfs:domain extract:ProcessStep ;
@@ -1115,10 +1120,6 @@ pilot:Treatment a owl:Class ;
         <https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1195629/full> ;
     rdfs:subClassOf pilot:Entity .
 
-extract:ResearchTask a owl:Class ;
-    rdfs:comment "A proposed research task that can contain smaller tasks."@en ;
-    rdfs:subClassOf extract:ProcessStep .
-
 pilot:AggregateStatistic a owl:Class ;
     rdfs:label "Aggregate Statistic"@en ;
     rdfs:comment "Design status: source-grounded",
@@ -1189,6 +1190,10 @@ pilot:RetrievalMatch a owl:Class ;
     rdfs:label "RetrievalMatch" ;
     rdfs:comment "A recorded search match connecting a document to a source-provided concept reference; not scientific support."@en ;
     rdfs:subClassOf pilot:Entity .
+
+extract:ResearchTask a owl:Class ;
+    rdfs:comment "A proposed research task that can contain smaller tasks."@en ;
+    rdfs:subClassOf extract:ProcessStep .
 
 pilot:Assertion a owl:Class ;
     rdfs:label "Assertion"@en ;

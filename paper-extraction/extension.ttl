@@ -77,6 +77,11 @@ extract:supportsClaim a owl:ObjectProperty ;
     rdfs:domain pilot:Claim ;
     rdfs:range pilot:Claim .
 
+extract:taskSubject a owl:ObjectProperty ;
+    rdfs:comment "Entity explicitly investigated or addressed by a research task."@en ;
+    rdfs:domain extract:ResearchTask ;
+    rdfs:range pilot:Entity .
+
 extract:usesTest a owl:ObjectProperty ;
     rdfs:comment "An actual test execution used by the step; a generic method mention alone is insufficient."@en ;
     rdfs:domain extract:ProcessStep ;

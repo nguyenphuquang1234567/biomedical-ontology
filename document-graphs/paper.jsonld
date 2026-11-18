@@ -1,0 +1,1811 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "ns1": "https://example.org/nih-pilot/extraction/",
+    "ns2": "https://example.org/nih-pilot/ontology/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-abstract"
+      },
+      "ns1:supportsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+      },
+      "ns2:certainty": "stated as significant in the abstract",
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The mRNA-LNP vaccine elicited significantly higher total IgG and neutralizing antibody titers than rVSV-EBOV-GP",
+      "ns2:rawText": "elicited significantly higher levels of total IgG and neutralizing antibody titers"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc2",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1"
+      },
+      "ns2:certainty": "explicitly not significant",
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The IgG increases over the prime-boost rVSV group were not statistically significant",
+      "ns2:rawText": "though both not statistically significant"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-wip",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:label": "WIPYFGP higher after mRNA (p=0.00177)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-2",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno"
+      },
+      "ns2:label": "though both not statistically significant",
+      "ns2:rawText": "though both not statistically significant"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-5",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope"
+      },
+      "ns2:label": "distinctly targeted the internal fusion loop of EBOV-GP2",
+      "ns2:rawText": "distinctly targeted the internal fusion loop of EBOV-GP2"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-crossprotect",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x1"
+      },
+      "ns1:processStatus": "proposed",
+      "ns2:label": "Proposed: test cross-protection against other Ebolavirus species"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "methods",
+      "ns2:label": "4.4 Immune assays",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-memory",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x3"
+      },
+      "ns1:processStatus": "proposed",
+      "ns2:label": "Proposed: measure long-term memory responses"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab",
+      "@type": "ns2:LaboratoryAnalyte",
+      "ns2:description": "Neutralizing titer measured by reporter-virus or pseudovirion assay",
+      "ns2:label": "EBOV neutralizing antibody titer"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-9",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct"
+      },
+      "ns2:label": "detected in cell lysates, but not supernatants",
+      "ns2:rawText": "detected in cell lysates, but not supernatants"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "methods",
+      "ns2:label": "4.3 In vivo experiments",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-3-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "contradicts",
+      "ns2:label": "clm:fc1 contradicts ev:3",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-3"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-peptide-lib",
+      "@type": "ns2:Entity",
+      "ns2:description": "Overlapping peptide library spanning GP, barcoded sequencing readout",
+      "ns2:label": "GP 30-mer peptide library (7,463 antigens)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc4",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc9"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The DNA comparator was unformulated and unadjuvanted and given at 100 ug versus 5 ug of mRNA"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elisa",
+      "@type": "ns2:Test",
+      "ns2:label": "anti-GP IgG ELISA",
+      "ns2:measurementType": "IgG quantified against a monoclonal antibody standard curve"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a5",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum"
+      },
+      "ns1:hasOutput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-nab-dna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-dna"
+        }
+      ],
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns1:usesTest": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elisa"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-psvna"
+        }
+      ],
+      "ns2:label": "Measure IgG and neutralizing titers in challenge sera"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c5",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-293t"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna"
+        }
+      ],
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct"
+      },
+      "ns2:label": "Transfect 293T with DNA plasmid and stain for GP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i3",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasOutput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum"
+        }
+      ],
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i4"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Euthanize on day 35 and collect serum and spleen"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "results",
+      "ns2:label": "2.5 Authentic ma-EBOV challenge in BALB/c mice",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-1",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-abstract"
+      },
+      "ns2:label": "elicited significantly higher levels of total IgG and neutra",
+      "ns2:rawText": "elicited significantly higher levels of total IgG and neutralizing antibody titers"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-6-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc7 supports ev:6",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc7"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-6"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s1",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-fluc"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-ifnar"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs"
+        }
+      ],
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s2"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Give two doses of mRNA vaccine or controls"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-epitope-count",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:label": "22 epitopes recognized across vaccinated mice, mean 7 per animal"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc3",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno"
+      },
+      "ns1:supportsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "mRNA groups averaged higher neutralizing titers than rVSV groups"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp1-mucin",
+      "@type": "ns2:Feature",
+      "ns2:description": "GP1 subdomain preferentially targeted after rVSV vaccination",
+      "ns2:label": "GP1 mucin-like domain"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-4-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc5 supports ev:4",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-4"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-11-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc11 supports ev:11",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc11"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-11"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a2",
+      "@type": "ns1:ProcessStep",
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a3"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Boost one month after prime"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elispot",
+      "@type": "ns2:Test",
+      "ns2:label": "IFN-gamma ELISpot",
+      "ns2:measurementType": "spot-forming units from GP-stimulated splenocytes"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-lnp-size",
+      "@type": "ns2:QualityMetricResult",
+      "ns2:label": "LNP ~100 nm; 98.33% GP mRNA and 98.13% FLuc mRNA encapsulated"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-6",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns2:label": "fully protected the mouse cohorts against morbidity and mort",
+      "ns2:rawText": "fully protected the mouse cohorts against morbidity and mortality"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h2",
+      "@type": "ns2:Hypothesis",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:certainty": "explicitly untested; flagged for future work",
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Because the GP2 internal fusion loop is conserved across Ebolavirus species, the mRNA-induced epitope preference may confer cross-protection",
+      "ns2:rawText": "future studies will need to determine cross protection capacity"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-balbc",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:denominator": "n=15 per group",
+      "ns2:label": "100% survival for mRNA and DNA over 21 days; controls declined days 3-8"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i1",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i2"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Prime intramuscularly on day 0 (PBS, mRNA 5 ug, or rVSV 2x10^4 PFU)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-8-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc10 supports ev:8",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc10"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-8"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc6",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-veq"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-stats"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Individual epitope comparisons used Welch's t-tests without correction for multiple comparisons"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c4",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-a549"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c5"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-western"
+      },
+      "ns2:label": "Western blot GP in cell lysate and supernatant"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-12-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "contextualizes",
+      "ns2:label": "clm:h1 contextualizes ev:12",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-12"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-peptide-tcell",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x2"
+      },
+      "ns1:processStatus": "proposed",
+      "ns2:label": "Proposed: peptide-based T-cell assays instead of whole-protein stimulation"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x3",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg"
+        }
+      ],
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:label": "Proposed: follow antibody and memory responses beyond day 35"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418",
+      "@type": "ns2:Document",
+      "ns2:accession": "10.3389/fimmu.2025.1682418",
+      "ns2:label": "An mRNA vaccine encoding the Ebola virus glycoprotein induces high neutralizing antibody titers and provides strong protection against lethal infections in mouse models",
+      "ns2:license": "CC BY",
+      "ns2:namespace": "doi",
+      "ns2:retrievalStatus": "retrieved",
+      "ns2:retrievedAt": "2026-11-09",
+      "ns2:sourceUrl": "https://www.frontiersin.org/articles/10.3389/fimmu.2025.1682418/full",
+      "ns2:version": "Frontiers in Immunology, vol 16, art 1682418 (2025/2026)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-lnp",
+      "@type": "ns2:Entity",
+      "ns2:description": "mRNA delivery vehicle, ~100 nm, possible adjuvant-like effect",
+      "ns2:label": "SM-102 lipid nanoparticle (LNP)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov",
+      "@type": "ns2:Virus",
+      "ns2:description": "Mouse-adapted Ebola virus used as the authentic lethal challenge agent",
+      "ns2:label": "mouse-adapted EBOV (ma-EBOV)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna",
+      "@type": "ns2:Treatment",
+      "ns2:description": "Codon-optimized Mayinga GP mRNA with human Ig-kappa signal sequence, SM-102 LNP, 5 ug IM, modified or unmodified nucleosides",
+      "ns2:label": "EBOV-GP mRNA-LNP vaccine"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "results",
+      "ns2:label": "2.4 Surrogate challenge in Ifnar-/- mice",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-intro-prior",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "related_work",
+      "ns2:label": "1. Introduction (licensed vaccines, prior work)",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc4",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ifng"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Two-dose rVSV produced the strongest IFN-gamma ELISpot responses; unmodified mRNA was weakest and modified mRNA intermediate"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc9",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns1:supportsClaim": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13"
+        }
+      ],
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "mRNA produced 8.1-fold higher IgG and 5.8-fold higher neutralizing titers than the DNA vaccine"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc5",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The immunogenicity study used only 5 mice per group"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-5-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc5 supports ev:5",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-5"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-abstract",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "other",
+      "ns2:label": "Abstract",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-construct",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c5"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c4"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c3"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c1"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c2"
+        }
+      ],
+      "ns1:processStatus": "reported",
+      "ns2:label": "Construct and LNP characterization"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-fold",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:denominator": "n=5 per group",
+      "ns2:label": "Anti-GP IgG ~10-fold (unmodified) and 9.1-fold (modified) above single-dose rVSV"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-dna",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:label": "Anti-GP IgG 8.1-fold higher for mRNA than DNA"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ifng",
+      "@type": "ns2:LaboratoryAnalyte",
+      "ns2:description": "T-cell cytokine readout counted by ELISpot",
+      "ns2:label": "IFN-gamma"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "methods",
+      "ns2:label": "4.1 Vaccine preparation",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-surrogate",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s2"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s3"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s1"
+        }
+      ],
+      "ns1:processStatus": "reported",
+      "ns2:label": "Surrogate challenge in Ifnar-/- mice"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1",
+      "@type": "ns2:Hypothesis",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/core/ebov-gp"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-aim"
+      },
+      "ns2:certainty": "stated as the study aim, not as an established fact",
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "An mRNA vaccine encoding EBOV GP can induce immune responses comparable to or exceeding the licensed rVSV vector vaccine, and protect against lethal EBOV challenge",
+      "ns2:rawText": "we experimentally investigated the similarities and differences of immune responses"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-psvna",
+      "@type": "ns2:Test",
+      "ns2:label": "PsVNA pseudovirion neutralization assay",
+      "ns2:measurementType": "luciferase reporter neutralization titer"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-12",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-aim"
+      },
+      "ns2:label": "we experimentally investigated the similarities and differen",
+      "ns2:rawText": "we experimentally investigated the similarities and differences of immune responses"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-neut-gfp",
+      "@type": "ns2:Test",
+      "ns2:label": "rVSV-EBOV-GFP neutralization assay",
+      "ns2:measurementType": "fluorescence-based neutralizing titer"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc6",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1"
+      },
+      "ns2:certainty": "not significant",
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Overall antibody magnitude did not differ significantly between platforms in the PepSeq assay"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc12",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ifng"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc4"
+      },
+      "ns2:certainty": "author speculation",
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The lower mRNA T-cell response may reflect whole-protein stimulation rather than a true platform difference, since peptide-based assays were not used"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-fluc",
+      "@type": "ns2:Treatment",
+      "ns2:description": "Firefly luciferase mRNA in LNP, mock vaccine control",
+      "ns2:label": "FLuc mRNA-LNP control"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-western",
+      "@type": "ns2:Test",
+      "ns2:label": "western blot",
+      "ns2:measurementType": "GP protein detection in lysate and supernatant"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-intro",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "Background",
+      "ns2:label": "1. Introduction",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc7",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/core/ebov-gp"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "GP was detected in cell lysates but not supernatants, indicating membrane-bound expression",
+      "ns2:rawText": "detected in cell lysates, but not supernatants"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "results",
+      "ns2:label": "2.2 Immunogenicity versus rVSV",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-3",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno"
+      },
+      "ns2:label": "though both not statistically significant",
+      "ns2:rawText": "though both not statistically significant"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-ifnar",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:label": "mRNA group survived without clinical signs; controls died days 3-4"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc3",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/core/ebov"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc9"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Different EBOV strains were used across assays: Mayinga for mRNA, Kikwit for DNA, Makona for pseudovirion neutralization"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-nab-dna",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:label": "Neutralizing titers 5.8-fold higher for mRNA than DNA"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-balbc",
+      "@type": "ns2:CohortGroup",
+      "ns2:denominator": "n=15 per group",
+      "ns2:description": "mRNA vs DNA vs controls",
+      "ns2:label": "BALB/c authentic challenge groups",
+      "ns2:sampleSize": 15
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/study-stromberg",
+      "@type": "ns2:Study",
+      "ns2:label": "Three-platform EBOV-GP vaccine comparison in mice"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum",
+      "@type": "ns2:BloodSpecimen",
+      "ns2:description": "Serum collected for ELISA, neutralization, PepSeq and PsVNA",
+      "ns2:label": "mouse serum"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-pepseq",
+      "@type": "ns2:SequencingTest",
+      "ns2:label": "PepSeq peptide-array assay",
+      "ns2:measurementType": "barcoded sequencing readout of peptide binding"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs",
+      "@type": "ns2:Treatment",
+      "ns2:description": "Unvaccinated control",
+      "ns2:label": "PBS control"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv",
+      "@type": "ns2:Treatment",
+      "ns2:description": "Viral-vector vaccine comparator, 2x10^4 PFU IM",
+      "ns2:label": "rVSV-EBOV-GP vaccine"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-11",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:label": "rVSV-EBOV-GP, is contraindicated for immunocompromised patie",
+      "ns2:rawText": "rVSV-EBOV-GP, is contraindicated for immunocompromised patients"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "conclusion",
+      "ns2:label": "4. Discussion",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes",
+      "@type": "ns2:Specimen",
+      "ns2:description": "Spleen cells stimulated with whole GP protein for ELISpot",
+      "ns2:label": "splenocytes"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-4",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope"
+      },
+      "ns2:label": "a preference for targeting the mucin-like domain in EBOV-GP1",
+      "ns2:rawText": "a preference for targeting the mucin-like domain in EBOV-GP1"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i6",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i7"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elispot"
+      },
+      "ns2:label": "Count IFN-gamma spots from GP-stimulated splenocytes"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i4",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum"
+      },
+      "ns1:hasOutput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-fold"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i5"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elisa"
+      },
+      "ns2:label": "Measure total anti-GP IgG by ELISA"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gfp",
+      "@type": "ns2:Virus",
+      "ns2:description": "Replication-competent GFP reporter virus used for the neutralization readout",
+      "ns2:label": "rVSV-EBOV-GFP reporter virus"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i7",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-peptide-lib"
+        }
+      ],
+      "ns1:hasOutput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-wip"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-epitope-count"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-veq"
+        }
+      ],
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-pepseq"
+      },
+      "ns2:label": "Profile epitopes against 7,463-antigen GP peptide library"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57",
+      "@type": "ns2:CohortGroup",
+      "ns2:denominator": "n=5 per group",
+      "ns2:description": "PBS, unmodified mRNA, modified mRNA, rVSV prime, rVSV prime-boost",
+      "ns2:label": "C57BL/6 immunogenicity groups",
+      "ns2:sampleSize": 5
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-ifnar",
+      "@type": "ns2:CohortGroup",
+      "ns2:description": "mRNA vs FLuc-mRNA and PBS controls",
+      "ns2:label": "Ifnar-/- surrogate challenge groups"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-stats",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "methods",
+      "ns2:label": "4.5 Statistics",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna",
+      "@type": "ns2:Treatment",
+      "ns2:description": "Kikwit 1995 GP plasmid, unformulated and unadjuvanted, 100 ug by needle-free jet injector",
+      "ns2:label": "EBOV-GP DNA vaccine"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-10",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:label": "future studies will need to determine cross protection capac",
+      "ns2:rawText": "future studies will need to determine cross protection capacity"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-7",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate"
+      },
+      "ns2:label": "mock vaccinated and unvaccinated controls had progressive we",
+      "ns2:rawText": "mock vaccinated and unvaccinated controls had progressive weight loss"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc1",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-intro-prior"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Direct head-to-head comparisons of mRNA, viral-vector and DNA EBOV vaccines in animal models were lacking"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-7-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc8 supports ev:7",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc8"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-7"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The mRNA platform warrants further development as an alternative to, or complement of, licensed viral-vector vaccines",
+      "ns2:rawText": "warranting further development as an alternative to"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-dls",
+      "@type": "ns2:Test",
+      "ns2:label": "LNP size and encapsulation measurement",
+      "ns2:measurementType": "particle size and % encapsulation"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a4",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasOutput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-balbc"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a5"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns2:label": "Observe morbidity, weight and survival for 21 days"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s2",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gp"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s3"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Challenge intraperitoneally with 100 PFU rVSV-EBOV-GP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-9-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:mc7 supports ev:9",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc7"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-9"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-293t",
+      "@type": "ns2:Entity",
+      "ns2:description": "Cell line used for DNA transfection and GP staining; v3.1 has no CellLine class",
+      "ns2:label": "293T cells"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip",
+      "@type": "ns2:Feature",
+      "ns2:description": "GP2 internal fusion loop epitope, higher after mRNA",
+      "ns2:label": "epitope WIPYFGP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a1",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-balbc"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a2"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Prime: mRNA 5 ug IM or DNA 100 ug by needle-free jet injector"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc11",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns1:supportsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The licensed rVSV-EBOV-GP vaccine is contraindicated for immunocompromised patients",
+      "ns2:rawText": "rVSV-EBOV-GP, is contraindicated for immunocompromised patients"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s3",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasOutput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-ifnar"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate"
+      },
+      "ns2:label": "Monitor clinical signs, weight and survival"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-authentic",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a3"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a1"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a2"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a5"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a4"
+        }
+      ],
+      "ns1:processStatus": "reported",
+      "ns2:label": "Authentic ma-EBOV challenge in BALB/c mice: mRNA versus DNA"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ebola-disease",
+      "@type": "ns2:Disease",
+      "ns2:description": "Re-emerging viral hemorrhagic fever with high fatality",
+      "ns2:label": "Ebola disease"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-veq",
+      "@type": "ns2:Feature",
+      "ns2:description": "Mucin-like domain epitope, higher after rVSV",
+      "ns2:label": "epitope VEQHHRR"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-immuno",
+      "@type": "ns1:Experiment",
+      "ns1:experimentIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns1:hasStep": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i7"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i6"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i2"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i4"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i3"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i5"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i1"
+        }
+      ],
+      "ns1:processStatus": "reported",
+      "ns2:label": "Immunogenicity comparison: mRNA-LNP versus rVSV in C57BL/6 mice"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-2-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc2 supports ev:2",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc2"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-2"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "results",
+      "ns2:label": "2.3 Epitope breadth (PepSeq)",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-a549",
+      "@type": "ns2:Entity",
+      "ns2:description": "Cell line used in construct expression work; v3.1 has no CellLine class",
+      "ns2:label": "A549 cells"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a3",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a4"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Challenge one month after boost with 100 PFU ma-EBOV"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg",
+      "@type": "ns2:LaboratoryAnalyte",
+      "ns2:description": "Total binding antibody against GP, measured by ELISA",
+      "ns2:label": "anti-GP total IgG"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-1-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc1 supports ev:1",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-1"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-aim",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "hypothesis",
+      "ns2:label": "1. Introduction (aim)",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct",
+      "@type": "ns2:DocumentSection",
+      "ns1:sectionKind": "results",
+      "ns2:label": "2.1 Construct characterization",
+      "ns2:sectionOf": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-vero",
+      "@type": "ns2:Entity",
+      "ns2:description": "Cell line used in virus work; v3.1 has no CellLine class",
+      "ns2:label": "Vero cells"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc8",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-fluc"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate"
+      },
+      "ns1:supportsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc7"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "Mock-vaccinated and unvaccinated controls showed progressive weight loss and died",
+      "ns2:rawText": "mock vaccinated and unvaccinated controls had progressive weight loss"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc2",
+      "@type": "ns2:MethodClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns1:contradictsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "rVSV was not included in the authentic ma-EBOV challenge because of containment and ethical constraints, so that comparison is mRNA versus DNA only"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c3",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasOutput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-lnp-size"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c4"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-dls"
+      },
+      "ns2:label": "Measure LNP size and encapsulation efficiency"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-13",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:label": "warranting further development as an alternative to",
+      "ns2:rawText": "warranting further development as an alternative to"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-10-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "contextualizes",
+      "ns2:label": "clm:h2 contextualizes ev:10",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h2"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-10"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion",
+      "@type": "ns2:Feature",
+      "ns2:description": "Conserved GP2 subdomain preferentially targeted after mRNA vaccination",
+      "ns2:label": "GP2 internal fusion loop"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-8",
+      "@type": "ns2:TextEvidence",
+      "ns2:evidenceIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:evidenceSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns2:label": "EBOV neutralizing antibodies were only detected after the EB",
+      "ns2:rawText": "EBOV neutralizing antibodies were only detected after the EBOV mRNA LNP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gp",
+      "@type": "ns2:Virus",
+      "ns2:description": "Recombinant VSV with VSV-G replaced by EBOV GP; used both as vaccine and as surrogate challenge virus",
+      "ns2:label": "rVSV-EBOV-GP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c2",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-lnp"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:hasOutput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c3"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine"
+      },
+      "ns2:label": "Encapsulate mRNA in SM-102 LNP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp1-mucin"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-veq"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope"
+      },
+      "ns1:supportsClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h2"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "The two platforms target different GP regions: rVSV favours the GP1 mucin-like domain while mRNA targets the GP2 internal fusion loop",
+      "ns2:rawText": "distinctly targeted the internal fusion loop of EBOV-GP2"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x1",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns2:label": "Proposed: challenge with heterologous Ebolavirus species after mRNA vaccination"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc7",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns1:supportsClaim": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13"
+        }
+      ],
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "mRNA vaccination fully protected mice against morbidity and mortality in the challenge models",
+      "ns2:rawText": "fully protected the mouse cohorts against morbidity and mortality"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x2",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elispot"
+      },
+      "ns2:label": "Proposed: restimulate splenocytes with GP peptide pools"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i2",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+        }
+      ],
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i3"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo"
+      },
+      "ns2:label": "Boost on day 28 for most groups"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c1",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": {
+        "@id": "https://example.org/nih-pilot/core/ebov-gp"
+      },
+      "ns1:hasOutput": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna"
+      },
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c2"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine"
+      },
+      "ns2:label": "In vitro transcribe GP mRNA with 5' cap and poly-A tail"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i5",
+      "@type": "ns1:ProcessStep",
+      "ns1:hasInput": [
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum"
+        },
+        {
+          "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gfp"
+        }
+      ],
+      "ns1:nextStep": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i6"
+      },
+      "ns1:stepSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay"
+      },
+      "ns1:usesTest": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-neut-gfp"
+      },
+      "ns2:label": "Measure neutralizing titers with reporter virus"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc10",
+      "@type": "ns2:FindingClaim",
+      "ns1:aboutEntity": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab"
+      },
+      "ns1:claimSection": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic"
+      },
+      "ns2:claimIn": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418"
+      },
+      "ns2:label": "EBOV neutralizing antibodies were detected only after the booster dose",
+      "ns2:rawText": "EBOV neutralizing antibodies were only detected after the EBOV mRNA LNP"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/core/ebov-gp",
+      "@type": "ns2:Feature",
+      "ns2:description": "Vaccine antigen encoded by all three platforms; a protein, typed as Feature because the schema has no Protein class",
+      "ns2:label": "EBOV glycoprotein (GP)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-13-link",
+      "@type": "ns2:EvidenceLink",
+      "ns2:evidenceRole": "supports",
+      "ns2:label": "clm:fc13 supports ev:13",
+      "ns2:linkClaim": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13"
+      },
+      "ns2:linkEvidence": {
+        "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-13"
+      }
+    },
+    {
+      "@id": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-veq",
+      "@type": "ns2:AggregateStatistic",
+      "ns2:label": "VEQHHRR higher after rVSV (p=0.0277)"
+    },
+    {
+      "@id": "https://example.org/nih-pilot/core/ebov",
+      "@type": "ns2:Virus",
+      "ns2:description": "Filovirus causing Ebola disease; Mayinga, Kikwit and Makona strains appear across assays",
+      "ns2:label": "Ebola virus (EBOV)"
+    }
+  ]
+}

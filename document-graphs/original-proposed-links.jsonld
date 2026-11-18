@@ -1,0 +1,99 @@
+{
+  "@context": {
+    "ont": "https://example.org/nih-pilot/ontology/",
+    "ext": "https://example.org/nih-pilot/extraction/",
+    "core": "https://example.org/nih-pilot/core/",
+    "paper": "https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/",
+    "patent": "https://example.org/nih-pilot/metadata/US11197910B1/",
+    "grant": "https://example.org/nih-pilot/metadata/grantdocument/2564563/",
+    "@vocab": "https://example.org/nih-pilot/ontology/",
+    "label": "ont:label"
+  },
+  "@graph": [
+    {
+      "@id": "core:ebov",
+      "@type": "ont:Virus",
+      "ont:label": "Ebola virus",
+      "ont:description": "Shared concept node. Minted so that extraction graphs from different source documents can reference the same virus instead of each holding a private copy. Should be replaced by the corresponding entity in the fact layer once its identifier is confirmed.",
+      "ont:mappingStatus": "unresolved"
+    },
+    {
+      "@id": "core:ebov-gp",
+      "@type": "ont:Feature",
+      "ont:label": "Ebola virus glycoprotein (GP)",
+      "ont:description": "Shared concept node for the viral glycoprotein. Typed as Feature because the schema has no Protein class.",
+      "ont:mappingStatus": "unresolved"
+    },
+    {
+      "@id": "core:integrin",
+      "@type": "ont:Feature",
+      "ont:label": "Integrin",
+      "ont:description": "Shared concept node for the candidate cellular receptor named in the grant hypothesis.",
+      "ont:mappingStatus": "unresolved"
+    },
+
+    {
+      "@id": "core:link-paper-ebov",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "paper EBOV entity = shared Ebola virus concept",
+      "ont:linkFrom": { "@id": "paper:ent-ebov" },
+      "ont:linkTo": { "@id": "core:ebov" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed equivalence. Both denote Ebola virus. Needs confirmation against the fact-layer identifier."
+    },
+    {
+      "@id": "core:link-paper-gp",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "paper GP entity = shared glycoprotein concept",
+      "ont:linkFrom": { "@id": "paper:ent-gp" },
+      "ont:linkTo": { "@id": "core:ebov-gp" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed equivalence. Both denote the Ebola virus glycoprotein."
+    },
+    {
+      "@id": "core:link-grant-hypothesis-ebov",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "grant receptor hypothesis concerns Ebola virus",
+      "ont:linkFrom": { "@id": "grant:hypothesis" },
+      "ont:linkTo": { "@id": "core:ebov" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed aboutEntity link. The grant hypothesis names Ebola virus in its text but the grant graph has no entity node for it. Promote to ont:aboutEntity once agreed."
+    },
+    {
+      "@id": "core:link-grant-hypothesis-integrin",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "grant receptor hypothesis concerns integrin",
+      "ont:linkFrom": { "@id": "grant:hypothesis" },
+      "ont:linkTo": { "@id": "core:integrin" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed aboutEntity link for the candidate receptor named in the hypothesis text."
+    },
+    {
+      "@id": "core:link-grant-aim1-gp",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "grant aim 1 concerns the glycoprotein",
+      "ont:linkFrom": { "@id": "grant:aim-1" },
+      "ont:linkTo": { "@id": "core:ebov-gp" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed subject link. Aim 1 is to map functional domains of the Ebola virus glycoprotein, the same protein the paper's vaccines encode. This is the strongest candidate join between the grant and the paper."
+    },
+    {
+      "@id": "core:link-grant-structural-gp",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "grant structural-features task concerns the glycoprotein",
+      "ont:linkFrom": { "@id": "grant:check-structural-features" },
+      "ont:linkTo": { "@id": "core:ebov-gp" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed subject link for the task examining functional importance of glycoprotein structural features."
+    },
+    {
+      "@id": "core:link-paper-gp2-grant-aim1",
+      "@type": "ont:LinkageRecord",
+      "ont:label": "paper GP2 fusion loop finding relates to grant aim 1",
+      "ont:linkFrom": { "@id": "paper:ent-gp2-fusion" },
+      "ont:linkTo": { "@id": "grant:aim-1" },
+      "ont:mappingStatus": "unresolved",
+      "ont:description": "Proposed research link, not an equivalence. The paper localises the mRNA-induced antibody response to the GP2 internal fusion loop; the grant proposes mapping functional domains of the same glycoprotein. This is the kind of cross-document pair the serendipity metric should score."
+    }
+  ]
+}

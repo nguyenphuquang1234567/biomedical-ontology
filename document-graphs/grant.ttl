@@ -1,0 +1,110 @@
+@prefix ext: <https://example.org/nih-pilot/extraction/> .
+@prefix kg: <https://example.org/nih-pilot/metadata/grantdocument/2564563/> .
+@prefix ont: <https://example.org/nih-pilot/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kg:hypothesis a ont:Hypothesis ;
+    ext:aboutEntity <https://example.org/nih-pilot/core/ebov>,
+        <https://example.org/nih-pilot/core/integrin> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:label "Integrin may act as a cellular receptor for Ebola virus" ;
+    ont:recordedAt kg:source-hypothesis .
+
+kg:plan a ext:ResearchPlan ;
+    ext:describedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ext:hasStep kg:aim-1,
+        kg:aim-2 ;
+    ext:processStatus "proposed" ;
+    ont:label "Investigate Ebola virus glycoprotein and cellular receptors" ;
+    ont:recordedAt kg:source-plan .
+
+kg:aim-1 a ext:ResearchTask ;
+    ext:hasSubtask kg:check-structural-features,
+        kg:map-binding-fusion ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov-gp> ;
+    ont:label "Map functional domains of Ebola virus glycoprotein" ;
+    ont:recordedAt kg:source-aim-1 .
+
+kg:aim-2 a ext:ResearchTask ;
+    ext:hasSubtask kg:identify-alternative,
+        kg:test-integrin ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov> ;
+    ont:label "Characterize cellular receptors for Ebola virus" ;
+    ont:recordedAt kg:source-aim-2 .
+
+kg:check-structural-features a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov-gp> ;
+    ont:label "Examine the functional importance of selected structural features of the glycoprotein" ;
+    ont:recordedAt kg:source-check-structural-features .
+
+kg:identify-alternative a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov> ;
+    ont:description "Conditional task. Applies only if integrin does not serve as a receptor." ;
+    ont:label "Use an established method to identify a receptor if integrin does not serve as one" ;
+    ont:recordedAt kg:source-identify-alternative .
+
+kg:map-binding-fusion a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov-gp> ;
+    ont:label "Use mutagenesis in the recombinant VSV system to identify regions involved in receptor binding and fusion" ;
+    ont:recordedAt kg:source-map-binding-fusion .
+
+kg:source-aim-2 a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “Aim 2 seeks to”" .
+
+kg:source-check-structural-features a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “will also be examined for functional importance”" .
+
+kg:source-identify-alternative a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “Should integrin not serve as a receptor”" .
+
+kg:source-map-binding-fusion a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “responsible for receptor binding and fusion”" .
+
+kg:source-plan a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “the proposed research seeks”" .
+
+kg:source-test-integrin a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “test this hypothesis by exposing different”" .
+
+kg:test-integrin a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov>,
+        <https://example.org/nih-pilot/core/integrin> ;
+    ont:label "Test the receptor hypothesis by exposing different integrin subunits" ;
+    ont:recordedAt kg:source-test-integrin .
+
+<https://example.org/nih-pilot/core/integrin> a ont:Feature ;
+    ont:description "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed." ;
+    ont:label "Integrin (unspecified family member)" ;
+    ont:mappingStatus "unresolved" ;
+    ont:recordedAt kg:source-hypothesis .
+
+kg:source-aim-1 a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “The first specific aim”" .
+
+<https://example.org/nih-pilot/core/ebov-gp> a ont:Feature ;
+    ont:description "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed." ;
+    ont:label "Ebola virus glycoprotein (shared document-level concept)" ;
+    ont:mappingStatus "unresolved" ;
+    ont:recordedAt kg:source-aim-1 .
+
+kg:source-hypothesis a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “perhaps serving as its receptor”" .
+
+<https://example.org/nih-pilot/core/ebov> a ont:Virus ;
+    ont:description "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed." ;
+    ont:label "Ebola virus (shared document-level concept)" ;
+    ont:mappingStatus "unresolved" ;
+    ont:recordedAt kg:source-hypothesis .
+
+<https://example.org/nih-pilot/metadata/grantdocument/2564563> a ont:GrantDocument ;
+    ont:label "MOLECULAR PATHOGENESIS OF EBOLA VIRUS INFECTION" ;
+    ont:sourceUrl "https://reporter.nih.gov/project-details/2564563"^^xsd:anyURI .
+

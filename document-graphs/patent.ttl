@@ -1,0 +1,47 @@
+@prefix ext: <https://example.org/nih-pilot/extraction/> .
+@prefix kg: <https://example.org/nih-pilot/metadata/US11197910B1/> .
+@prefix ont: <https://example.org/nih-pilot/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kg:screening-workflow a ext:PatentWorkflow ;
+    ext:describedIn kg:patent ;
+    ext:hasStep kg:contact-with-fusion-construct,
+        kg:provide-blood-sample ;
+    ont:label "Screening or monitoring disease progression" .
+
+kg:disclosure-item-i a ont:SourceLocator ;
+    ont:locatedIn kg:patent ;
+    ont:locator "Detailed Disclosure, screening and/or monitoring progression of a disease embodiment, item (i)" .
+
+kg:disclosure-item-ii a ont:SourceLocator ;
+    ont:locatedIn kg:patent ;
+    ont:locator "Detailed Disclosure, screening and/or monitoring progression of a disease embodiment, item (ii)" .
+
+kg:fusion-construct a ont:Entity ;
+    ont:label "Fusion construct specified by the patent" .
+
+kg:provide-blood-sample a ext:ProcessStep ;
+    ext:hasOutput kg:blood-sample ;
+    ext:nextStep kg:contact-with-fusion-construct ;
+    ext:stepSection kg:detailed-disclosure ;
+    ont:label "Provide a blood sample from the subject" ;
+    ont:recordedAt kg:disclosure-item-i .
+
+kg:blood-sample a ont:BloodSpecimen ;
+    ont:label "Blood sample specified by the method" .
+
+kg:contact-with-fusion-construct a ext:ProcessStep ;
+    ext:hasInput kg:blood-sample,
+        kg:fusion-construct ;
+    ext:stepSection kg:detailed-disclosure ;
+    ont:label "Bring the blood sample into contact with the fusion construct" ;
+    ont:recordedAt kg:disclosure-item-ii .
+
+kg:detailed-disclosure a ont:DocumentSection ;
+    ont:label "Detailed Disclosure" ;
+    ont:sectionOf kg:patent .
+
+kg:patent a ont:Patent ;
+    ont:label "US11197910B1 — Fusion proteins for the diagnosis, prophylaxis and treatment of infectious diseases" ;
+    ont:sourceUrl "https://patents.google.com/patent/US11197910B1/en"^^xsd:anyURI .
+

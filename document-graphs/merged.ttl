@@ -1,0 +1,976 @@
+@prefix ext: <https://example.org/nih-pilot/extraction/> .
+@prefix kg: <https://example.org/nih-pilot/metadata/grantdocument/2564563/> .
+@prefix kg1: <https://example.org/nih-pilot/metadata/US11197910B1/> .
+@prefix ont: <https://example.org/nih-pilot/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kg1:screening-workflow a ext:PatentWorkflow ;
+    ext:describedIn kg1:patent ;
+    ext:hasStep kg1:contact-with-fusion-construct,
+        kg1:provide-blood-sample ;
+    ont:label "Screening or monitoring disease progression" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc12> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ifng> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc4> ;
+    ont:certainty "author speculation" ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The lower mRNA T-cell response may reflect whole-protein stimulation rather than a true platform difference, since peptide-based assays were not used" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc3> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "mRNA groups averaged higher neutralizing titers than rVSV groups" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc6> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1> ;
+    ont:certainty "not significant" ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Overall antibody magnitude did not differ significantly between platforms in the PepSeq assay" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc1> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-intro-prior> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Direct head-to-head comparisons of mRNA, viral-vector and DNA EBOV vaccines in animal models were lacking" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc2> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "rVSV was not included in the authentic ma-EBOV challenge because of containment and ethical constraints, so that comparison is mRNA versus DNA only" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc3> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/core/ebov>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc9> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Different EBOV strains were used across assays: Mayinga for mRNA, Kikwit for DNA, Makona for pseudovirion neutralization" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc4> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc9> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The DNA comparator was unformulated and unadjuvanted and given at 100 ug versus 5 ug of mRNA" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc5> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The immunogenicity study used only 5 mice per group" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc6> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-veq>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-stats> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Individual epitope comparisons used Welch's t-tests without correction for multiple comparisons" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-vero> a ont:Entity ;
+    ont:description "Cell line used in virus work; v3.1 has no CellLine class" ;
+    ont:label "Vero cells" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ebola-disease> a ont:Disease ;
+    ont:description "Re-emerging viral hemorrhagic fever with high fatality" ;
+    ont:label "Ebola disease" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-1-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc1 supports ev:1" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-1> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-10-link> a ont:EvidenceLink ;
+    ont:evidenceRole "contextualizes" ;
+    ont:label "clm:h2 contextualizes ev:10" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h2> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-10> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-11-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc11 supports ev:11" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc11> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-11> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-12-link> a ont:EvidenceLink ;
+    ont:evidenceRole "contextualizes" ;
+    ont:label "clm:h1 contextualizes ev:12" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-12> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-13-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc13 supports ev:13" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-13> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-2-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc2 supports ev:2" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc2> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-2> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-3-link> a ont:EvidenceLink ;
+    ont:evidenceRole "contradicts" ;
+    ont:label "clm:fc1 contradicts ev:3" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-3> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-4-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc5 supports ev:4" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-4> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-5-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc5 supports ev:5" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-5> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-6-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc7 supports ev:6" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc7> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-6> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-7-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc8 supports ev:7" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc8> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-7> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-8-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:fc10 supports ev:8" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc10> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-8> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-9-link> a ont:EvidenceLink ;
+    ont:evidenceRole "supports" ;
+    ont:label "clm:mc7 supports ev:9" ;
+    ont:linkClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc7> ;
+    ont:linkEvidence <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-9> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-authentic> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a1>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a2>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a3>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a4>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a5> ;
+    ext:processStatus "reported" ;
+    ont:label "Authentic ma-EBOV challenge in BALB/c mice: mRNA versus DNA" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-construct> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c1>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c2>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c3>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c4>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c5> ;
+    ext:processStatus "reported" ;
+    ont:label "Construct and LNP characterization" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-crossprotect> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x1> ;
+    ext:processStatus "proposed" ;
+    ont:label "Proposed: test cross-protection against other Ebolavirus species" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-immuno> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i1>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i2>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i3>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i4>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i5>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i6>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i7> ;
+    ext:processStatus "reported" ;
+    ont:label "Immunogenicity comparison: mRNA-LNP versus rVSV in C57BL/6 mice" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-memory> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x3> ;
+    ext:processStatus "proposed" ;
+    ont:label "Proposed: measure long-term memory responses" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-peptide-tcell> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x2> ;
+    ext:processStatus "proposed" ;
+    ont:label "Proposed: peptide-based T-cell assays instead of whole-protein stimulation" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/exp-surrogate> a ext:Experiment ;
+    ext:experimentIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ext:hasStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s1>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s2>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s3> ;
+    ext:processStatus "reported" ;
+    ont:label "Surrogate challenge in Ifnar-/- mice" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-intro> a ont:DocumentSection ;
+    ext:sectionKind "Background" ;
+    ont:label "1. Introduction" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/study-stromberg> a ont:Study ;
+    ont:label "Three-platform EBOV-GP vaccine comparison in mice" .
+
+kg:hypothesis a ont:Hypothesis ;
+    ext:aboutEntity <https://example.org/nih-pilot/core/ebov>,
+        <https://example.org/nih-pilot/core/integrin> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:label "Integrin may act as a cellular receptor for Ebola virus" ;
+    ont:recordedAt kg:source-hypothesis .
+
+kg:plan a ext:ResearchPlan ;
+    ext:describedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ext:hasStep kg:aim-1,
+        kg:aim-2 ;
+    ext:processStatus "proposed" ;
+    ont:label "Investigate Ebola virus glycoprotein and cellular receptors" ;
+    ont:recordedAt kg:source-plan .
+
+kg1:disclosure-item-i a ont:SourceLocator ;
+    ont:locatedIn kg1:patent ;
+    ont:locator "Detailed Disclosure, screening and/or monitoring progression of a disease embodiment, item (i)" .
+
+kg1:disclosure-item-ii a ont:SourceLocator ;
+    ont:locatedIn kg1:patent ;
+    ont:locator "Detailed Disclosure, screening and/or monitoring progression of a disease embodiment, item (ii)" .
+
+kg1:fusion-construct a ont:Entity ;
+    ont:label "Fusion construct specified by the patent" .
+
+kg1:provide-blood-sample a ext:ProcessStep ;
+    ext:hasOutput kg1:blood-sample ;
+    ext:nextStep kg1:contact-with-fusion-construct ;
+    ext:stepSection kg1:detailed-disclosure ;
+    ont:label "Provide a blood sample from the subject" ;
+    ont:recordedAt kg1:disclosure-item-i .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc10> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "EBOV neutralizing antibodies were detected only after the booster dose" ;
+    ont:rawText "EBOV neutralizing antibodies were only detected after the EBOV mRNA LNP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc11> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The licensed rVSV-EBOV-GP vaccine is contraindicated for immunocompromised patients" ;
+    ont:rawText "rVSV-EBOV-GP, is contraindicated for immunocompromised patients" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc2> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1> ;
+    ont:certainty "explicitly not significant" ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The IgG increases over the prime-boost rVSV group were not statistically significant" ;
+    ont:rawText "though both not statistically significant" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc4> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ifng>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno> ;
+    ext:contradictsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Two-dose rVSV produced the strongest IFN-gamma ELISpot responses; unmodified mRNA was weakest and modified mRNA intermediate" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc8> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-fluc>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc7> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Mock-vaccinated and unvaccinated controls showed progressive weight loss and died" ;
+    ont:rawText "mock vaccinated and unvaccinated controls had progressive weight loss" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-mc7> a ont:MethodClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/core/ebov-gp> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "GP was detected in cell lysates but not supernatants, indicating membrane-bound expression" ;
+    ont:rawText "detected in cell lysates, but not supernatants" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-293t> a ont:Entity ;
+    ont:description "Cell line used for DNA transfection and GP staining; v3.1 has no CellLine class" ;
+    ont:label "293T cells" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-a549> a ont:Entity ;
+    ont:description "Cell line used in construct expression work; v3.1 has no CellLine class" ;
+    ont:label "A549 cells" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp1-mucin> a ont:Feature ;
+    ont:description "GP1 subdomain preferentially targeted after rVSV vaccination" ;
+    ont:label "GP1 mucin-like domain" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-lnp> a ont:Entity ;
+    ont:description "mRNA delivery vehicle, ~100 nm, possible adjuvant-like effect" ;
+    ont:label "SM-102 lipid nanoparticle (LNP)" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-peptide-lib> a ont:Entity ;
+    ont:description "Overlapping peptide library spanning GP, barcoded sequencing readout" ;
+    ont:label "GP 30-mer peptide library (7,463 antigens)" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gfp> a ont:Virus ;
+    ont:description "Replication-competent GFP reporter virus used for the neutralization readout" ;
+    ont:label "rVSV-EBOV-GFP reporter virus" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gp> a ont:Virus ;
+    ont:description "Recombinant VSV with VSV-G replaced by EBOV GP; used both as vaccine and as surrogate challenge virus" ;
+    ont:label "rVSV-EBOV-GP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-1> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-abstract> ;
+    ont:label "elicited significantly higher levels of total IgG and neutra" ;
+    ont:rawText "elicited significantly higher levels of total IgG and neutralizing antibody titers" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-10> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:label "future studies will need to determine cross protection capac" ;
+    ont:rawText "future studies will need to determine cross protection capacity" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-11> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:label "rVSV-EBOV-GP, is contraindicated for immunocompromised patie" ;
+    ont:rawText "rVSV-EBOV-GP, is contraindicated for immunocompromised patients" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-12> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-aim> ;
+    ont:label "we experimentally investigated the similarities and differen" ;
+    ont:rawText "we experimentally investigated the similarities and differences of immune responses" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-13> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:label "warranting further development as an alternative to" ;
+    ont:rawText "warranting further development as an alternative to" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-2> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno> ;
+    ont:label "though both not statistically significant" ;
+    ont:rawText "though both not statistically significant" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-3> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno> ;
+    ont:label "though both not statistically significant" ;
+    ont:rawText "though both not statistically significant" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-4> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope> ;
+    ont:label "a preference for targeting the mucin-like domain in EBOV-GP1" ;
+    ont:rawText "a preference for targeting the mucin-like domain in EBOV-GP1" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-5> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope> ;
+    ont:label "distinctly targeted the internal fusion loop of EBOV-GP2" ;
+    ont:rawText "distinctly targeted the internal fusion loop of EBOV-GP2" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-6> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ont:label "fully protected the mouse cohorts against morbidity and mort" ;
+    ont:rawText "fully protected the mouse cohorts against morbidity and mortality" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-7> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate> ;
+    ont:label "mock vaccinated and unvaccinated controls had progressive we" ;
+    ont:rawText "mock vaccinated and unvaccinated controls had progressive weight loss" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-8> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ont:label "EBOV neutralizing antibodies were only detected after the EB" ;
+    ont:rawText "EBOV neutralizing antibodies were only detected after the EBOV mRNA LNP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ev-9> a ont:TextEvidence ;
+    ont:evidenceIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:evidenceSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct> ;
+    ont:label "detected in cell lysates, but not supernatants" ;
+    ont:rawText "detected in cell lysates, but not supernatants" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-balbc> a ont:CohortGroup ;
+    ont:denominator "n=15 per group" ;
+    ont:description "mRNA vs DNA vs controls" ;
+    ont:label "BALB/c authentic challenge groups" ;
+    ont:sampleSize 15 .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-ifnar> a ont:CohortGroup ;
+    ont:description "mRNA vs FLuc-mRNA and PBS controls" ;
+    ont:label "Ifnar-/- surrogate challenge groups" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-epitope-count> a ont:AggregateStatistic ;
+    ont:label "22 epitopes recognized across vaccinated mice, mean 7 per animal" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-dna> a ont:AggregateStatistic ;
+    ont:label "Anti-GP IgG 8.1-fold higher for mRNA than DNA" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-fold> a ont:AggregateStatistic ;
+    ont:denominator "n=5 per group" ;
+    ont:label "Anti-GP IgG ~10-fold (unmodified) and 9.1-fold (modified) above single-dose rVSV" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-lnp-size> a ont:QualityMetricResult ;
+    ont:label "LNP ~100 nm; 98.33% GP mRNA and 98.13% FLuc mRNA encapsulated" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-nab-dna> a ont:AggregateStatistic ;
+    ont:label "Neutralizing titers 5.8-fold higher for mRNA than DNA" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-balbc> a ont:AggregateStatistic ;
+    ont:denominator "n=15 per group" ;
+    ont:label "100% survival for mRNA and DNA over 21 days; controls declined days 3-8" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-ifnar> a ont:AggregateStatistic ;
+    ont:label "mRNA group survived without clinical signs; controls died days 3-4" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-veq> a ont:AggregateStatistic ;
+    ont:label "VEQHHRR higher after rVSV (p=0.0277)" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-wip> a ont:AggregateStatistic ;
+    ont:label "WIPYFGP higher after mRNA (p=0.00177)" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-intro-prior> a ont:DocumentSection ;
+    ext:sectionKind "related_work" ;
+    ont:label "1. Introduction (licensed vaccines, prior work)" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-stats> a ont:DocumentSection ;
+    ext:sectionKind "methods" ;
+    ont:label "4.5 Statistics" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a1> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-balbc> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a2> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Prime: mRNA 5 ug IM or DNA 100 ug by needle-free jet injector" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c1> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/core/ebov-gp> ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c2> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine> ;
+    ont:label "In vitro transcribe GP mRNA with 5' cap and poly-A tail" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i1> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i2> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Prime intramuscularly on day 0 (PBS, mRNA 5 ug, or rVSV 2x10^4 PFU)" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s1> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-fluc>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-ifnar> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s2> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Give two doses of mRNA vaccine or controls" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x1> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:label "Proposed: challenge with heterologous Ebolavirus species after mRNA vaccination" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x2> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elispot> ;
+    ont:label "Proposed: restimulate splenocytes with GP peptide pools" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-x3> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:label "Proposed: follow antibody and memory responses beyond day 35" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-dls> a ont:Test ;
+    ont:label "LNP size and encapsulation measurement" ;
+    ont:measurementType "particle size and % encapsulation" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-neut-gfp> a ont:Test ;
+    ont:label "rVSV-EBOV-GFP neutralization assay" ;
+    ont:measurementType "fluorescence-based neutralizing titer" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-pepseq> a ont:SequencingTest ;
+    ont:label "PepSeq peptide-array assay" ;
+    ont:measurementType "barcoded sequencing readout of peptide binding" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-psvna> a ont:Test ;
+    ont:label "PsVNA pseudovirion neutralization assay" ;
+    ont:measurementType "luciferase reporter neutralization titer" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-western> a ont:Test ;
+    ont:label "western blot" ;
+    ont:measurementType "GP protein detection in lysate and supernatant" .
+
+kg:aim-1 a ext:ResearchTask ;
+    ext:hasSubtask kg:check-structural-features,
+        kg:map-binding-fusion ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov-gp> ;
+    ont:label "Map functional domains of Ebola virus glycoprotein" ;
+    ont:recordedAt kg:source-aim-1 .
+
+kg:aim-2 a ext:ResearchTask ;
+    ext:hasSubtask kg:identify-alternative,
+        kg:test-integrin ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov> ;
+    ont:label "Characterize cellular receptors for Ebola virus" ;
+    ont:recordedAt kg:source-aim-2 .
+
+kg:check-structural-features a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov-gp> ;
+    ont:label "Examine the functional importance of selected structural features of the glycoprotein" ;
+    ont:recordedAt kg:source-check-structural-features .
+
+kg:identify-alternative a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov> ;
+    ont:description "Conditional task. Applies only if integrin does not serve as a receptor." ;
+    ont:label "Use an established method to identify a receptor if integrin does not serve as one" ;
+    ont:recordedAt kg:source-identify-alternative .
+
+kg:map-binding-fusion a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov-gp> ;
+    ont:label "Use mutagenesis in the recombinant VSV system to identify regions involved in receptor binding and fusion" ;
+    ont:recordedAt kg:source-map-binding-fusion .
+
+kg:source-aim-2 a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “Aim 2 seeks to”" .
+
+kg:source-check-structural-features a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “will also be examined for functional importance”" .
+
+kg:source-identify-alternative a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “Should integrin not serve as a receptor”" .
+
+kg:source-map-binding-fusion a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “responsible for receptor binding and fusion”" .
+
+kg:source-plan a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “the proposed research seeks”" .
+
+kg:source-test-integrin a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “test this hypothesis by exposing different”" .
+
+kg:test-integrin a ext:ResearchTask ;
+    ext:taskSubject <https://example.org/nih-pilot/core/ebov>,
+        <https://example.org/nih-pilot/core/integrin> ;
+    ont:label "Test the receptor hypothesis by exposing different integrin subunits" ;
+    ont:recordedAt kg:source-test-integrin .
+
+<https://example.org/nih-pilot/core/integrin> a ont:Feature ;
+    ont:description "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed." ;
+    ont:label "Integrin (unspecified family member)" ;
+    ont:mappingStatus "unresolved" ;
+    ont:recordedAt kg:source-hypothesis .
+
+kg1:blood-sample a ont:BloodSpecimen ;
+    ont:label "Blood sample specified by the method" .
+
+kg1:contact-with-fusion-construct a ext:ProcessStep ;
+    ext:hasInput kg1:blood-sample,
+        kg1:fusion-construct ;
+    ext:stepSection kg1:detailed-disclosure ;
+    ont:label "Bring the blood sample into contact with the fusion construct" ;
+    ont:recordedAt kg1:disclosure-item-ii .
+
+kg1:detailed-disclosure a ont:DocumentSection ;
+    ont:label "Detailed Disclosure" ;
+    ont:sectionOf kg1:patent .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc7> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "mRNA vaccination fully protected mice against morbidity and mortality in the challenge models" ;
+    ont:rawText "fully protected the mouse cohorts against morbidity and mortality" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc9> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "mRNA produced 8.1-fold higher IgG and 5.8-fold higher neutralizing titers than the DNA vaccine" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h2> a ont:Hypothesis ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:certainty "explicitly untested; flagged for future work" ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "Because the GP2 internal fusion loop is conserved across Ebolavirus species, the mRNA-induced epitope preference may confer cross-protection" ;
+    ont:rawText "future studies will need to determine cross protection capacity" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-fluc> a ont:Treatment ;
+    ont:description "Firefly luciferase mRNA in LNP, mock vaccine control" ;
+    ont:label "FLuc mRNA-LNP control" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-veq> a ont:Feature ;
+    ont:description "Mucin-like domain epitope, higher after rVSV" ;
+    ont:label "epitope VEQHHRR" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ifng> a ont:LaboratoryAnalyte ;
+    ont:description "T-cell cytokine readout counted by ELISpot" ;
+    ont:label "IFN-gamma" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57> a ont:CohortGroup ;
+    ont:denominator "n=5 per group" ;
+    ont:description "PBS, unmodified mRNA, modified mRNA, rVSV prime, rVSV prime-boost" ;
+    ont:label "C57BL/6 immunogenicity groups" ;
+    ont:sampleSize 5 .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-abstract> a ont:DocumentSection ;
+    ext:sectionKind "other" ;
+    ont:label "Abstract" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-aim> a ont:DocumentSection ;
+    ext:sectionKind "hypothesis" ;
+    ont:label "1. Introduction (aim)" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a2> a ext:ProcessStep ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a3> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Boost one month after prime" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a3> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a4> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Challenge one month after boost with 100 PFU ma-EBOV" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a4> a ext:ProcessStep ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-balbc> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a5> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ont:label "Observe morbidity, weight and survival for 21 days" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-a5> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum> ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-dna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-nab-dna> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elisa>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-psvna> ;
+    ont:label "Measure IgG and neutralizing titers in challenge sera" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c2> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-lnp>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c3> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine> ;
+    ont:label "Encapsulate mRNA in SM-102 LNP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c3> a ext:ProcessStep ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-lnp-size> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c4> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-dls> ;
+    ont:label "Measure LNP size and encapsulation efficiency" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c4> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-a549> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c5> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-western> ;
+    ont:label "Western blot GP in cell lysate and supernatant" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-c5> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-cell-293t>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct> ;
+    ont:label "Transfect 293T with DNA plasmid and stain for GP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i2> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i3> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Boost on day 28 for most groups" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i3> a ext:ProcessStep ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i4> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Euthanize on day 35 and collect serum and spleen" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i4> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum> ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-fold> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i5> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elisa> ;
+    ont:label "Measure total anti-GP IgG by ELISA" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i5> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gfp>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i6> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-neut-gfp> ;
+    ont:label "Measure neutralizing titers with reporter virus" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i6> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i7> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elispot> ;
+    ont:label "Count IFN-gamma spots from GP-stimulated splenocytes" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-i7> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-peptide-lib>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum> ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-epitope-count>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-veq>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-wip> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay> ;
+    ext:usesTest <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-pepseq> ;
+    ont:label "Profile epitopes against 7,463-antigen GP peptide library" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s2> a ext:ProcessStep ;
+    ext:hasInput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-rvsv-gp> ;
+    ext:nextStep <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s3> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> ;
+    ont:label "Challenge intraperitoneally with 100 PFU rVSV-EBOV-GP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/step-s3> a ext:ProcessStep ;
+    ext:hasOutput <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-ifnar> ;
+    ext:stepSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate> ;
+    ont:label "Monitor clinical signs, weight and survival" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elisa> a ont:Test ;
+    ont:label "anti-GP IgG ELISA" ;
+    ont:measurementType "IgG quantified against a monoclonal antibody standard curve" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/test-elispot> a ont:Test ;
+    ont:label "IFN-gamma ELISpot" ;
+    ont:measurementType "spot-forming units from GP-stimulated splenocytes" .
+
+kg:source-aim-1 a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “The first specific aim”" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc5> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-veq>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp1-mucin>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h2> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The two platforms target different GP regions: rVSV favours the GP1 mucin-like domain while mRNA targets the GP2 internal fusion loop" ;
+    ont:rawText "distinctly targeted the internal fusion loop of EBOV-GP2" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ctrl-pbs> a ont:Treatment ;
+    ont:description "Unvaccinated control" ;
+    ont:label "PBS control" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-epi-wip> a ont:Feature ;
+    ont:description "GP2 internal fusion loop epitope, higher after mRNA" ;
+    ont:label "epitope WIPYFGP" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-gp2-fusion> a ont:Feature ;
+    ont:description "Conserved GP2 subdomain preferentially targeted after mRNA vaccination" ;
+    ont:label "GP2 internal fusion loop" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-ma-ebov> a ont:Virus ;
+    ont:description "Mouse-adapted Ebola virus used as the authentic lethal challenge agent" ;
+    ont:label "mouse-adapted EBOV (ma-EBOV)" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-splenocytes> a ont:Specimen ;
+    ont:description "Spleen cells stimulated with whole GP protein for ELISpot" ;
+    ont:label "splenocytes" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-surrogate> a ont:DocumentSection ;
+    ext:sectionKind "results" ;
+    ont:label "2.4 Surrogate challenge in Ifnar-/- mice" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+kg:source-hypothesis a ont:SourceLocator ;
+    ont:locatedIn <https://example.org/nih-pilot/metadata/grantdocument/2564563> ;
+    ont:locator "stg_grant_funding.csv, appl_id=2564563, abstract_text, passage containing “perhaps serving as its receptor”" .
+
+kg1:patent a ont:Patent ;
+    ont:label "US11197910B1 — Fusion proteins for the diagnosis, prophylaxis and treatment of infectious diseases" ;
+    ont:sourceUrl "https://patents.google.com/patent/US11197910B1/en"^^xsd:anyURI .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc13> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The mRNA platform warrants further development as an alternative to, or complement of, licensed viral-vector vaccines" ;
+    ont:rawText "warranting further development as an alternative to" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-assay> a ont:DocumentSection ;
+    ext:sectionKind "methods" ;
+    ont:label "4.4 Immune assays" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vaccine> a ont:DocumentSection ;
+    ext:sectionKind "methods" ;
+    ont:label "4.1 Vaccine preparation" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-epitope> a ont:DocumentSection ;
+    ext:sectionKind "results" ;
+    ont:label "2.3 Epitope breadth (PepSeq)" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/core/ebov> a ont:Virus ;
+    ont:description "Filovirus causing Ebola disease; Mayinga, Kikwit and Makona strains appear across assays",
+        "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed." ;
+    ont:label "Ebola virus (EBOV)",
+        "Ebola virus (shared document-level concept)" ;
+    ont:mappingStatus "unresolved" ;
+    ont:recordedAt kg:source-hypothesis .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-fc1> a ont:FindingClaim ;
+    ext:aboutEntity <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-abstract> ;
+    ext:supportsClaim <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> ;
+    ont:certainty "stated as significant in the abstract" ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "The mRNA-LNP vaccine elicited significantly higher total IgG and neutralizing antibody titers than rVSV-EBOV-GP" ;
+    ont:rawText "elicited significantly higher levels of total IgG and neutralizing antibody titers" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-igg> a ont:LaboratoryAnalyte ;
+    ont:description "Total binding antibody against GP, measured by ELISA" ;
+    ont:label "anti-GP total IgG" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-nab> a ont:LaboratoryAnalyte ;
+    ont:description "Neutralizing titer measured by reporter-virus or pseudovirion assay" ;
+    ont:label "EBOV neutralizing antibody titer" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-serum> a ont:BloodSpecimen ;
+    ont:description "Serum collected for ELISA, neutralization, PepSeq and PsVNA" ;
+    ont:label "mouse serum" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-construct> a ont:DocumentSection ;
+    ext:sectionKind "results" ;
+    ont:label "2.1 Construct characterization" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-immuno> a ont:DocumentSection ;
+    ext:sectionKind "results" ;
+    ont:label "2.2 Immunogenicity versus rVSV" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/core/ebov-gp> a ont:Feature ;
+    ont:description "Local shared concept. Corresponding fact-layer identifier and exact biological scope remain unconfirmed.",
+        "Vaccine antigen encoded by all three platforms; a protein, typed as Feature because the schema has no Protein class" ;
+    ont:label "EBOV glycoprotein (GP)",
+        "Ebola virus glycoprotein (shared document-level concept)" ;
+    ont:mappingStatus "unresolved" ;
+    ont:recordedAt kg:source-aim-1 .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-dna> a ont:Treatment ;
+    ont:description "Kikwit 1995 GP plasmid, unformulated and unadjuvanted, 100 ug by needle-free jet injector" ;
+    ont:label "EBOV-GP DNA vaccine" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/clm-h1> a ont:Hypothesis ;
+    ext:aboutEntity <https://example.org/nih-pilot/core/ebov-gp>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna>,
+        <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> ;
+    ext:claimSection <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-aim> ;
+    ont:certainty "stated as the study aim, not as an established fact" ;
+    ont:claimIn <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> ;
+    ont:label "An mRNA vaccine encoding EBOV GP can induce immune responses comparable to or exceeding the licensed rVSV vector vaccine, and protect against lethal EBOV challenge" ;
+    ont:rawText "we experimentally investigated the similarities and differences of immune responses" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-r-authentic> a ont:DocumentSection ;
+    ext:sectionKind "results" ;
+    ont:label "2.5 Authentic ma-EBOV challenge in BALB/c mice" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-m-vivo> a ont:DocumentSection ;
+    ext:sectionKind "methods" ;
+    ont:label "4.3 In vivo experiments" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-rvsv> a ont:Treatment ;
+    ont:description "Viral-vector vaccine comparator, 2x10^4 PFU IM" ;
+    ont:label "rVSV-EBOV-GP vaccine" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/sec-discussion> a ont:DocumentSection ;
+    ext:sectionKind "conclusion" ;
+    ont:label "4. Discussion" ;
+    ont:sectionOf <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> .
+
+<https://example.org/nih-pilot/metadata/grantdocument/2564563> a ont:GrantDocument ;
+    ont:label "MOLECULAR PATHOGENESIS OF EBOLA VIRUS INFECTION" ;
+    ont:sourceUrl "https://reporter.nih.gov/project-details/2564563"^^xsd:anyURI .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/ent-vax-mrna> a ont:Treatment ;
+    ont:description "Codon-optimized Mayinga GP mRNA with human Ig-kappa signal sequence, SM-102 LNP, 5 ug IM, modified or unmodified nucleosides" ;
+    ont:label "EBOV-GP mRNA-LNP vaccine" .
+
+<https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418> a ont:Document ;
+    ont:accession "10.3389/fimmu.2025.1682418" ;
+    ont:label "An mRNA vaccine encoding the Ebola virus glycoprotein induces high neutralizing antibody titers and provides strong protection against lethal infections in mouse models" ;
+    ont:license "CC BY" ;
+    ont:namespace "doi" ;
+    ont:retrievalStatus "retrieved" ;
+    ont:retrievedAt "2026-11-09" ;
+    ont:sourceUrl "https://www.frontiersin.org/articles/10.3389/fimmu.2025.1682418/full" ;
+    ont:version "Frontiers in Immunology, vol 16, art 1682418 (2025/2026)" .
+

@@ -67,3 +67,4 @@ supportsClaim,Claim,Claim,"The subject claim supports the object claim, as expli
 usesTest,ProcessStep,Test,An actual test execution used by the step; a generic method mention alone is insufficient.,N:N,Optional; source-supported edges only. No completeness constraint.
 describedIn,Process,Document,Document describing the process.,N:N,Optional; source-supported edges only.
 hasSubtask,ResearchTask,ResearchTask,A narrower task within a research task. This relationship does not specify execution order.,N:N,Optional; source-supported edges only.
+taskSubject,ResearchTask,Entity,Entity explicitly investigated or addressed by a research task.,N:N,Only when the source identifies the task subject.

@@ -1,0 +1,132 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "ext": "https://example.org/nih-pilot/extraction/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "kg": "https://example.org/nih-pilot/metadata/US11197910B1/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "ont": "https://example.org/nih-pilot/ontology/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "kg:fusion-construct",
+      "@type": "ont:Entity",
+      "ont:label": "Fusion construct specified by the patent"
+    },
+    {
+      "@id": "kg:blood-sample",
+      "@type": "ont:BloodSpecimen",
+      "ont:label": "Blood sample specified by the method"
+    },
+    {
+      "@id": "kg:disclosure-item-ii",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "kg:patent"
+      },
+      "ont:locator": "Detailed Disclosure, screening and/or monitoring progression of a disease embodiment, item (ii)"
+    },
+    {
+      "@id": "kg:contact-with-fusion-construct",
+      "@type": "ext:ProcessStep",
+      "ext:hasInput": [
+        {
+          "@id": "kg:blood-sample"
+        },
+        {
+          "@id": "kg:fusion-construct"
+        }
+      ],
+      "ext:stepSection": {
+        "@id": "kg:detailed-disclosure"
+      },
+      "ont:label": "Bring the blood sample into contact with the fusion construct",
+      "ont:recordedAt": {
+        "@id": "kg:disclosure-item-ii"
+      }
+    },
+    {
+      "@id": "kg:patent",
+      "@type": "ont:Patent",
+      "ont:label": "US11197910B1 — Fusion proteins for the diagnosis, prophylaxis and treatment of infectious diseases",
+      "ont:sourceUrl": {
+        "@type": "xsd:anyURI",
+        "@value": "https://patents.google.com/patent/US11197910B1/en"
+      }
+    },
+    {
+      "@id": "kg:provide-blood-sample",
+      "@type": "ext:ProcessStep",
+      "ext:hasOutput": {
+        "@id": "kg:blood-sample"
+      },
+      "ext:nextStep": {
+        "@id": "kg:contact-with-fusion-construct"
+      },
+      "ext:stepSection": {
+        "@id": "kg:detailed-disclosure"
+      },
+      "ont:label": "Provide a blood sample from the subject",
+      "ont:recordedAt": {
+        "@id": "kg:disclosure-item-i"
+      }
+    },
+    {
+      "@id": "kg:detailed-disclosure",
+      "@type": "ont:DocumentSection",
+      "ont:label": "Detailed Disclosure",
+      "ont:sectionOf": {
+        "@id": "kg:patent"
+      }
+    },
+    {
+      "@id": "kg:disclosure-item-i",
+      "@type": "ont:SourceLocator",
+      "ont:locatedIn": {
+        "@id": "kg:patent"
+      },
+      "ont:locator": "Detailed Disclosure, screening and/or monitoring progression of a disease embodiment, item (i)"
+    },
+    {
+      "@id": "kg:screening-workflow",
+      "@type": "ext:PatentWorkflow",
+      "ext:describedIn": {
+        "@id": "kg:patent"
+      },
+      "ext:hasStep": [
+        {
+          "@id": "kg:provide-blood-sample"
+        },
+        {
+          "@id": "kg:contact-with-fusion-construct"
+        }
+      ],
+      "ont:label": "Screening or monitoring disease progression"
+    }
+  ]
+}
