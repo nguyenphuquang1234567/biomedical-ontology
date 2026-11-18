@@ -389,8 +389,9 @@
     ns2:rawText "detected in cell lysates, but not supernatants" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-balbc> a ns2:CohortGroup ;
-    ns2:denominator "n=15 per group" ;
-    ns2:description "mRNA vs DNA vs controls" ;
+    ns2:denominator 15 ;
+    ns2:description "Source denominator wording: n=15 per group",
+        "mRNA vs DNA vs controls" ;
     ns2:label "BALB/c authentic challenge groups" ;
     ns2:sampleSize 15 .
 
@@ -405,7 +406,8 @@
     ns2:label "Anti-GP IgG 8.1-fold higher for mRNA than DNA" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-fold> a ns2:AggregateStatistic ;
-    ns2:denominator "n=5 per group" ;
+    ns2:denominator 5 ;
+    ns2:description "Source denominator wording: n=5 per group" ;
     ns2:label "Anti-GP IgG ~10-fold (unmodified) and 9.1-fold (modified) above single-dose rVSV" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-lnp-size> a ns2:QualityMetricResult ;
@@ -415,7 +417,8 @@
     ns2:label "Neutralizing titers 5.8-fold higher for mRNA than DNA" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-balbc> a ns2:AggregateStatistic ;
-    ns2:denominator "n=15 per group" ;
+    ns2:denominator 15 ;
+    ns2:description "Source denominator wording: n=15 per group" ;
     ns2:label "100% survival for mRNA and DNA over 21 days; controls declined days 3-8" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-ifnar> a ns2:AggregateStatistic ;
@@ -551,8 +554,9 @@
     ns2:label "IFN-gamma" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57> a ns2:CohortGroup ;
-    ns2:denominator "n=5 per group" ;
-    ns2:description "PBS, unmodified mRNA, modified mRNA, rVSV prime, rVSV prime-boost" ;
+    ns2:denominator 5 ;
+    ns2:description "PBS, unmodified mRNA, modified mRNA, rVSV prime, rVSV prime-boost",
+        "Source denominator wording: n=5 per group" ;
     ns2:label "C57BL/6 immunogenicity groups" ;
     ns2:sampleSize 5 .
 
@@ -823,9 +827,9 @@
     ns2:accession "10.3389/fimmu.2025.1682418" ;
     ns2:label "An mRNA vaccine encoding the Ebola virus glycoprotein induces high neutralizing antibody titers and provides strong protection against lethal infections in mouse models" ;
     ns2:license "CC BY" ;
+    ns2:metadataJson "{\"sourceReportedRetrievedDate\": \"2026-11-09\", \"datePrecision\": \"day\"}" ;
     ns2:namespace "doi" ;
     ns2:retrievalStatus "retrieved" ;
-    ns2:retrievedAt "2026-11-09" ;
-    ns2:sourceUrl "https://www.frontiersin.org/articles/10.3389/fimmu.2025.1682418/full" ;
+    ns2:sourceUrl "https://www.frontiersin.org/articles/10.3389/fimmu.2025.1682418/full"^^xsd:anyURI ;
     ns2:version "Frontiers in Immunology, vol 16, art 1682418 (2025/2026)" .
 

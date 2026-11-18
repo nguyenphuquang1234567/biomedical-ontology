@@ -13,3 +13,7 @@ The paper graph preserves Insiya's extraction, including the support/contradicti
 Each document remains available separately as Turtle and JSON-LD. merged contains the union. link-review.csv records seven proposal decisions. original-proposed-links.jsonld preserves the received proposal.
 
 The grant source remains the abstract in stg_grant_funding.csv, appl_id 2564563. Existing SourceLocators identify the relevant passages.
+
+## Schema verification
+
+All merged triples checked against ontology classes, property kinds, inherited domain/range and datatype declarations. See validation.json. Six literal typing issues in the paper were corrected, preserving original denominator wording and the day-only retrieval date. The merged graph equals the union of the three document files. Scientific claim accuracy and fact-layer identity matching remain unverified.

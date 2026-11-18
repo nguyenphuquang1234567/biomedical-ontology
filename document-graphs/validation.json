@@ -1,0 +1,17 @@
+{
+  "triples": 809,
+  "typed_nodes": 165,
+  "schema_issues": [],
+  "dangling_node_references": [],
+  "merged_matches_union": true,
+  "ttl_jsonld_equivalent": true,
+  "fixes": [
+    "sourceUrl typed as xsd:anyURI",
+    "denominator converted to integer; original wording retained",
+    "denominator converted to integer; original wording retained",
+    "denominator converted to integer; original wording retained",
+    "Day-only retrievedAt preserved in metadataJson; no timestamp invented",
+    "denominator converted to integer; original wording retained"
+  ],
+  "scope": "Declared classes/property kinds, RDFS domain/range with subclass closure, RDF datatypes and references. Scientific support/contradiction assertions and external fact-layer identities are not independently verified."
+}

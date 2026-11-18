@@ -426,8 +426,9 @@ kg1:provide-blood-sample a ext:ProcessStep ;
     ont:rawText "detected in cell lysates, but not supernatants" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-balbc> a ont:CohortGroup ;
-    ont:denominator "n=15 per group" ;
-    ont:description "mRNA vs DNA vs controls" ;
+    ont:denominator 15 ;
+    ont:description "Source denominator wording: n=15 per group",
+        "mRNA vs DNA vs controls" ;
     ont:label "BALB/c authentic challenge groups" ;
     ont:sampleSize 15 .
 
@@ -442,7 +443,8 @@ kg1:provide-blood-sample a ext:ProcessStep ;
     ont:label "Anti-GP IgG 8.1-fold higher for mRNA than DNA" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-igg-fold> a ont:AggregateStatistic ;
-    ont:denominator "n=5 per group" ;
+    ont:denominator 5 ;
+    ont:description "Source denominator wording: n=5 per group" ;
     ont:label "Anti-GP IgG ~10-fold (unmodified) and 9.1-fold (modified) above single-dose rVSV" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-lnp-size> a ont:QualityMetricResult ;
@@ -452,7 +454,8 @@ kg1:provide-blood-sample a ext:ProcessStep ;
     ont:label "Neutralizing titers 5.8-fold higher for mRNA than DNA" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-balbc> a ont:AggregateStatistic ;
-    ont:denominator "n=15 per group" ;
+    ont:denominator 15 ;
+    ont:description "Source denominator wording: n=15 per group" ;
     ont:label "100% survival for mRNA and DNA over 21 days; controls declined days 3-8" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/res-surv-ifnar> a ont:AggregateStatistic ;
@@ -668,8 +671,9 @@ kg1:detailed-disclosure a ont:DocumentSection ;
     ont:label "IFN-gamma" .
 
 <https://example.org/nih-pilot/metadata/document/fimmu-2025-1682418/grp-c57> a ont:CohortGroup ;
-    ont:denominator "n=5 per group" ;
-    ont:description "PBS, unmodified mRNA, modified mRNA, rVSV prime, rVSV prime-boost" ;
+    ont:denominator 5 ;
+    ont:description "PBS, unmodified mRNA, modified mRNA, rVSV prime, rVSV prime-boost",
+        "Source denominator wording: n=5 per group" ;
     ont:label "C57BL/6 immunogenicity groups" ;
     ont:sampleSize 5 .
 
@@ -968,9 +972,9 @@ kg1:patent a ont:Patent ;
     ont:accession "10.3389/fimmu.2025.1682418" ;
     ont:label "An mRNA vaccine encoding the Ebola virus glycoprotein induces high neutralizing antibody titers and provides strong protection against lethal infections in mouse models" ;
     ont:license "CC BY" ;
+    ont:metadataJson "{\"sourceReportedRetrievedDate\": \"2026-11-09\", \"datePrecision\": \"day\"}" ;
     ont:namespace "doi" ;
     ont:retrievalStatus "retrieved" ;
-    ont:retrievedAt "2026-11-09" ;
-    ont:sourceUrl "https://www.frontiersin.org/articles/10.3389/fimmu.2025.1682418/full" ;
+    ont:sourceUrl "https://www.frontiersin.org/articles/10.3389/fimmu.2025.1682418/full"^^xsd:anyURI ;
     ont:version "Frontiers in Immunology, vol 16, art 1682418 (2025/2026)" .
 
