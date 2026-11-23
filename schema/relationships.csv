@@ -68,3 +68,4 @@ usesTest,ProcessStep,Test,An actual test execution used by the step; a generic m
 describedIn,Process,Document,Document describing the process.,N:N,Optional; source-supported edges only.
 hasSubtask,ResearchTask,ResearchTask,A narrower task within a research task. This relationship does not specify execution order.,N:N,Optional; source-supported edges only.
 taskSubject,ResearchTask,Entity,Entity explicitly investigated or addressed by a research task.,N:N,Only when the source identifies the task subject.
+extendsClaim,Claim,Claim,"The subject builds on the object by adding scope, detail, or a new implication.",N:N,Use only with source evidence of an extension.

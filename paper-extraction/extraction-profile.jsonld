@@ -1773,5 +1773,27 @@
         "@id": "https://example.org/nih-pilot/ontology/Entity"
       }
     ]
+  },
+  {
+    "@id": "https://example.org/nih-pilot/extraction/extendsClaim",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The subject builds on the object by adding scope, detail, or a new implication."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://example.org/nih-pilot/ontology/Claim"
+      }
+    ]
   }
 ]

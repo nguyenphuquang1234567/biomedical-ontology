@@ -108,3 +108,8 @@ extract:ProcessStep a owl:Class ;
     rdfs:comment "One source-described action in a process; not a clinical event unless independently documented as such."@en ;
     rdfs:subClassOf pilot:Entity .
 
+
+extract:extendsClaim a owl:ObjectProperty ;
+    rdfs:comment "The subject builds on the object by adding scope, detail, or a new implication."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .

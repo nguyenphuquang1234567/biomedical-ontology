@@ -1411,3 +1411,8 @@ pilot:Entity a owl:Class ;
     rdfs:comment "Design status: design",
         "Lớp gốc cho record và concept; không phải bảng phải nhập dữ liệu."@vi .
 
+
+extract:extendsClaim a owl:ObjectProperty ;
+    rdfs:comment "The subject builds on the object by adding scope, detail, or a new implication."@en ;
+    rdfs:domain pilot:Claim ;
+    rdfs:range pilot:Claim .
